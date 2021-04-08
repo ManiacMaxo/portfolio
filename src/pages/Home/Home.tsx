@@ -1,11 +1,10 @@
 import React from 'react'
-import styles from './Home.module.scss'
 
 interface Props {}
 
 const Home: React.FC<Props> = () => {
     return (
-        <div className={styles.root}>
+        <div>
             <h1>Hello World!</h1>
         </div>
     )
