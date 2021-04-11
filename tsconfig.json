@@ -4,7 +4,11 @@
         "outDir": "build",
         "module": "esnext",
         "target": "es5",
-        "lib": ["es6", "dom", "esnext.asynciterable"],
+        "lib": [
+            "es6",
+            "dom",
+            "esnext.asynciterable"
+        ],
         "sourceMap": true,
         "allowJs": true,
         "jsx": "react-jsx",
@@ -16,7 +20,6 @@
         "noImplicitAny": true,
         "strictNullChecks": true,
         "suppressImplicitAnyIndexErrors": true,
-        "noUnusedLocals": true,
         "skipLibCheck": true,
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
@@ -36,5 +39,7 @@
         "src/setupTests.ts",
         "ecosystem.config.js"
     ],
-    "include": ["src"]
+    "include": [
+        "src"
+    ]
 }
