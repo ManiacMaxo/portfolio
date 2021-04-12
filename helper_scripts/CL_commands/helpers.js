@@ -57,11 +57,6 @@ modules.getTempfromHandlebar = (tempPath, data, callback) => {
 }
 
 modules.createPageFromTemplate = (filename, callback) => {
-    const dir = `${modules.config.pagesDir}/${filename}`
-    if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir)
-    }
-
     modules.getTempfromHandlebar(
         `${modules.config.templatesDir}/page.hbs`,
         {
@@ -69,20 +64,17 @@ modules.createPageFromTemplate = (filename, callback) => {
         },
         (code) => {
             fs.writeFile(
-                `${dir}/${filename}.tsx`,
+                `${modules.config.pagesDir}/${filename}.tsx`,
                 code,
                 { flag: 'wx' },
-                (_err) => {
-                    if (_err) throw _err
+                (err) => {
+                    if (err) throw err
 
                     callback()
                 }
             )
         }
     )
-
-    fs.open(`${dir}/${filename}.module.scss`, 'w')
-    modules.createIndexExporter({ filename, path: dir })
 
     callback()
 }
@@ -92,7 +84,7 @@ modules.createComponentFromTemplate = (options, callback = () => {}) => {
         options.styled ? options.filename : ''
     }`
 
-    options.styled || fs.mkdirSync(`${dir}`)
+    options.styled && fs.mkdirSync(`${dir}`)
 
     modules.getTempfromHandlebar(
         `${modules.config.templatesDir}/component.hbs`,
@@ -102,8 +94,8 @@ modules.createComponentFromTemplate = (options, callback = () => {}) => {
                 `${dir}/${options.filename}.tsx`,
                 code,
                 { flag: 'wx' },
-                (_err) => {
-                    if (_err) throw _err
+                (err) => {
+                    if (err) throw err
 
                     callback()
                 }
@@ -115,7 +107,11 @@ modules.createComponentFromTemplate = (options, callback = () => {}) => {
         return callback()
     }
 
-    fs.open(`${dir}/${options.filename}.module.scss`, 'w')
+    fs.open(`${dir}/${options.filename}.module.scss`, 'w', (err) => {
+        if (err) throw err
+
+        callback()
+    })
     modules.createIndexExporter({
         filename: options.filename,
         path: dir,
@@ -125,8 +121,8 @@ modules.createComponentFromTemplate = (options, callback = () => {}) => {
         `${modules.config.componentsDir}/index.ts`,
         `export { ${options.filename} } from './${options.filename}'\n`,
         { flag: 'a+' },
-        (_err) => {
-            if (_err) throw _err
+        (err) => {
+            if (err) throw err
 
             callback()
         }
@@ -135,16 +131,15 @@ modules.createComponentFromTemplate = (options, callback = () => {}) => {
     callback()
 }
 
-modules.createIndexExporter = ({ filename, path, isPage = true }) => {
+modules.createIndexExporter = ({ filename, path }) => {
     modules.getTempfromHandlebar(
         `${modules.config.templatesDir}/index.hbs`,
         {
-            filename,
-            isPage
+            filename
         },
         (code) => {
-            fs.writeFile(`${path}/index.ts`, code, { flag: 'wx' }, (_err) => {
-                if (_err) throw _err
+            fs.writeFile(`${path}/index.ts`, code, { flag: 'wx' }, (err) => {
+                if (err) throw err
             })
         }
     )
