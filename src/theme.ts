@@ -18,7 +18,7 @@ const theme = extendTheme({
         light: {
             primary: '#a8d0e6',
             secondary: '#f76c6c',
-            hightlight: '#f8e9a1',
+            highlight: '#f8e9a1',
             dark: '#24305e',
             text: '#000000',
             textInverted: '#ffffff',
@@ -40,7 +40,6 @@ const theme = extendTheme({
     components: {
         Container: {
             baseStyle: {
-                margin: '0 auto',
                 maxWidth: '1350px',
                 width: 'min(90vw, 100%)',
                 height: '100%'
@@ -72,8 +71,19 @@ const theme = extendTheme({
                     _hover: {
                         transform: 'perspective(5em) translate3d(0, 0, 10px)',
                         boxShadow: '0 1px 0 rgb(0 0 0 / 10%)'
+                    },
+                    _focus: {
+                        transform: 'perspective(5em) translate3d(0, 0, 10px)',
+                        boxShadow: '0 1px 0 rgb(0 0 0 / 10%)'
                     }
                 })
+            }
+        },
+        Breadcrumb: {
+            baseStyle: {
+                _hover: {
+                    fontWeight: 'bold'
+                }
             }
         }
     },

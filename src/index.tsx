@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
-import './scss/global.scss'
+import './style/global.scss'
 import theme from './theme'
 
 ReactDOM.render(

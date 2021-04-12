@@ -1,7 +1,6 @@
-import { Container } from '@chakra-ui/layout'
+import { Container, Stack } from '@chakra-ui/layout'
 import {
     Box,
-    Flex,
     IconButton,
     Link as ChakraLink,
     useColorModeValue
@@ -13,10 +12,7 @@ import { Logo } from '.'
 import { routes } from '../constants'
 
 const Header: React.FC = () => {
-    const secondaryColor = useColorModeValue(
-        'light.secondary',
-        'dark.secondary'
-    )
+    const colorHover = useColorModeValue('light.hover', 'dark.hover')
     // const color = useColorModeValue('light.textInverted', 'dark.text')
 
     return (
@@ -34,11 +30,13 @@ const Header: React.FC = () => {
                 alignItems='center'
             >
                 <Logo />
-                <Flex
+                <Stack
+                    direction='row'
                     as='nav'
                     justifyContent='space-between'
                     alignItems='center'
                     h='100%'
+                    spacing='0.7rem'
                 >
                     {routes.map(({ name, href }) => (
                         <ChakraLink
@@ -47,14 +45,14 @@ const Header: React.FC = () => {
                             activeStyle={{ fontWeight: 'bold' }}
                             to={href}
                             key={name}
-                            mx='0.5rem'
                             textTransform='uppercase'
-                            _hover={{ color: secondaryColor }}
+                            _hover={{ color: colorHover }}
+                            _focus={{ color: colorHover }}
                         >
                             {name}
                         </ChakraLink>
                     ))}
-                </Flex>
+                </Stack>
                 <Box fontSize='1.2em'>
                     <IconButton
                         key='search button'
