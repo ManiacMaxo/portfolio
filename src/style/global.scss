@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Raleway&display=swap');
 
+@font-face {
+    font-family: 'Archia';
+    src: url('../fonts/archia/archia-regular-webfont.eot');
+    src: url('/fonts/archia/archia-regular-webfont.eot?#iefix')
+            format('embedded-opentype'),
+        url('../fonts/archia/archia-regular-webfont.woff2') format('woff2'),
+        url('../fonts/archia/archia-regular-webfont.woff') format('woff'),
+        url('../fonts/archia/archia-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 *,
 *::after,
 *::before {

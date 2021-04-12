@@ -11,10 +11,6 @@ export const Button = {
             _hover: {
                 transform: 'perspective(5em) translate3d(0, 0, 10px)',
                 boxShadow: '0 1px 0 rgb(0 0 0 / 10%)'
-            },
-            _focus: {
-                transform: 'perspective(5em) translate3d(0, 0, 10px)',
-                boxShadow: '0 1px 0 rgb(0 0 0 / 10%)'
             }
         })
     }

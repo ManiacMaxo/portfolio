@@ -1,6 +1,6 @@
 import { useColorModeValue } from '@chakra-ui/color-mode'
 import { Container } from '@chakra-ui/layout'
-import { Box, ChakraProps } from '@chakra-ui/react'
+import { Box, ChakraProps, useToken } from '@chakra-ui/react'
 import React from 'react'
 
 interface Props extends ChakraProps {
@@ -10,17 +10,16 @@ interface Props extends ChakraProps {
 
 const Hero: React.FC<Props> = ({ children, askew, float, ...chakraProps }) => {
     const background = useColorModeValue('light.primary', 'dark.primary')
+    const [headerHeight] = useToken('sizes', ['headerHeight'])
 
-    const cut =
-        float === 'right'
-            ? 'polygon(0 0, 100% 0, 100% 100%, 0 75%)'
-            : 'polygon(0 0, 100% 0, 100% 75%, 0 100%)'
+    const cut = `polygon(0 0, 100% 0, ${
+        float === 'right' ? '100% 100%, 0 80%' : '100% 80%, 0 100%'
+    })`
 
     return (
         <Box
             clipPath={askew ? cut : undefined}
-            paddingTop='calc(var(--chakra-sizes-headerHeight) + 1rem)'
-            // does not work with just headerHeight
+            paddingTop={`calc(${headerHeight} + 1rem)`}
             paddingBottom={askew ? '5rem' : '4rem'}
             bg={background}
             textAlign={float ?? 'left'}

@@ -12,7 +12,7 @@ export const Link = {
             transition: 'all 0.3s ease-out',
             _hover: {
                 backgroundColor: 'white',
-                color: mode('light.secondary', 'dark.secondary')(props)
+                color: mode('light.secondary.dark', 'dark.secondary')(props)
             }
         }),
         inline: (props: ThemeComponentProps<ChakraTheme>) => ({

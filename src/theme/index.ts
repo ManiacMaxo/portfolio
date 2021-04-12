@@ -30,7 +30,8 @@ const theme = extendTheme({
     },
     sizes: { headerHeight, footerHeight },
     fonts: {
-        body: `'Raleway', sans-serif`,
+        body: `'Archia', sans-serif`,
+        heading: `'Raleway', sans-serif`,
         secondary: `'Playfair Display', serif`
     }
 })

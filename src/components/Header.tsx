@@ -1,13 +1,15 @@
 import { Container, Stack } from '@chakra-ui/layout'
-import { Box, IconButton } from '@chakra-ui/react'
+import { Box, IconButton, useMediaQuery } from '@chakra-ui/react'
 import React from 'react'
-import { BiMenuAltRight, BiSearch } from 'react-icons/bi'
+import { BiSearch } from 'react-icons/bi'
 import { Logo, NavLink } from '.'
 import { routes } from '../constants'
 import { useWindowScroll } from '../hooks'
+import { HeaderMenu } from './HeaderMenu'
 
 const Header: React.FC = () => {
     const { scrollY } = useWindowScroll()
+    const [isLargerThan850] = useMediaQuery('(min-width: 850px)')
 
     return (
         <Box
@@ -27,12 +29,14 @@ const Header: React.FC = () => {
                 justifyContent='space-between'
                 alignItems='center'
             >
-                <Logo />
-                <Stack direction='row' as='nav' spacing='2rem'>
-                    {routes.map((route) => (
-                        <NavLink {...route} key={route.name} />
-                    ))}
-                </Stack>
+                <Logo animated />
+                {isLargerThan850 && (
+                    <Stack direction='row' as='nav' spacing='2rem'>
+                        {routes.map((route) => (
+                            <NavLink {...route} key={route.name} />
+                        ))}
+                    </Stack>
+                )}
                 <Box fontSize='1.2em'>
                     <IconButton
                         icon={<BiSearch />}
@@ -41,12 +45,7 @@ const Header: React.FC = () => {
                         isRound
                         marginRight='0.4rem'
                     />
-                    <IconButton
-                        icon={<BiMenuAltRight />}
-                        variant='circle'
-                        aria-label='menu'
-                        isRound
-                    />
+                    <HeaderMenu />
                 </Box>
             </Container>
         </Box>
