@@ -38,7 +38,7 @@ const askQuestions = () => {
             }
         },
         {
-            name: 'haveStyle',
+            name: 'styled',
             type: 'confirm',
             message: () => 'Do you want to use style?',
             default: false

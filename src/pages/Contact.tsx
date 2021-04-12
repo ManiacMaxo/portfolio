@@ -17,7 +17,7 @@ import {
 } from '@chakra-ui/react'
 import React from 'react'
 import { BiChevronRight } from 'react-icons/bi'
-import { Hero } from '../../components'
+import { Hero } from '../components'
 
 interface Props {}
 

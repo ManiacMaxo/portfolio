@@ -1,13 +1,11 @@
+import { Stack } from '@chakra-ui/react'
 import React from 'react'
-import styles from './{{filename}}.module.scss'
 
-interface Props {}
-
-const {{filename}}: React.FC<Props> = () => {
+const {{filename}}: React.FC = () => {
     return (
-        <div className={styles.root}>
-            <h1>{{filename}} page</h1>
-        </div>
+        <Stack>
+            <p>{{filename}} page</p>
+        </Stack>
     )
 }
 

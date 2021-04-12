@@ -81,28 +81,18 @@ modules.createPageFromTemplate = (filename, callback) => {
         }
     )
 
-    fs.writeFile(
-        `${dir}/${filename}.module.scss`,
-        `@import '../scss/const';\n`,
-        { flag: 'wx' },
-        (_err) => {
-            if (_err) throw _err
-
-            callback()
-        }
-    )
-
+    fs.open(`${dir}/${filename}.module.scss`, 'w')
     modules.createIndexExporter({ filename, path: dir })
 
     callback()
 }
 
 modules.createComponentFromTemplate = (options, callback = () => {}) => {
-    const dir = `${modules.config.componentsDir}/${options.filename}`
+    const dir = `${modules.config.componentsDir}/${
+        options.styled ? options.filename : ''
+    }`
 
-    if (!fs.statSync(`${dir}`, { throwIfNoEntry: false })) {
-        fs.mkdirSync(`${dir}`)
-    }
+    options.styled || fs.mkdirSync(`${dir}`)
 
     modules.getTempfromHandlebar(
         `${modules.config.templatesDir}/component.hbs`,
@@ -121,25 +111,16 @@ modules.createComponentFromTemplate = (options, callback = () => {}) => {
         }
     )
 
-    if (options.haveStyle) {
-        fs.writeFile(
-            `${dir}/${options.filename}.module.scss`,
-            `@import '../../scss/const';\n`,
-            { flag: 'wx' },
-            (_err) => {
-                if (_err) throw _err
-
-                callback()
-            }
-        )
+    if (!options.styled) {
+        return callback()
     }
 
+    fs.open(`${dir}/${options.filename}.module.scss`, 'w')
     modules.createIndexExporter({
         filename: options.filename,
         path: dir,
         isPage: false
     })
-
     fs.writeFile(
         `${modules.config.componentsDir}/index.ts`,
         `export { ${options.filename} } from './${options.filename}'\n`,

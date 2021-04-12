@@ -1,5 +1,6 @@
 {
-  "name": "gorchilov",
+  "name": "gorchilov.net",
+  "author": "Victor Gorchilov <victor@gorchilov.com>",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

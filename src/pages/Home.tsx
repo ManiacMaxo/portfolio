@@ -1,10 +1,8 @@
 import { Box, Heading, Stack, Text } from '@chakra-ui/react'
 import React from 'react'
-import { Hero } from '../../components'
+import { Hero } from '../components'
 
-interface Props {}
-
-const Home: React.FC<Props> = () => {
+const Home: React.FC = () => {
     return (
         <Stack>
             <Hero
