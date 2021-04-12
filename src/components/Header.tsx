@@ -10,19 +10,26 @@ import { BiMenuAltRight, BiSearch } from 'react-icons/bi'
 import { NavLink } from 'react-router-dom'
 import { Logo } from '.'
 import { routes } from '../constants'
+import { useWindowScroll } from '../hooks'
 
 const Header: React.FC = () => {
     const colorHover = useColorModeValue('light.hover', 'dark.hover')
     // const color = useColorModeValue('light.textInverted', 'dark.text')
 
+    const { scrollY } = useWindowScroll()
+
     return (
         <Box
             as='header'
             w='100vw'
-            bg='transparent'
             position='fixed'
             zIndex='20'
             h='headerHeight'
+            style={{
+                backdropFilter: 'blur(5px)'
+            }}
+            bg={scrollY ? 'rgba(255, 255, 255, 0.45)' : undefined}
+            transition='all 0.1s linear'
         >
             <Container
                 display='flex'
@@ -55,7 +62,6 @@ const Header: React.FC = () => {
                 </Stack>
                 <Box fontSize='1.2em'>
                     <IconButton
-                        key='search button'
                         icon={<BiSearch />}
                         variant='circle'
                         aria-label='search'
@@ -63,7 +69,6 @@ const Header: React.FC = () => {
                         marginRight='0.4rem'
                     />
                     <IconButton
-                        key='menu button'
                         icon={<BiMenuAltRight />}
                         variant='circle'
                         aria-label='menu'

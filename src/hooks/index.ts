@@ -1,3 +1,3 @@
 // hooks module
 
-export {}
+export { useWindowScroll } from './useWindowScroll'

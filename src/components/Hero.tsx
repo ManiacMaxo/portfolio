@@ -19,9 +19,9 @@ const Hero: React.FC<Props> = ({ children, askew, float, ...chakraProps }) => {
     return (
         <Box
             clipPath={askew ? cut : undefined}
-            paddingTop='var(--chakra-sizes-headerHeight)'
+            paddingTop='calc(var(--chakra-sizes-headerHeight) + 1rem)'
             // does not work with just headerHeight
-            paddingBottom={askew ? '5rem' : '2rem'}
+            paddingBottom={askew ? '5rem' : '4rem'}
             bg={background}
             textAlign={float ?? 'left'}
             {...chakraProps}
