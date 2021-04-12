@@ -28,15 +28,13 @@ const Contact: React.FC<Props> = () => {
                 <Heading>Contact me</Heading>
                 <Breadcrumb separator={<BiChevronRight />}>
                     <BreadcrumbItem>
-                        <BreadcrumbLink href='#'>Home</BreadcrumbLink>
+                        <BreadcrumbLink href='/'>Home</BreadcrumbLink>
                     </BreadcrumbItem>
-
                     <BreadcrumbItem>
-                        <BreadcrumbLink href='#'>About</BreadcrumbLink>
+                        <BreadcrumbLink href='/about'>About</BreadcrumbLink>
                     </BreadcrumbItem>
-
                     <BreadcrumbItem isCurrentPage fontWeight='bold'>
-                        <BreadcrumbLink href='#'>Contact</BreadcrumbLink>
+                        <BreadcrumbLink>Contact</BreadcrumbLink>
                     </BreadcrumbItem>
                 </Breadcrumb>
             </Hero>

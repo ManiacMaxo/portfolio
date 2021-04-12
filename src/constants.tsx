@@ -19,7 +19,7 @@ export const socials = [
     {
         name: 'linkedin',
         icon: <FaLinkedinIn />,
-        href: 'https://www.linkedin.com/in/victor-gorchilov-051665168/'
+        href: 'https://www.linkedin.com/in/victorgorchilov/'
     }
 ]
 export const routes = [
@@ -56,7 +56,7 @@ export const errors = new Map([
     [401, 'Unauthorized'],
     [402, 'Payment Required'],
     [403, 'Forbidden'],
-    [404, 'Seems like this page is missing'],
+    [404, 'Sorry! Page Was Not Found'],
     [405, 'Method Not Allowed'],
     [406, 'Not Acceptable'],
     [407, 'Proxy Authentication Required'],

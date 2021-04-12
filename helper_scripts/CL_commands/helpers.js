@@ -103,6 +103,17 @@ modules.createComponentFromTemplate = (options, callback = () => {}) => {
         }
     )
 
+    fs.writeFile(
+        `${modules.config.componentsDir}/index.ts`,
+        `export { ${options.filename} } from './${options.filename}'\n`,
+        { flag: 'a+' },
+        (err) => {
+            if (err) throw err
+
+            callback()
+        }
+    )
+
     if (!options.styled) {
         return callback()
     }
@@ -117,16 +128,6 @@ modules.createComponentFromTemplate = (options, callback = () => {}) => {
         path: dir,
         isPage: false
     })
-    fs.writeFile(
-        `${modules.config.componentsDir}/index.ts`,
-        `export { ${options.filename} } from './${options.filename}'\n`,
-        { flag: 'a+' },
-        (err) => {
-            if (err) throw err
-
-            callback()
-        }
-    )
 
     callback()
 }

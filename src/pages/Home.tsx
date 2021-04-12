@@ -20,8 +20,13 @@ const Home: React.FC = () => {
                     bg='white'
                     marginBottom='1rem'
                 />
-                <Text fontFamily='secondary' textTransform='initial'>
-                    Welcome to my page
+                <Text
+                    fontFamily='secondary'
+                    textTransform='initial'
+                    w='500px'
+                    lineHeight='1em'
+                >
+                    Web developer and Machine Learning enthusiast
                 </Text>
             </Hero>
         </Stack>

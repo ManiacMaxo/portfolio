@@ -1,5 +1,5 @@
 import React from 'react'
-{{#if haveStyle}}
+{{#if styled}}
 import styles from './{{filename}}.module.scss'
 {{/if}}
 
@@ -7,7 +7,7 @@ interface Props {}
 
 const {{filename}}: React.FC<Props> = () => {
     return (
-        {{#if haveStyle}}
+        {{#if styled}}
         <div className={styles.root}>
         {{else}}
         <div>
@@ -17,4 +17,4 @@ const {{filename}}: React.FC<Props> = () => {
     )
 }
 
-export default {{filename}}
+export { {{filename}} }
