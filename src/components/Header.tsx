@@ -1,21 +1,12 @@
 import { Container, Stack } from '@chakra-ui/layout'
-import {
-    Box,
-    IconButton,
-    Link as ChakraLink,
-    useColorModeValue
-} from '@chakra-ui/react'
+import { Box, IconButton } from '@chakra-ui/react'
 import React from 'react'
 import { BiMenuAltRight, BiSearch } from 'react-icons/bi'
-import { NavLink } from 'react-router-dom'
-import { Logo } from '.'
+import { Logo, NavLink } from '.'
 import { routes } from '../constants'
 import { useWindowScroll } from '../hooks'
 
 const Header: React.FC = () => {
-    const colorHover = useColorModeValue('light.hover', 'dark.hover')
-    // const color = useColorModeValue('light.textInverted', 'dark.text')
-
     const { scrollY } = useWindowScroll()
 
     return (
@@ -37,27 +28,9 @@ const Header: React.FC = () => {
                 alignItems='center'
             >
                 <Logo />
-                <Stack
-                    direction='row'
-                    as='nav'
-                    justifyContent='space-between'
-                    alignItems='center'
-                    h='100%'
-                    spacing='0.7rem'
-                >
-                    {routes.map(({ name, href }) => (
-                        <ChakraLink
-                            as={NavLink}
-                            exact
-                            activeStyle={{ fontWeight: 'bold' }}
-                            to={href}
-                            key={name}
-                            textTransform='uppercase'
-                            _hover={{ color: colorHover }}
-                            _focus={{ color: colorHover }}
-                        >
-                            {name}
-                        </ChakraLink>
+                <Stack direction='row' as='nav' spacing='2rem'>
+                    {routes.map((route) => (
+                        <NavLink {...route} key={route.name} />
                     ))}
                 </Stack>
                 <Box fontSize='1.2em'>

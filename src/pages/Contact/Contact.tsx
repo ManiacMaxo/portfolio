@@ -53,13 +53,25 @@ const Contact: React.FC<Props> = () => {
                         <Tbody>
                             <Tr>
                                 <Td>Sofia, Bulgaria</Td>
-                                <Td>+359 88 486 6981</Td>
-                                <Td>victor@gorchilov.com</Td>
+                                <Td>
+                                    <a href='tel:+359884866981'>
+                                        +359 88 486 6981
+                                    </a>
+                                </Td>
+                                <Td>
+                                    <a href='mailto: victor@gorchilov.com'>
+                                        victor@gorchilov.com
+                                    </a>
+                                </Td>
                             </Tr>
                             <Tr>
                                 <Td>ELSYS Sofia</Td>
                                 <Td>-</Td>
-                                <Td>viktor.n.gorchilov.2016@elsys-bg.org</Td>
+                                <Td>
+                                    <a href='mailto: viktor.n.gorchilov.2016@elsys-bg.org'>
+                                        viktor.n.gorchilov.2016@elsys-bg.org
+                                    </a>
+                                </Td>
                             </Tr>
                         </Tbody>
                     </Table>

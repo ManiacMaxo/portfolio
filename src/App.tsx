@@ -1,3 +1,4 @@
+import { Center } from '@chakra-ui/react'
 import { Spinner } from '@chakra-ui/spinner'
 import React, { Suspense } from 'react'
 import { Route, Switch } from 'react-router-dom'
@@ -11,9 +12,9 @@ const App = () => {
     return (
         <Suspense
             fallback={
-                <Spinner pos='absolute' left='50%' top='35%' size='lg'>
-                    Loading
-                </Spinner>
+                <Center paddingTop='300px' minHeight='inherit'>
+                    <Spinner size='lg' />
+                </Center>
             }
         >
             <Header />

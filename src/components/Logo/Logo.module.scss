@@ -1,0 +1,67 @@
+.anim path,
+.anim polyline {
+    // stroke: currentColor;
+    // stroke-width: 1;
+    // fill: none;
+    stroke-dashoffset: 0;
+    stroke-dasharray: 100%;
+    animation: stroke 4.5s linear;
+
+    &:nth-child(1) {
+        animation-delay: -2s;
+    }
+    &:nth-child(2) {
+        animation-delay: -1.75s;
+    }
+    &:nth-child(3) {
+        animation-delay: -1.5s;
+    }
+    &:nth-child(4) {
+        animation-delay: -1.5s;
+    }
+    &:nth-child(5) {
+        animation-delay: -1.25s;
+    }
+    &:nth-child(6) {
+        animation-delay: -1s;
+    }
+    &:nth-child(7) {
+        animation-delay: -0.75s;
+    }
+    &:nth-child(8) {
+        animation-delay: -0.5s;
+    }
+    &:nth-child(9) {
+        animation-delay: -0.25s;
+    }
+}
+
+@keyframes stroke {
+    0%,
+    50% {
+        stroke-dashoffset: 100%;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.period {
+    fill: currentColor !important;
+    animation: jump 6s infinite ease-in !important;
+}
+
+@keyframes jump {
+    0% {
+        //start frame
+        transform: translateY(0);
+    }
+    3% {
+        // peak frame
+        transform: translateY(-7px);
+    }
+    6% {
+        //end frame
+        transform: translateY(0);
+    }
+}
