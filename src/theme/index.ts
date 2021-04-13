@@ -30,8 +30,8 @@ const theme = extendTheme({
     },
     sizes: { headerHeight, footerHeight },
     fonts: {
-        body: `'Archia', sans-serif`,
-        heading: `'Raleway', sans-serif`,
+        body: `'Noah', sans-serif`,
+        heading: `'Archia', sans-serif`,
         secondary: `'Playfair Display', serif`
     }
 })

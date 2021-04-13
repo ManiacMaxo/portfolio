@@ -5,19 +5,12 @@ import {
     BreadcrumbItem,
     BreadcrumbLink,
     Button,
-    Center,
     Container,
     Heading,
     Image,
     Input,
     Stack,
-    Table,
-    Tbody,
-    Td,
     Textarea,
-    Th,
-    Thead,
-    Tr,
     Wrap
 } from '@chakra-ui/react'
 import React from 'react'
@@ -62,30 +55,28 @@ const Contact: React.FC<Props> = () => {
             </Hero>
             <section>
                 <Container>
-                    <Wrap justify='center'>
+                    <Wrap justify='center' spacing='1rem'>
                         {addresses.map((address) => (
                             <Box
                                 key={address.name}
-                                p='2'
                                 w='350px'
-                                borderColor='gray.500'
                                 borderWidth='1px'
                                 borderRadius='10px'
                                 boxShadow='5px 7px 5px rgba(0,0,0,.1)'
+                                overflow='hidden'
                             >
                                 <Image
                                     src='https://via.placeholder.com/150'
                                     w='100%'
                                     h='75px'
-                                    borderRadius='7px 7px 0 0'
                                 />
-                                <Center>
-                                    <Avatar
-                                        src={address.icon}
-                                        transform='translateY(-50%)'
-                                    />
-                                </Center>
-                                <Stack spacing='0.2rem'>
+                                <Avatar
+                                    src={address.icon}
+                                    transform='translateY(-50%)'
+                                    display='block'
+                                    margin='0 auto'
+                                />
+                                <Stack spacing='0.2rem' p='0 1rem 0.5rem'>
                                     <Heading fontSize='1.5rem'>
                                         {address.name}
                                     </Heading>
@@ -108,7 +99,7 @@ const Contact: React.FC<Props> = () => {
             <section>
                 <Container as='form' marginBottom='1rem'>
                     <Heading textAlign='center' marginBottom='1rem'>
-                        Have a project? <br /> Let's work together
+                        Want a website? <br /> Just contact me
                     </Heading>
                     <Stack direction='row' marginBottom='0.5rem'>
                         <Input placeholder='Name*' required />

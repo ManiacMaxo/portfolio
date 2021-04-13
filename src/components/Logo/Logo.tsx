@@ -8,7 +8,7 @@ interface Props {
 
 const Logo: React.FC<Props> = (props) => {
     return (
-        <Link to='/'>
+        <Link to='/' className={styles.link}>
             <svg // font is Kalmansk
                 width='150'
                 height='32'
