@@ -3,72 +3,73 @@ $thickness: 2px;
 $radius: 5px;
 
 .active {
-    .open {
-        display: none;
+    .open span {
+        transform: translateX(150%);
+        opacity: 0;
+        &:nth-child(2) {
+            transform: translateX(-150%);
+        }
     }
     .close {
-        display: block;
+        &::before {
+            opacity: 1;
+            transform: rotate(45deg) translate(0);
+        }
+        &::after {
+            opacity: 1;
+            transform: rotate(-45deg) translate(0);
+        }
     }
-}
-
-.open,
-.close {
-    width: $size;
-    height: $size;
-    overflow: hidden;
 }
 
 .open {
-    &,
-    &:before,
-    &:after {
+    width: $size;
+    height: $size;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    span {
         height: $thickness;
         width: $size;
         background-color: black;
         border-radius: $radius;
-        transition: all 0.2s ease;
-    }
-
-    &:before,
-    &:after {
-        content: ' ';
-        position: absolute;
-        left: 50%;
-        transform: rotateZ(0deg) translateX(-50%);
-        transform-origin: 3px 3px;
-    }
-    &:before {
-        top: 33%;
-    }
-
-    &:after {
-        bottom: 33%;
+        transition: all 0.15s linear;
     }
 }
 
 .close {
-    display: none;
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: $size;
     height: $size;
 
     &::before,
     &::after {
+        opacity: 0;
         content: '';
         position: absolute;
         height: $thickness;
-        margin-top: -1px;
         width: 100%;
         top: 50%;
         left: 0;
         background: black;
         border-radius: $radius;
+        transition: all 0.1s linear 25ms;
     }
 
-    &:before {
-        transform: rotate(45deg);
+    &::before {
+        transform: rotate(45deg) translate(-100%);
     }
-    &:after {
-        transform: rotate(-45deg);
+    &::after {
+        transform: rotate(-45deg) translate(100%, -100%);
     }
 }

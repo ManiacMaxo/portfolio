@@ -20,8 +20,14 @@ const HeaderBurger: React.FC<Props> = ({ isOpen, onClick }) => {
             className={[styles.button, isOpen ? styles.active : ''].join(' ')}
             zIndex='2'
         >
-            <span className={styles.open} />
-            <span className={styles.close} />
+            <div className={styles.wrapper}>
+                <div className={styles.open}>
+                    <span />
+                    <span />
+                    <span />
+                </div>
+                <span className={styles.close} />
+            </div>
         </Button>
     )
 }
