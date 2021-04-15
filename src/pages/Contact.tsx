@@ -4,18 +4,15 @@ import {
     Breadcrumb,
     BreadcrumbItem,
     BreadcrumbLink,
-    Button,
     Container,
     Heading,
     Image,
-    Input,
     Stack,
-    Textarea,
     Wrap
 } from '@chakra-ui/react'
 import React from 'react'
 import { BiChevronRight } from 'react-icons/bi'
-import { Hero } from '../components'
+import { Form, Hero } from '../components'
 
 interface Props {}
 
@@ -38,7 +35,7 @@ const Contact: React.FC<Props> = () => {
     ]
 
     return (
-        <Stack d='column' spacing='3rem'>
+        <Stack d='column' spacing='3rem' marginBottom='1rem'>
             <Hero color='white' bg='light.secondary.dark'>
                 <Heading>Contact me</Heading>
                 <Breadcrumb separator={<BiChevronRight />}>
@@ -97,24 +94,13 @@ const Contact: React.FC<Props> = () => {
                 </Container>
             </section>
             <section>
-                <Container as='form' marginBottom='1rem'>
-                    <Heading textAlign='center' marginBottom='1rem'>
-                        Want a website? <br /> Just contact me
-                    </Heading>
-                    <Stack direction='row' marginBottom='0.5rem'>
-                        <Input placeholder='Name*' required />
-                        <Input placeholder='Email*' required />
-                        <Input placeholder='Subject*' required />
-                    </Stack>
-                    <Textarea placeholder='Comments' />
-                    <Button
-                        type='submit'
-                        color='light.secondary.normal'
-                        // _hover={{ bg: 'light.secondary.light' }}
-                    >
-                        Submit
-                    </Button>
-                </Container>
+                <Form
+                    heading={
+                        <>
+                            Want a website? <br /> Just contact me
+                        </>
+                    }
+                />
             </section>
         </Stack>
     )

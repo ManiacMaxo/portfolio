@@ -1,7 +1,7 @@
 import { extendTheme } from '@chakra-ui/react'
 import { mode } from '@chakra-ui/theme-tools'
 import { dark, light } from './colors'
-import { Breadcrumb, Button, Container, Link } from './components'
+import { Breadcrumb, Button, Container, Input, Link } from './components'
 
 const headerHeight = '100px'
 const footerHeight = '250px'
@@ -26,6 +26,7 @@ const theme = extendTheme({
         Container,
         Breadcrumb,
         Link,
+        Input,
         Button
     },
     sizes: { headerHeight, footerHeight },

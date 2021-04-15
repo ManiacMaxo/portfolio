@@ -3,7 +3,6 @@ import {
     Heading,
     Icon,
     Link as ChakraLink,
-    Link,
     Slide,
     Stack,
     useColorModeValue,
@@ -11,6 +10,7 @@ import {
 } from '@chakra-ui/react'
 import React from 'react'
 import { GiDiamonds } from 'react-icons/gi'
+import { Link } from 'react-router-dom'
 import { HeaderBurger } from '.'
 import { routes } from '../constants'
 
@@ -48,9 +48,9 @@ const HeaderMenu: React.FC<Props> = () => {
                         </Heading>
                         {routes.map(({ name, href }) => (
                             <ChakraLink
-                                key={name}
                                 as={Link}
                                 to={href}
+                                key={name}
                                 _hover={{
                                     color,
                                     textDecor: 'none'

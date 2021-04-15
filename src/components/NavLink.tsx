@@ -1,50 +1,56 @@
-import { Flex, Link, Text, useColorModeValue } from '@chakra-ui/react'
+import { Flex, Link, Text } from '@chakra-ui/react'
 import React from 'react'
-import { Link as ReactLink } from 'react-router-dom'
 import { useLocation } from 'react-router'
+import { Link as ReactLink } from 'react-router-dom'
 
 interface Props {
     name: string
     href: string
+    isAnimated?: boolean
 }
 
 const NavLink: React.FC<Props> = (props) => {
-    const color = useColorModeValue('black', 'white')
     const { pathname } = useLocation()
+    const isCurrent = pathname === props.href
+
+    const hoverEffect = props.isAnimated
+        ? {
+              p: {
+                  transform: 'translateY(-1em)'
+              }
+          }
+        : { fontWeight: 'bold' }
+
     return (
         <Link
             as={ReactLink}
             to={props.href}
             lineHeight='1em'
             textTransform='uppercase'
-            fontWeight={pathname === props.href ? 'bold' : 'normal'}
-            _hover={{
-                textDecor: 'none',
-                p: {
-                    transform: 'translateY(-1em)'
-                }
-            }}
+            fontWeight={isCurrent ? 'bold' : 'normal'}
+            _hover={hoverEffect}
         >
-            <Flex
-                overflow='hidden'
-                color={color}
-                textShadow={`0 1em 0 ${color}`}
-            >
-                {props.name
-                    .trim()
-                    .split('')
-                    .map((letter, idx) => (
-                        <Text
-                            key={letter + idx}
-                            transition='transform 0.44s ease'
-                            style={{
-                                transitionDelay: `${idx / 20}s`
-                            }}
-                        >
-                            {letter}
-                        </Text>
-                    ))}
-            </Flex>
+            {props.isAnimated ? (
+                <Flex
+                    overflow='hidden'
+                    color='inherit'
+                    textShadow='0 1em 0 currentColor'
+                >
+                    {props.name
+                        .trim()
+                        .split('')
+                        .map((letter: string, idx: number) => (
+                            <Text
+                                key={letter + idx}
+                                transition={`all 0.4s ease ${idx / 20}s`}
+                            >
+                                {letter}
+                            </Text>
+                        ))}
+                </Flex>
+            ) : (
+                props.name
+            )}
         </Link>
     )
 }

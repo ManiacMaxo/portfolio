@@ -21,6 +21,7 @@ const Header: React.FC = () => {
             style={{
                 backdropFilter: 'blur(5px)'
             }}
+            color='light.dark'
             bg={scrollY ? 'rgba(255, 255, 255, 0.45)' : undefined}
             transition='all 0.1s linear'
         >
@@ -33,7 +34,7 @@ const Header: React.FC = () => {
                 {isLargerThan850 && (
                     <Stack direction='row' as='nav' spacing='2rem'>
                         {routes.map((route) => (
-                            <NavLink {...route} key={route.name} />
+                            <NavLink key={route.name} {...route} isAnimated />
                         ))}
                     </Stack>
                 )}
