@@ -1,0 +1,27 @@
+.link {
+    line-height: 1em;
+    text-transform: uppercase;
+
+    span {
+        display: flex;
+        color: inherit;
+        overflow: hidden;
+        text-shadow: 0 1em 0 currentColor;
+
+        p {
+            transition: transform 0.25s ease;
+        }
+    }
+}
+
+.animated:hover p {
+    transform: translateY(-1em);
+}
+
+.static:hover p {
+    font-weight: bold;
+}
+
+.active {
+    font-weight: bold;
+}

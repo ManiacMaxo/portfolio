@@ -1,10 +1,10 @@
 import { extendTheme } from '@chakra-ui/react'
 import { mode } from '@chakra-ui/theme-tools'
 import { dark, light } from './colors'
-import { Breadcrumb, Button, Container, Input, Link } from './components'
+import { Button, Container, Input, Link } from './components'
 
 const headerHeight = '100px'
-const footerHeight = '250px'
+const footerHeight = '76px'
 
 const theme = extendTheme({
     colors: {
@@ -15,7 +15,8 @@ const theme = extendTheme({
         global: (props) => ({
             body: {
                 bg: mode('light.bg', 'dark.bg')(props),
-                color: mode('light.text', 'dark.text')(props)
+                color: mode('light.text', 'dark.text')(props),
+                overflowX: 'hidden'
             },
             '.main': {
                 minHeight: `calc(100vh - ${footerHeight})`
@@ -24,7 +25,6 @@ const theme = extendTheme({
     },
     components: {
         Container,
-        Breadcrumb,
         Link,
         Input,
         Button

@@ -1,11 +1,11 @@
 import { Container, Stack } from '@chakra-ui/layout'
-import { Box, IconButton, useMediaQuery } from '@chakra-ui/react'
+import { Box, useMediaQuery } from '@chakra-ui/react'
 import React from 'react'
-import { BiSearch } from 'react-icons/bi'
 import { Logo, NavLink } from '.'
 import { routes } from '../constants'
 import { useWindowScroll } from '../hooks'
 import { HeaderMenu } from './HeaderMenu'
+import { Search } from './Search'
 
 const Header: React.FC = () => {
     const { scrollY } = useWindowScroll()
@@ -39,13 +39,7 @@ const Header: React.FC = () => {
                     </Stack>
                 )}
                 <Box fontSize='1.2em'>
-                    <IconButton
-                        icon={<BiSearch />}
-                        variant='circle'
-                        aria-label='search'
-                        isRound
-                        marginRight='0.4rem'
-                    />
+                    <Search />
                     <HeaderMenu />
                 </Box>
             </Container>

@@ -1,5 +1,5 @@
 {
-  "name": "gorchilov.net",
+  "name": "portfolio",
   "author": "Victor Gorchilov <victor@gorchilov.com>",
   "version": "0.1.0",
   "private": true,
@@ -20,11 +20,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build-and-serve": "yarn build && yarn serve",
     "clean-cache": "rimraf -rf ./node_modules/.cache",
     "create:component": "node ./helper_scripts/CL_commands/create_component.js",
-    "create:page": "node ./helper_scripts/CL_commands/create_page.js",
-    "serve": "pm2 start"
+    "create:page": "node ./helper_scripts/CL_commands/create_page.js"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -1,0 +1,16 @@
+.search {
+    width: 100%;
+    input {
+        border: none;
+
+        &::placeholder {
+            font-weight: bold;
+        }
+        &:focus {
+            box-shadow: none;
+        }
+    }
+    div {
+        pointer-events: none;
+    }
+}

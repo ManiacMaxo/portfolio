@@ -1,26 +1,23 @@
 import {
     Button,
     Center,
+    ChakraProps,
     Container,
-    FormControl,
-    FormLabel,
-    Heading,
-    Stack,
-    Textarea
+    Heading
 } from '@chakra-ui/react'
 import React from 'react'
-import { Input } from '.'
 
 interface Props {
     heading?: JSX.Element
+    chakraProps?: ChakraProps
 }
 
 const Form: React.FC<Props> = (props) => {
     return (
         <Container
             as='form'
-            // marginBottom='1rem'
-            // maxWidth='700px'
+            maxWidth='700px'
+            {...props.chakraProps}
             onSubmit={(e: any) => e.preventDefault()}
         >
             {props.heading && (
@@ -28,24 +25,7 @@ const Form: React.FC<Props> = (props) => {
                     {props.heading}
                 </Heading>
             )}
-            <Stack direction='row' marginBottom='0.5rem'>
-                <FormControl isRequired>
-                    <FormLabel>Name</FormLabel>
-                    <Input />
-                </FormControl>
-                <FormControl isRequired>
-                    <FormLabel>Email</FormLabel>
-                    <Input type='email' />
-                </FormControl>
-                <FormControl isRequired>
-                    <FormLabel>Subject</FormLabel>
-                    <Input />
-                </FormControl>
-            </Stack>
-            <FormControl>
-                <FormLabel>Comments</FormLabel>
-                <Input as={Textarea} />
-            </FormControl>
+            {props.children}
             <Center>
                 <Button type='submit' bg='light.primary' color='white'>
                     Submit

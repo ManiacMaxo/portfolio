@@ -10,6 +10,7 @@ interface Props extends ChakraProps {
 
 const Hero: React.FC<Props> = ({ children, askew, float, ...chakraProps }) => {
     const background = useColorModeValue('light.primary', 'dark.primary')
+    const color = useColorModeValue('light.textInverted', 'dark.textInverted')
     const [headerHeight] = useToken('sizes', ['headerHeight'])
 
     const cut = `polygon(0 0, 100% 0, ${
@@ -23,6 +24,7 @@ const Hero: React.FC<Props> = ({ children, askew, float, ...chakraProps }) => {
             paddingBottom={askew ? '5rem' : '4rem'}
             bg={background}
             textAlign={float ?? 'left'}
+            color={color}
             {...chakraProps}
         >
             <Container>{children}</Container>

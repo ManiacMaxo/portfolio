@@ -1,5 +1,6 @@
 // components module
 
+export { Breadcrumb } from './Breadcrumb'
 export { Footer } from './Footer'
 export { Form } from './Form'
 export { Header } from './Header'
@@ -10,3 +11,4 @@ export { Input } from './Input'
 export { Loader } from './Loader'
 export { Logo } from './Logo'
 export { NavLink } from './NavLink'
+export { Search } from './Search'

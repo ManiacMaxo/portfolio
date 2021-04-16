@@ -1,4 +1,5 @@
 import { FaGithub, FaInstagram, FaLinkedinIn, FaTwitter } from 'react-icons/fa'
+import { Route } from './lib'
 
 export const socials = [
     {
@@ -22,7 +23,27 @@ export const socials = [
         href: 'https://www.linkedin.com/in/victorgorchilov/'
     }
 ]
-export const routes = [
+
+export const addresses = [
+    {
+        name: 'Personal',
+        location: 'Sofia, Bulgaria',
+        phone: '+359884866981',
+        mail: 'victor@gorchilov.com',
+        icon: '',
+        cover: ''
+    },
+    {
+        name: 'School',
+        location: 'ELSYS',
+        phone: '',
+        mail: 'viktor.n.gorchilov.2016@elsys-bg.org',
+        icon: '',
+        cover: ''
+    }
+]
+
+export const routes: Route[] = [
     { name: 'Home', href: '/' },
     { name: 'Portfolio', href: '/portfolio' },
     { name: 'About', href: '/about' },

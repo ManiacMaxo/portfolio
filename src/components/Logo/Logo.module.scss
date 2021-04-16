@@ -2,54 +2,6 @@
     z-index: 2;
 }
 
-.anim path,
-.anim polyline {
-    // stroke: currentColor;
-    // stroke-width: 1;
-    // fill: none;
-    stroke-dashoffset: 0;
-    stroke-dasharray: 100%;
-    animation: stroke 4.5s linear;
-
-    &:nth-child(1) {
-        animation-delay: -2s;
-    }
-    &:nth-child(2) {
-        animation-delay: -1.75s;
-    }
-    &:nth-child(3) {
-        animation-delay: -1.5s;
-    }
-    &:nth-child(4) {
-        animation-delay: -1.5s;
-    }
-    &:nth-child(5) {
-        animation-delay: -1.25s;
-    }
-    &:nth-child(6) {
-        animation-delay: -1s;
-    }
-    &:nth-child(7) {
-        animation-delay: -0.75s;
-    }
-    &:nth-child(8) {
-        animation-delay: -0.5s;
-    }
-    &:nth-child(9) {
-        animation-delay: -0.25s;
-    }
-}
-
-@keyframes stroke {
-    0%,
-    50% {
-        stroke-dashoffset: 100%;
-    }
-    to {
-        stroke-dashoffset: 0;
-    }
-}
-
 .period {
     fill: currentColor !important;
     animation: jump 6s infinite ease-in !important;
@@ -60,11 +12,20 @@
         //start frame
         transform: translateY(0);
     }
-    3% {
-        // peak frame
+    3%,
+    5% {
+        //first hop top
         transform: translateY(-3px);
     }
-    6% {
+    8% {
+        //first hop bottom
+        transform: translateY(0);
+    }
+    10% {
+        //second hop top
+        transform: translateY(-2.5px);
+    }
+    13% {
         //end frame
         transform: translateY(0);
     }

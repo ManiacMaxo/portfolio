@@ -1,54 +1,38 @@
 import {
     Avatar,
     Box,
-    Breadcrumb,
-    BreadcrumbItem,
-    BreadcrumbLink,
     Container,
+    FormControl,
+    FormLabel,
     Heading,
     Image,
     Stack,
+    Text,
+    Textarea,
+    useColorModeValue,
     Wrap
 } from '@chakra-ui/react'
 import React from 'react'
-import { BiChevronRight } from 'react-icons/bi'
-import { Form, Hero } from '../components'
+import { Breadcrumb, Form, Hero, Input } from '../components'
+import { addresses } from '../constants'
+import { Route } from '../lib'
 
 interface Props {}
 
 const Contact: React.FC<Props> = () => {
-    const addresses = [
-        {
-            name: 'Personal',
-            location: 'home',
-            phone: '+359884866981',
-            mail: 'victor@gorchilov.com',
-            icon: ''
-        },
-        {
-            name: 'School',
-            location: 'ELSYS',
-            phone: '',
-            mail: 'viktor.n.gorchilov.2016@elsys-bg.org',
-            icon: ''
-        }
-    ]
+    const bg = useColorModeValue('light.secondary.dark', 'dark.secondary')
 
     return (
         <Stack d='column' spacing='3rem' marginBottom='1rem'>
-            <Hero color='white' bg='light.secondary.dark'>
+            <Hero bg={bg}>
                 <Heading>Contact me</Heading>
-                <Breadcrumb separator={<BiChevronRight />}>
-                    <BreadcrumbItem>
-                        <BreadcrumbLink href='/'>Home</BreadcrumbLink>
-                    </BreadcrumbItem>
-                    <BreadcrumbItem>
-                        <BreadcrumbLink href='/about'>About</BreadcrumbLink>
-                    </BreadcrumbItem>
-                    <BreadcrumbItem isCurrentPage fontWeight='bold'>
-                        <BreadcrumbLink>Contact</BreadcrumbLink>
-                    </BreadcrumbItem>
-                </Breadcrumb>
+                <Breadcrumb
+                    items={[
+                        new Route('Home', '/'),
+                        new Route('About'),
+                        new Route('Contact')
+                    ]}
+                />
             </Hero>
             <section>
                 <Container>
@@ -62,31 +46,43 @@ const Contact: React.FC<Props> = () => {
                                 boxShadow='5px 7px 5px rgba(0,0,0,.1)'
                                 overflow='hidden'
                             >
-                                <Image
-                                    src='https://via.placeholder.com/150'
-                                    w='100%'
-                                    h='75px'
-                                />
+                                <Image src={address.cover} w='100%' h='75px' />
                                 <Avatar
                                     src={address.icon}
                                     transform='translateY(-50%)'
                                     display='block'
-                                    margin='0 auto'
+                                    m='0 auto -25px'
                                 />
                                 <Stack spacing='0.2rem' p='0 1rem 0.5rem'>
                                     <Heading fontSize='1.5rem'>
                                         {address.name}
                                     </Heading>
-                                    <a href={`mailto: ${address.mail}`}>
-                                        {address.mail}
-                                    </a>
-                                    {address.phone ? (
-                                        <a href={`tel:${address.phone}`}>
-                                            {address.phone}
+                                    <div>
+                                        <Text
+                                            d='inline-block'
+                                            marginRight='0.3em'
+                                        >
+                                            Email:
+                                        </Text>
+                                        <a href={`mailto: ${address.mail}`}>
+                                            {address.mail}
                                         </a>
-                                    ) : (
-                                        <span>-</span>
-                                    )}
+                                    </div>
+                                    <div>
+                                        <Text
+                                            d='inline-block'
+                                            marginRight='0.3em'
+                                        >
+                                            Phone:
+                                        </Text>
+                                        {address.phone ? (
+                                            <a href={`tel:${address.phone}`}>
+                                                {address.phone}
+                                            </a>
+                                        ) : (
+                                            '-'
+                                        )}
+                                    </div>
                                 </Stack>
                             </Box>
                         ))}
@@ -100,7 +96,26 @@ const Contact: React.FC<Props> = () => {
                             Want a website? <br /> Just contact me
                         </>
                     }
-                />
+                >
+                    <Stack direction='row' marginBottom='0.5rem'>
+                        <FormControl isRequired>
+                            <FormLabel>Name</FormLabel>
+                            <Input />
+                        </FormControl>
+                        <FormControl isRequired>
+                            <FormLabel>Email</FormLabel>
+                            <Input type='email' />
+                        </FormControl>
+                        <FormControl isRequired>
+                            <FormLabel>Subject</FormLabel>
+                            <Input />
+                        </FormControl>
+                    </Stack>
+                    <FormControl>
+                        <FormLabel>Comments</FormLabel>
+                        <Input as={Textarea} />
+                    </FormControl>
+                </Form>
             </section>
         </Stack>
     )

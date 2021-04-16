@@ -22,7 +22,8 @@ $radius: 5px;
     }
 }
 
-.open {
+.open,
+.close {
     width: $size;
     height: $size;
 
@@ -30,7 +31,9 @@ $radius: 5px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
 
+.open {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -38,20 +41,13 @@ $radius: 5px;
     span {
         height: $thickness;
         width: $size;
-        background-color: black;
+        background-color: currentColor;
         border-radius: $radius;
         transition: all 0.15s linear;
     }
 }
 
 .close {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: $size;
-    height: $size;
-
     &::before,
     &::after {
         opacity: 0;
@@ -61,7 +57,7 @@ $radius: 5px;
         width: 100%;
         top: 50%;
         left: 0;
-        background: black;
+        background: currentColor;
         border-radius: $radius;
         transition: all 0.1s linear 25ms;
     }

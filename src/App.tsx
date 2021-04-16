@@ -7,7 +7,7 @@ const About = React.lazy(() => import('./pages/About'))
 const Contact = React.lazy(() => import('./pages/Contact'))
 const Error = React.lazy(() => import('./pages/Error'))
 const Home = React.lazy(() => import('./pages/Home'))
-const Portfolio = React.lazy(() => import('./pages/Portfolio'))
+// const Portfolio = React.lazy(() => import('./pages/Portfolio'))
 
 const App = () => {
     return (
@@ -18,9 +18,9 @@ const App = () => {
                     <Route exact path='/'>
                         <Home />
                     </Route>
-                    <Route exact path='/portfolio'>
+                    {/* <Route exact path='/portfolio'>
                         <Portfolio />
-                    </Route>
+                    </Route> */}
                     <Route exact path='/about'>
                         <About />
                     </Route>

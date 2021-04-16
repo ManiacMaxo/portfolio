@@ -10,20 +10,20 @@ const Home: React.FC = () => {
                 textTransform='uppercase'
                 fontSize='2rem'
                 lineHeight='0.8'
-                color='white'
             >
                 <Text>Hey!</Text>
                 <Heading fontSize='1.5em'>I'm Victor</Heading>
                 <Box
                     width='3rem'
                     height='0.5rem'
-                    bg='white'
+                    bg='currentColor'
                     marginBottom='1rem'
                 />
                 <Text
                     fontFamily='secondary'
                     textTransform='initial'
                     w='500px'
+                    maxW='100%'
                     lineHeight='1em'
                 >
                     Web developer and Machine Learning enthusiast

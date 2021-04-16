@@ -5,7 +5,7 @@ export const Link = {
     variants: {
         outline: (props: ThemeComponentProps<ChakraTheme>) => ({
             display: 'block',
-            padding: 15,
+            padding: '12px',
             borderRadius: '100%',
             borderColor: 'white',
             borderWidth: 2,
