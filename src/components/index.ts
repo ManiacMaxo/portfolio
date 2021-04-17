@@ -1,6 +1,7 @@
 // components module
 
 export { Breadcrumb } from './Breadcrumb'
+export { Article } from './Article'
 export { Footer } from './Footer'
 export { Form } from './Form'
 export { Header } from './Header'

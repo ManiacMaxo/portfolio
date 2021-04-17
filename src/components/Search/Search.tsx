@@ -41,6 +41,7 @@ const Search: React.FC<Props> = (props) => {
             setOpen(false)
         } else if (!open) {
             setOpen(true)
+            setIsLoading(true)
         }
 
         // this.setValue(newQuery)
@@ -52,7 +53,6 @@ const Search: React.FC<Props> = (props) => {
                 icon={<BiSearch />}
                 variant='circle'
                 aria-label='search'
-                isRound
                 marginRight='0.4rem'
                 onClick={isOpen ? onClose : onOpen}
             />
