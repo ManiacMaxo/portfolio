@@ -1,7 +1,7 @@
 import { Icon } from '@chakra-ui/react'
 import React from 'react'
 import { BiChevronRight } from 'react-icons/bi'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { Route } from '../../lib'
 import styles from './Breadcrumb.module.scss'
 
@@ -11,8 +11,6 @@ interface Props {
 }
 
 const Breadcrumb: React.FC<Props> = (props) => {
-    const separator = props.separator ?? BiChevronRight
-
     return (
         <nav aria-label='breadcrumb'>
             {props.items.map((item, idx) => {
@@ -22,15 +20,23 @@ const Breadcrumb: React.FC<Props> = (props) => {
                         {isCurrent ? (
                             <span aria-current='page'>{item.name}</span>
                         ) : (
-                            <Link to={item.href}>{item.name}</Link>
+                            <Link href={item.href}>
+                                <a>{item.name}</a>
+                            </Link>
                         )}
 
-                        {isCurrent ? null : <Icon key={idx} as={separator} />}
+                        {isCurrent ? null : (
+                            <Icon key={idx} as={props.separator} />
+                        )}
                     </div>
                 )
             })}
         </nav>
     )
+}
+
+Breadcrumb.defaultProps = {
+    separator: BiChevronRight
 }
 
 export { Breadcrumb }

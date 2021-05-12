@@ -14,12 +14,10 @@ import {
 } from '@chakra-ui/react'
 import React from 'react'
 import { Breadcrumb, Form, Hero, Input } from '../components'
-import { addresses } from '../constants'
+import { addresses } from '../lib/constants'
 import { Route } from '../lib'
 
-interface Props {}
-
-const Contact: React.FC<Props> = () => {
+const Contact: React.FC = () => {
     const bg = useColorModeValue('light.secondary.dark', 'dark.secondary')
 
     return (
@@ -90,13 +88,7 @@ const Contact: React.FC<Props> = () => {
                 </Container>
             </section>
             <section>
-                <Form
-                    heading={
-                        <>
-                            Want a website? <br /> Just contact me
-                        </>
-                    }
-                >
+                <Form heading='Get in touch'>
                     <Stack direction='row' marginBottom='0.5rem'>
                         <FormControl isRequired>
                             <FormLabel>Name</FormLabel>

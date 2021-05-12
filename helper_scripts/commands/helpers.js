@@ -1,5 +1,3 @@
-const figlet = require('figlet')
-const chalk = require('chalk')
 const path = require('path')
 const fs = require('fs')
 const handlebars = require('handlebars')
@@ -10,15 +8,6 @@ modules.config = {
     pagesDir: './src/pages',
     componentsDir: './src/components',
     templatesDir: './helper_scripts/templates'
-}
-
-modules.writeStart = (callback) => {
-    chalk.yellow(
-        figlet('Creator', (err, data) => {
-            console.log(`\n${data}\n`)
-            if (callback) callback()
-        })
-    )
 }
 
 modules.isUsedOnDir = (startPath, filter, onlyDirectories = false) => {
@@ -67,80 +56,80 @@ modules.createPageFromTemplate = (filename, callback) => {
                 `${modules.config.pagesDir}/${filename}.tsx`,
                 code,
                 { flag: 'wx' },
-                (err) => {
-                    if (err) throw err
-
+                (e) => {
+                    if (e) throw e
                     callback()
                 }
             )
         }
     )
-
-    callback()
 }
 
-modules.createComponentFromTemplate = (options, callback = () => {}) => {
-    const dir = `${modules.config.componentsDir}/${
-        options.styled ? options.filename : ''
-    }`
+modules.createComponentFromTemplate = (options, callback) => {
+    const { filename, haveStyle } = options
+    const dir = `${modules.config.componentsDir}/${filename}`
 
-    options.styled && fs.mkdirSync(`${dir}`)
+    if (!fs.statSync(`${dir}`, { throwIfNoEntry: false })) {
+        fs.mkdirSync(`${dir}`)
+    }
 
     modules.getTempfromHandlebar(
         `${modules.config.templatesDir}/component.hbs`,
         options,
         (code) => {
             fs.writeFile(
-                `${dir}/${options.filename}.tsx`,
+                `${dir}/${filename}.tsx`,
                 code,
                 { flag: 'wx' },
-                (err) => {
-                    if (err) throw err
-
+                (e) => {
+                    if (e) throw e
                     callback()
                 }
             )
         }
     )
 
-    fs.writeFile(
-        `${modules.config.componentsDir}/index.ts`,
-        `export { ${options.filename} } from './${options.filename}'\n`,
-        { flag: 'a+' },
-        (err) => {
-            if (err) throw err
-
-            callback()
-        }
-    )
-
-    if (!options.styled) {
-        return callback()
+    if (haveStyle) {
+        fs.writeFile(
+            `${dir}/${filename}.module.scss`,
+            `@import '../styles/const';\n`,
+            { flag: 'wx' },
+            (e) => {
+                if (e) throw e
+                callback()
+            }
+        )
     }
 
-    fs.open(`${dir}/${options.filename}.module.scss`, 'w', (err) => {
-        if (err) throw err
-
-        callback()
-    })
     modules.createIndexExporter({
-        filename: options.filename,
+        filename,
         path: dir,
         isPage: false
     })
 
+    fs.writeFile(
+        `${modules.config.componentsDir}/index.ts`,
+        `export { ${filename} } from './${filename}'\n`,
+        { flag: 'a+' },
+        (e) => {
+            if (e) throw e
+            callback()
+        }
+    )
+
     callback()
 }
 
-modules.createIndexExporter = ({ filename, path }) => {
+modules.createIndexExporter = ({ filename, path, isPage = true }) => {
     modules.getTempfromHandlebar(
         `${modules.config.templatesDir}/index.hbs`,
         {
-            filename
+            filename,
+            isPage
         },
         (code) => {
-            fs.writeFile(`${path}/index.ts`, code, { flag: 'wx' }, (err) => {
-                if (err) throw err
+            fs.writeFile(`${path}/index.ts`, code, { flag: 'wx' }, (_err) => {
+                if (_err) throw _err
             })
         }
     )

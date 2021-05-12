@@ -8,8 +8,8 @@ import {
     Text,
     useColorModeValue
 } from '@chakra-ui/react'
+import Link from 'next/link'
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 interface IBlogTags {
     tags: string[]
@@ -57,7 +57,7 @@ const Article: React.FC<Props> = (props) => {
             display='flex'
             flexDirection={{ base: 'column', sm: 'row' }}
             justifyContent='space-between'
-            w='100%'
+            w='50%'
         >
             <Box
                 display='flex'
@@ -71,13 +71,15 @@ const Article: React.FC<Props> = (props) => {
                     marginLeft={{ base: '0', sm: '5%' }}
                     marginTop='5%'
                 >
-                    <Link to={props.href}>
-                        <Image
-                            borderRadius='lg'
-                            src={props.img}
-                            alt={props.heading}
-                            objectFit='contain'
-                        />
+                    <Link href={props.href}>
+                        <a>
+                            <Image
+                                borderRadius='lg'
+                                src={props.img}
+                                alt={props.heading}
+                                objectFit='contain'
+                            />
+                        </a>
                     </Link>
                 </Box>
                 <Box zIndex='1' width='100%' position='absolute' height='100%'>
@@ -97,7 +99,9 @@ const Article: React.FC<Props> = (props) => {
             >
                 {props.tags && <BlogTags tags={props.tags} />}
                 <Heading marginTop='1'>
-                    <Link to={props.href}>{props.heading}</Link>
+                    <Link href={props.href}>
+                        <a>{props.heading}</a>
+                    </Link>
                 </Heading>
                 <Text as='p' marginTop='2' fontSize='lg'>
                     {props.children}

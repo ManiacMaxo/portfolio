@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { BiSearch } from 'react-icons/bi'
-import styles from './Search.module.scss'
+import styles from './Header.module.scss'
 
 interface Props {
     minCharacters?: number
@@ -54,6 +54,7 @@ const Search: React.FC<Props> = (props) => {
                 variant='circle'
                 aria-label='search'
                 marginRight='0.4rem'
+                borderRadius='9999px'
                 onClick={isOpen ? onClose : onOpen}
             />
 

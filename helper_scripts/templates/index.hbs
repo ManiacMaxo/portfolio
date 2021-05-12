@@ -1,1 +1,7 @@
-export { {{filename}} } from './{{filename}}'
+import {{filename}} from './{{filename}}'
+
+{{#if isPage}}
+export default {{filename}}
+{{else}}
+export { {{filename}} }
+{{/if}}

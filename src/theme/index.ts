@@ -18,7 +18,7 @@ const theme = extendTheme({
                 color: mode('light.text', 'dark.text')(props),
                 overflowX: 'hidden'
             },
-            '.main': {
+            main: {
                 minHeight: `calc(100vh - ${footerHeight})`
             }
         })

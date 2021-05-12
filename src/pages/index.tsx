@@ -1,8 +1,30 @@
-import { Box, Heading, Stack, Text } from '@chakra-ui/react'
+import { Box, Container, Heading, Stack, Text } from '@chakra-ui/react'
 import React from 'react'
-import { Hero } from '../components'
+import { ArticleGrid, Hero } from '../components'
+import { Article } from '../lib'
 
 const Home: React.FC = () => {
+    const projects: Article[] = [
+        {
+            title: 'Bagun',
+            description: 'a short summary',
+            img: '/favicon.ico',
+            url: '/'
+        },
+        {
+            title: 'Discord',
+            description: 'a short summary',
+            img: '/favicon.ico',
+            url: '/'
+        },
+        {
+            title: 'Covid Tracker',
+            description: 'a short summary',
+            img: '/favicon.ico',
+            url: '/'
+        }
+    ]
+
     return (
         <Stack>
             <Hero
@@ -14,7 +36,7 @@ const Home: React.FC = () => {
                 <Text>Hey!</Text>
                 <Heading fontSize='1.5em'>I'm Victor</Heading>
                 <Box
-                    width='3rem'
+                    width='3.5rem'
                     height='0.5rem'
                     bg='currentColor'
                     marginBottom='1rem'
@@ -29,6 +51,11 @@ const Home: React.FC = () => {
                     Web developer and Machine Learning enthusiast
                 </Text>
             </Hero>
+            <div>
+                <Container>
+                    <ArticleGrid articles={projects} />
+                </Container>
+            </div>
         </Stack>
     )
 }

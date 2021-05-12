@@ -1,9 +1,10 @@
 import { Container, Stack } from '@chakra-ui/layout'
 import { Box, useMediaQuery } from '@chakra-ui/react'
 import React from 'react'
-import { Logo, NavLink } from '.'
-import { routes } from '../constants'
-import { useWindowScroll } from '../hooks'
+import { Logo, NavLink } from '..'
+import { useWindowScroll } from '../../hooks'
+import { routes } from '../../lib/constants'
+import styles from './Header.module.scss'
 import { HeaderMenu } from './HeaderMenu'
 import { Search } from './Search'
 
@@ -18,12 +19,10 @@ const Header: React.FC = () => {
             position='fixed'
             zIndex='20'
             h='headerHeight'
-            style={{
-                backdropFilter: 'blur(5px)'
-            }}
             color='light.dark'
             bg={scrollY ? 'rgba(255, 255, 255, 0.45)' : undefined}
             transition='all 0.1s linear'
+            className={styles.root}
         >
             <Container
                 display='flex'

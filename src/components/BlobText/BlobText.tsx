@@ -2,9 +2,7 @@ import { Heading, useColorModeValue } from '@chakra-ui/react'
 import React, { useRef } from 'react'
 import styles from './BlobText.module.scss'
 
-interface Props {}
-
-const BlobText: React.FC<Props> = (props) => {
+const BlobText: React.FC = () => {
     const blobsRef = useRef(null)
     const colors = [
         useColorModeValue('light.primary', 'dark.primary'),

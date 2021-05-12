@@ -2,6 +2,10 @@ $size: 1em;
 $thickness: 2px;
 $radius: 5px;
 
+.root {
+    backdrop-filter: blur(5px);
+}
+
 .active {
     .open span {
         transform: translateX(150%);
@@ -67,5 +71,22 @@ $radius: 5px;
     }
     &::after {
         transform: rotate(-45deg) translate(100%, -100%);
+    }
+}
+
+.search {
+    width: 100%;
+    input {
+        border: none;
+
+        &::placeholder {
+            font-weight: bold;
+        }
+        &:focus {
+            box-shadow: none;
+        }
+    }
+    div {
+        pointer-events: none;
     }
 }

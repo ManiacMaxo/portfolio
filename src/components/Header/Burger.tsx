@@ -1,13 +1,13 @@
 import { Button } from '@chakra-ui/react'
 import React from 'react'
-import styles from './HeaderBurger.module.scss'
+import styles from './Header.module.scss'
 
 interface Props {
     isOpen: boolean
     onClick: () => void
 }
 
-const HeaderBurger: React.FC<Props> = ({ isOpen, onClick }) => {
+const Burger: React.FC<Props> = ({ isOpen, onClick }) => {
     const toggleModal = () => {
         onClick()
     }
@@ -32,4 +32,4 @@ const HeaderBurger: React.FC<Props> = ({ isOpen, onClick }) => {
     )
 }
 
-export { HeaderBurger }
+export { Burger }

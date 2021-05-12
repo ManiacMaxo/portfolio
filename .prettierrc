@@ -1,11 +1,6 @@
 {
-  "printWidth": 80,
   "bracketSpacing": true,
   "jsxSingleQuote": true,
-  "singleQuote": true,
-  "tabWidth": 4,
-  "trailingComma": "none",
-  "semi": false,
   "overrides": [
     {
       "files": ["*.json", "*rc", "*.yml"],
@@ -13,5 +8,10 @@
         "tabWidth": 2
       }
     }
-  ]
+  ],
+  "printWidth": 80,
+  "semi": false,
+  "singleQuote": true,
+  "tabWidth": 4,
+  "trailingComma": "none"
 }

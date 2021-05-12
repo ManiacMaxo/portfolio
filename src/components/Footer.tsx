@@ -7,11 +7,9 @@ import {
 } from '@chakra-ui/react'
 import React from 'react'
 import { Logo } from '.'
-import { socials } from '../constants'
+import { socials } from '../lib/constants'
 
-interface Props {}
-
-const Footer: React.FC<Props> = () => {
+const Footer: React.FC = () => {
     const bg = useColorModeValue('light.dark', 'dark.primary')
     const color = useColorModeValue('light.textInverted', 'dark.textInverted')
 

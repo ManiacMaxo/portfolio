@@ -1,6 +1,6 @@
 import { Center, Divider, Heading, Text } from '@chakra-ui/react'
 import React from 'react'
-import { errors } from '../constants'
+import { errors } from '../lib/constants'
 
 interface Props {
     code: number

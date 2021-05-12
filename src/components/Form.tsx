@@ -8,7 +8,7 @@ import {
 import React from 'react'
 
 interface Props {
-    heading?: JSX.Element
+    heading?: any
     chakraProps?: ChakraProps
 }
 
