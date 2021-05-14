@@ -5,6 +5,6 @@ module.exports = {
     script: 'yarn',
     args: `start -p ${process.env.PORT}`,
     env: {
-        PORT: '3003'
+        PORT: '3001'
     }
 }
