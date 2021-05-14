@@ -1,5 +1,10 @@
+require('dotenv').config()
+
 module.exports = {
-    name: 'portfolio',
+    name: 'cloud storage',
     script: 'yarn',
-    args: 'start'
+    args: `start -p ${process.env.PORT}`,
+    env: {
+        PORT: '3003'
+    }
 }
