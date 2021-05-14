@@ -45,7 +45,7 @@ const HeaderMenu: React.FC = () => {
                             Navigation
                         </Heading>
                         {routes.map(({ name, href }) => (
-                            <Link href={href}>
+                            <Link href={href} key={name + href}>
                                 <ChakraLink
                                     key={name}
                                     _hover={{
