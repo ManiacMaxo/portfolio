@@ -14,7 +14,8 @@ const NavLink: React.FC<Props> = (props) => {
     const router = useRouter()
 
     useEffect(() => {
-        if (!router.isReady || router.asPath !== props.href) return
+        if (!router.isReady) return
+        if (router.asPath !== props.href) return setActive(false)
         setActive(true)
     }, [router])
 
@@ -35,12 +36,7 @@ const NavLink: React.FC<Props> = (props) => {
                             .trim()
                             .split('')
                             .map((letter: string, idx: number) => (
-                                <p
-                                    key={letter + idx}
-                                    style={{ transitionDelay: `${idx / 25}s` }}
-                                >
-                                    {letter}
-                                </p>
+                                <p key={letter + idx}>{letter}</p>
                             ))}
                     </span>
                 ) : (
