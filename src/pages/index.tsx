@@ -1,10 +1,10 @@
 import { Box, Container, Heading, Stack, Text } from '@chakra-ui/react'
 import React from 'react'
 import { ArticleGrid, Hero } from '../components'
-import { Article } from '../lib'
+import { IArticle } from '../lib'
 
 const Home: React.FC = () => {
-    const projects: Article[] = [
+    const projects: IArticle[] = [
         {
             title: 'Bagun',
             description: 'a short summary',

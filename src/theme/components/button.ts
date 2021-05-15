@@ -8,7 +8,7 @@ export const Button = {
             transition: 'all 0.2s ease',
             bg: mode('white', 'white')(props),
             padding: 0,
-            borderRadius: '9999px',
+            borderRadius: 'full',
             _hover: {
                 transform: 'perspective(5em) translate3d(0, 0, 10px)',
                 boxShadow: '0 1px 0 rgb(0 0 0 / 10%)'

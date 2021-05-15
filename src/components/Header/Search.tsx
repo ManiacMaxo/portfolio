@@ -1,4 +1,5 @@
 import {
+    Button,
     Icon,
     IconButton,
     Input,
@@ -49,14 +50,14 @@ const Search: React.FC<Props> = (props) => {
 
     return (
         <>
-            <IconButton
-                icon={<BiSearch />}
+            <Button
                 variant='circle'
                 aria-label='search'
                 marginRight='0.4rem'
-                borderRadius='9999px'
                 onClick={isOpen ? onClose : onOpen}
-            />
+            >
+                <BiSearch />
+            </Button>
 
             <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />

@@ -1,12 +1,16 @@
 import React from 'react'
 import Link from 'next/link'
 import styles from './Logo.module.scss'
+import { usePrefersReducedMotion } from '@chakra-ui/react'
 
 interface Props {
     animated?: boolean
 }
 
 const Logo: React.FC<Props> = (props) => {
+    const prefersReducedMotion = usePrefersReducedMotion()
+    const animated = !prefersReducedMotion && props.animated
+
     return (
         <Link href='/'>
             <a className={styles.link}>
@@ -27,7 +31,7 @@ const Logo: React.FC<Props> = (props) => {
                     <path d='M29.9937 7.4C29.9937 8.44 30.5538 9 31.5938 9H32.3937C33.4337 9 33.9937 8.44 33.9937 7.4V4.184C33.9937 3.144 33.4337 2.584 32.3937 2.584H31.5938C30.5538 2.584 29.9937 3.144 29.9937 4.184V7.4ZM31.9937 4.2C32.2497 4.2 32.3937 4.344 32.3937 4.6V7C32.3937 7.256 32.2497 7.4 31.9937 7.4C31.7377 7.4 31.5938 7.256 31.5938 7V4.6C31.5938 4.344 31.7377 4.2 31.9937 4.2Z' />
                     <path d='M38.4226 2.6C38.1826 2.6 38.0706 2.712 37.9906 2.952L37.2386 5.64C37.2226 5.72 37.1746 5.72 37.1426 5.64L36.3906 2.952C36.3266 2.712 36.1986 2.6 35.9586 2.6H35.1586C34.8706 2.6 34.7426 2.776 34.8066 3.048L36.3266 8.664C36.3746 8.888 36.5186 9 36.7586 9H37.6386C37.8786 9 38.0066 8.888 38.0706 8.648L39.5746 3.048C39.6546 2.776 39.5106 2.6 39.2226 2.6H38.4226Z' />
                     <path
-                        className={props.animated ? styles.period : undefined}
+                        className={animated ? styles.period : undefined}
                         d='M41.5844 9.016C42.2404 9.016 42.7844 8.472 42.7844 7.816C42.7844 7.144 42.2404 6.616 41.5844 6.616C40.9284 6.616 40.3844 7.16 40.3844 7.816C40.3844 8.472 40.9284 9.016 41.5844 9.016Z'
                     />
                 </svg>

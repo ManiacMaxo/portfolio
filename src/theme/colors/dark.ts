@@ -1,6 +1,6 @@
 export const dark = {
     primary: '',
-    seconday: '',
+    seconday: { normal: '', light: '', dark: '' },
     hightlight: '',
     text: '',
     textInverted: '',

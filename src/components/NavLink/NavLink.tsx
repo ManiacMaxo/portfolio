@@ -1,3 +1,4 @@
+import { usePrefersReducedMotion } from '@chakra-ui/react'
 import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
@@ -10,6 +11,9 @@ interface Props {
 }
 
 const NavLink: React.FC<Props> = (props) => {
+    const prefersReducedMotion = usePrefersReducedMotion()
+    const animated = !prefersReducedMotion && props.isAnimated
+
     const [active, setActive] = useState(false)
     const router = useRouter()
 
@@ -24,13 +28,13 @@ const NavLink: React.FC<Props> = (props) => {
             <a
                 className={[
                     styles.link,
-                    props.isAnimated ? styles.animated : styles.static,
+                    animated ? styles.animated : styles.static,
                     active ? styles.active : ''
                 ]
                     .join(' ')
                     .trim()}
             >
-                {props.isAnimated ? (
+                {animated ? (
                     <span>
                         {props.name
                             .trim()

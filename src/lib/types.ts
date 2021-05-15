@@ -1,6 +1,7 @@
-export interface Article {
+export interface IArticle {
     title: string
     description: string
-    url: string
+    href: string
     img: string
+    tags?: string[]
 }
