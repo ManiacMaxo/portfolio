@@ -3,9 +3,9 @@ import NextDocument, { Head, Html, Main, NextScript } from 'next/document'
 import theme from '../theme'
 
 class Document extends NextDocument {
-    render() {
+    render(): JSX.Element {
         return (
-            <Html>
+            <Html lang='en'>
                 <Head>
                     <meta charSet='utf-8' />
                 </Head>

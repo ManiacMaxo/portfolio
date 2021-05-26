@@ -1,7 +1,6 @@
 import {
     Button,
     Icon,
-    IconButton,
     Input,
     InputGroup,
     InputLeftElement,
@@ -35,7 +34,7 @@ const Search: React.FC<Props> = (props) => {
         e.stopPropagation()
         const newQuery = e.target.value
 
-        console.log(newQuery)
+        // console.log(newQuery)
 
         // open search dropdown on search query
         if (newQuery.length < minCharacters) {
@@ -71,7 +70,9 @@ const Search: React.FC<Props> = (props) => {
                     width='min(100%, 80vw)'
                 >
                     <InputGroup className={styles.search}>
-                        <InputLeftElement children={<Icon as={BiSearch} />} />
+                        <InputLeftElement>
+                            <Icon as={BiSearch} />
+                        </InputLeftElement>
                         <Input
                             aria-autocomplete='list'
                             autoComplete='off'
@@ -82,9 +83,9 @@ const Search: React.FC<Props> = (props) => {
                             onChange={handleSearchChange}
                         />
                         {isLoading ? (
-                            <InputRightElement
-                                children={<Spinner size='sm' />}
-                            />
+                            <InputRightElement>
+                                <Spinner size='sm' />
+                            </InputRightElement>
                         ) : null}
                     </InputGroup>
                     {/* <ModalBody as='ul' role='listbox'></ModalBody> */}

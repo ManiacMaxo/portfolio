@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { ChakraTheme, ThemeComponentProps } from '@chakra-ui/react'
 import { mode } from '@chakra-ui/theme-tools'
 

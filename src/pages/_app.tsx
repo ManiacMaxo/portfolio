@@ -5,7 +5,7 @@ import theme from '../theme'
 import '../style/style.scss'
 import { ChakraProvider } from '@chakra-ui/react'
 
-const AppWrapper = ({ Component, pageProps }: AppProps) => {
+const AppWrapper: React.FC<AppProps> = ({ Component, pageProps }) => {
     return (
         <ChakraProvider theme={theme}>
             <Layout>

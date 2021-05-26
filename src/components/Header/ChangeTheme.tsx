@@ -1,11 +1,8 @@
-import { IconButton } from '@chakra-ui/button'
 import { Button, useColorMode } from '@chakra-ui/react'
 import React from 'react'
 import { FiMoon, FiSun } from 'react-icons/fi'
 
-interface Props {}
-
-const ChangeTheme: React.FC<Props> = (props) => {
+const ChangeTheme: React.FC = () => {
     const { colorMode, toggleColorMode } = useColorMode()
 
     return (

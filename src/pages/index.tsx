@@ -12,7 +12,7 @@ const Home: React.FC = () => {
                 lineHeight='0.8'
             >
                 <Text>Hey!</Text>
-                <Heading fontSize='1.5em'>I'm Victor</Heading>
+                <Heading fontSize='1.5em'>I&apos;m Victor</Heading>
                 <Box
                     width='3.5rem'
                     height='0.5rem'
