@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Container, Heading, Stack, Wrap, WrapItem } from '@chakra-ui/react'
 import React from 'react'
 import { ArticleCard, Hero } from '../../components'
@@ -45,7 +46,7 @@ export const getStaticProps = async ({ preview = false }): Promise<any> => {
         id: project.id,
         title: project.title,
         img: urlForImage(project.mainImage).url(),
-        href: `/porfolio/${project.slug}`,
+        href: `/portfolio/${project.slug}`,
         tags: project.tags,
         description: 'project.body'
     }))

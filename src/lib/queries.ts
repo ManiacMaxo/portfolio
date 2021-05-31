@@ -2,7 +2,7 @@ const projectFields = `
   "id": _id,
   title,
   mainImage,
-  "body": body[].children,
+  body,
   "tags": tags[]->title,
   slug,
 `
@@ -14,17 +14,16 @@ export const indexQuery = `
 
 export const projectQuery = `
 {
-  "project": *[_type == "project" && slug.current == $slug] | order(_updatedAt desc) | [0] {
+  "project": *[_type == "project" && slug == $slug] | order(_updatedAt desc) | [0] {
     ${projectFields}
   }
 }`
 
 export const projectSlugsQuery = `
-*[_type == "project" && defined(slug.current)][].slug.current
+*[_type == "project" && defined(slug)][].slug
 `
 
 export const projectBySlugQuery = `
-*[_type == "project" && slug.current == $slug][0] {
+*[_type == "project" && slug == $slug][0] {
   ${projectFields}
-}
-`
+}`
