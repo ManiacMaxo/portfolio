@@ -1,6 +1,6 @@
 export default {
-    name: 'post',
-    title: 'Post',
+    name: 'project',
+    title: 'Project',
     type: 'document',
     fields: [
         {
@@ -11,10 +11,10 @@ export default {
         {
             name: 'slug',
             title: 'Slug',
-            type: 'slug',
+            type: 'string',
             options: {
                 source: 'title',
-                maxLength: 96
+                mathLength: 96
             }
         },
         {
@@ -25,16 +25,12 @@ export default {
                 hotspot: true
             }
         },
+
         {
-            name: 'categories',
-            title: 'Categories',
+            name: 'tags',
+            title: 'Tags',
             type: 'array',
             of: [{ type: 'reference', to: { type: 'category' } }]
-        },
-        {
-            name: 'publishedAt',
-            title: 'Published at',
-            type: 'datetime'
         },
         {
             name: 'body',
@@ -42,17 +38,11 @@ export default {
             type: 'blockContent'
         }
     ],
-
     preview: {
         select: {
             title: 'title',
-            media: 'mainImage'
-        },
-        prepare(selection) {
-            const { category } = selection
-            return Object.assign({}, selection, {
-                subtitle: category && `in ${category}`
-            })
+            media: 'mainImage',
+            description: 'body'
         }
     }
 }

@@ -88,7 +88,14 @@ const Contact: React.FC = () => {
                 </Container>
             </section>
             <section>
-                <Form heading='Get in touch'>
+                <Form
+                    heading='Get in touch'
+                    rest={{
+                        action: 'mailto:victor@gorchilov.com',
+                        method: 'POST',
+                        enctype: 'multipart/form-data'
+                    }}
+                >
                     <Stack direction='row' marginBottom='0.5rem'>
                         <FormControl isRequired>
                             <FormLabel>Name</FormLabel>

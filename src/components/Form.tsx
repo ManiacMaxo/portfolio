@@ -10,27 +10,25 @@ import React from 'react'
 interface Props {
     heading?: any
     chakraProps?: ChakraProps
+    rest: any
 }
 
 const Form: React.FC<Props> = (props) => {
     return (
-        <Container
-            as='form'
-            maxWidth='700px'
-            {...props.chakraProps}
-            onSubmit={(e: any) => e.preventDefault()}
-        >
-            {props.heading && (
-                <Heading textAlign='center' marginBottom='1rem'>
-                    {props.heading}
-                </Heading>
-            )}
-            {props.children}
-            <Center>
-                <Button type='submit' bg='light.primary' color='white'>
-                    Submit
-                </Button>
-            </Center>
+        <Container maxWidth='700px' {...props.chakraProps}>
+            <form {...props.rest}>
+                {props.heading && (
+                    <Heading textAlign='center' marginBottom='1rem'>
+                        {props.heading}
+                    </Heading>
+                )}
+                {props.children}
+                <Center>
+                    <Button type='submit' bg='light.primary' color='white'>
+                        Submit
+                    </Button>
+                </Center>
+            </form>
         </Container>
     )
 }
