@@ -1,9 +1,4 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-/**
- * Server-side Sanity utilities. By having these in a separate file from the
- * utilities we use on the client side, we are able to tree-shake (remove)
- * code that is not used on the client side.
- */
+import { SanityClient } from '@sanity/client'
 import { createClient } from 'next-sanity'
 import { sanityConfig } from './config'
 
@@ -15,31 +10,5 @@ export const previewClient = createClient({
     token: process.env.SANITY_API_TOKEN
 })
 
-export const getClient = (preview: boolean) =>
+export const getClient = (preview: boolean): SanityClient =>
     preview ? previewClient : sanityClient
-
-export function overlayDrafts(docs: any[]) {
-    const documents = docs || []
-    const overlayed = documents.reduce(
-        (
-            map: {
-                has: (arg0: any) => any
-                set: (arg0: any, arg1: any) => any
-            },
-            doc: { _id: string }
-        ) => {
-            if (!doc._id) {
-                throw new Error(
-                    'Ensure that `_id` is included in query projection'
-                )
-            }
-
-            const isDraft = doc._id.startsWith('drafts.')
-            const id = isDraft ? doc._id.slice(7) : doc._id
-            return isDraft || !map.has(id) ? map.set(id, doc) : map
-        },
-        new Map()
-    )
-
-    return Array.from(overlayed.values())
-}

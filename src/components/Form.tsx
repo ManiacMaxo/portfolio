@@ -1,4 +1,5 @@
 import {
+    Box,
     Button,
     Center,
     ChakraProps,
@@ -7,16 +8,17 @@ import {
 } from '@chakra-ui/react'
 import React from 'react'
 
-interface Props {
+interface Props extends ChakraProps {
     heading?: any
-    chakraProps?: ChakraProps
-    rest: any
+    action?: string
+    method?: string
+    encType?: string
 }
 
 const Form: React.FC<Props> = (props) => {
     return (
-        <Container maxWidth='700px' {...props.chakraProps}>
-            <form {...props.rest}>
+        <Container maxWidth='700px'>
+            <Box as='form' {...props}>
                 {props.heading && (
                     <Heading textAlign='center' marginBottom='1rem'>
                         {props.heading}
@@ -28,7 +30,7 @@ const Form: React.FC<Props> = (props) => {
                         Submit
                     </Button>
                 </Center>
-            </form>
+            </Box>
         </Container>
     )
 }

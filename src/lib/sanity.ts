@@ -7,8 +7,7 @@ import { sanityConfig } from './config'
 
 export const imageBuilder = createImageUrlBuilder(sanityConfig)
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export const urlForImage = (source: SanityImageSource) =>
+export const urlForImage = (source: SanityImageSource): any =>
     imageBuilder.image(source).auto('format').fit('max')
 
 export const usePreviewSubscription =

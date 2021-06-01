@@ -7,15 +7,14 @@ import {
     Heading,
     Image,
     Stack,
-    Text,
     Textarea,
     useColorModeValue,
     Wrap
 } from '@chakra-ui/react'
 import React from 'react'
 import { Breadcrumb, Form, Hero, Input } from '../components'
-import { addresses } from '../lib/constants'
 import { Route } from '../lib'
+import { addresses } from '../lib/constants'
 
 const Contact: React.FC = () => {
     const bg = useColorModeValue('light.secondary.dark', 'dark.secondary')
@@ -55,24 +54,14 @@ const Contact: React.FC = () => {
                                     <Heading fontSize='1.5rem'>
                                         {address.name}
                                     </Heading>
-                                    <div>
-                                        <Text
-                                            d='inline-block'
-                                            marginRight='0.3em'
-                                        >
-                                            Email:
-                                        </Text>
+                                    <span>
+                                        Email:{' '}
                                         <a href={`mailto: ${address.mail}`}>
                                             {address.mail}
                                         </a>
-                                    </div>
-                                    <div>
-                                        <Text
-                                            d='inline-block'
-                                            marginRight='0.3em'
-                                        >
-                                            Phone:
-                                        </Text>
+                                    </span>
+                                    <span>
+                                        Phone:{' '}
                                         {address.phone ? (
                                             <a href={`tel:${address.phone}`}>
                                                 {address.phone}
@@ -80,7 +69,7 @@ const Contact: React.FC = () => {
                                         ) : (
                                             '-'
                                         )}
-                                    </div>
+                                    </span>
                                 </Stack>
                             </Box>
                         ))}
@@ -88,33 +77,33 @@ const Contact: React.FC = () => {
                 </Container>
             </section>
             <section>
-                <Form
-                    heading='Get in touch'
-                    rest={{
-                        action: 'mailto:victor@gorchilov.com',
-                        method: 'POST',
-                        enctype: 'multipart/form-data'
-                    }}
-                >
-                    <Stack direction='row' marginBottom='0.5rem'>
-                        <FormControl isRequired>
-                            <FormLabel>Name</FormLabel>
-                            <Input />
+                <Container>
+                    <Form
+                        heading='Get in touch'
+                        action='mailto:victor@gorchilov.com'
+                        method='POST'
+                        encType='multipart/form-data'
+                    >
+                        <Stack direction='row' marginBottom='0.5rem'>
+                            <FormControl isRequired>
+                                <FormLabel>Name</FormLabel>
+                                <Input />
+                            </FormControl>
+                            <FormControl isRequired>
+                                <FormLabel>Email</FormLabel>
+                                <Input type='email' />
+                            </FormControl>
+                            <FormControl isRequired>
+                                <FormLabel>Subject</FormLabel>
+                                <Input />
+                            </FormControl>
+                        </Stack>
+                        <FormControl>
+                            <FormLabel>Comments</FormLabel>
+                            <Input as={Textarea} />
                         </FormControl>
-                        <FormControl isRequired>
-                            <FormLabel>Email</FormLabel>
-                            <Input type='email' />
-                        </FormControl>
-                        <FormControl isRequired>
-                            <FormLabel>Subject</FormLabel>
-                            <Input />
-                        </FormControl>
-                    </Stack>
-                    <FormControl>
-                        <FormLabel>Comments</FormLabel>
-                        <Input as={Textarea} />
-                    </FormControl>
-                </Form>
+                    </Form>
+                </Container>
             </section>
         </Stack>
     )

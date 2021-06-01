@@ -1,32 +1,32 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Container, Heading, Stack } from '@chakra-ui/react'
 import BlockContent from '@sanity/block-content-to-react'
+import { GetStaticPropsContext } from 'next'
 import React from 'react'
 import { Hero } from '../../components'
-import { getClient, projectBySlugQuery } from '../../lib'
+import {
+    getClient,
+    IArticleContent,
+    projectBySlugQuery,
+    urlForImage
+} from '../../lib'
 
-interface Props {
-    title: string
-    body: any
-}
-
-const Project: React.FC<Props> = (props) => {
+const Project: React.FC<IArticleContent> = ({ title, body }) => {
     return (
         <Stack marginBottom='2rem'>
-            <Hero askew float='right' bg={'light.secondary.normal'}>
-                <Heading>{props.title}</Heading>
+            <Hero askew>
+                <Heading>{title}</Heading>
             </Hero>
-            <section>
+            <article>
                 <Container>
-                    <BlockContent blocks={props.body} />
+                    <BlockContent blocks={body} />
                 </Container>
-            </section>
+            </article>
         </Stack>
     )
 }
 
-export const getStaticPaths = async ({ preview = false }): Promise<any> => {
-    const paths = await getClient(preview).fetch(
+export const getStaticPaths = async (): Promise<any> => {
+    const paths = await getClient(false).fetch(
         `*[_type == "project"] | order(_updatedAt desc) {
             slug,
         }`
@@ -42,7 +42,7 @@ export const getStaticPaths = async ({ preview = false }): Promise<any> => {
 export const getStaticProps = async ({
     params,
     preview = false
-}): Promise<any> => {
+}: GetStaticPropsContext): Promise<{ props: IArticleContent }> => {
     const article = await getClient(preview).fetch(projectBySlugQuery, {
         slug: params.slug
     })
@@ -50,7 +50,8 @@ export const getStaticProps = async ({
     return {
         props: {
             title: article.title,
-            body: article.body
+            body: article.body,
+            imgUrl: urlForImage(article.mainImage).url()
         }
     }
 }

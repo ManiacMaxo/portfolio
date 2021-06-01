@@ -1,45 +1,7 @@
-import {
-    Box,
-    Heading,
-    HStack,
-    Image,
-    Link as ChakraLink,
-    SpaceProps,
-    Tag,
-    Text,
-    useColorModeValue
-} from '@chakra-ui/react'
+import { Box, Heading, Image, Link as ChakraLink, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 import React from 'react'
-
-interface IBlogTags {
-    tags: string[]
-    marginTop?: SpaceProps['marginTop']
-}
-
-const BlogTags: React.FC<IBlogTags> = (props) => {
-    if (!props.tags) return
-    const bg = useColorModeValue('light.highlight', 'dark.primary')
-    const color = useColorModeValue('light.text', 'dark.text')
-
-    return (
-        <HStack spacing={2} marginTop={props.marginTop}>
-            {props.tags.map((tag) => {
-                return (
-                    <Tag
-                        size={'md'}
-                        variant='solid'
-                        color={color}
-                        bg={bg}
-                        key={tag}
-                    >
-                        {tag}
-                    </Tag>
-                )
-            })}
-        </HStack>
-    )
-}
+import { Tags } from '.'
 
 interface Props {
     title: string
@@ -71,7 +33,7 @@ const ArticleCard: React.FC<Props> = (props) => {
                     </ChakraLink>
                 </Link>
             </Box>
-            {props.tags && <BlogTags tags={props.tags} marginTop='3' />}
+            {props.tags && <Tags tags={props.tags} marginTop='3' />}
             <Heading fontSize='xl' marginTop='2'>
                 <Link href={props.href}>
                     <ChakraLink

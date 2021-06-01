@@ -1,6 +1,5 @@
 export * as constants from './constants'
 export * from './queries'
-export * from './Route'
 export * from './sanity'
 export * from './sanity.server'
 export * from './types'

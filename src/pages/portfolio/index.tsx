@@ -1,14 +1,15 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Container, Heading, Stack, Wrap, WrapItem } from '@chakra-ui/react'
+import { GetStaticPropsContext } from 'next'
 import React from 'react'
 import { ArticleCard, Hero } from '../../components'
 import { getClient, IArticle, indexQuery, urlForImage } from '../../lib'
 
 interface Props {
-    articles: any[]
+    articles: IArticle[]
 }
 
-const Portfolio: React.FC<Props> = (props) => {
+const Portfolio: React.FC<Props> = ({ articles }) => {
     return (
         <Stack marginBottom='2rem'>
             <Hero askew float='right' bg={'light.secondary.normal'}>
@@ -17,9 +18,9 @@ const Portfolio: React.FC<Props> = (props) => {
             <section>
                 <Container>
                     <Wrap spacing='30px' marginTop='5'>
-                        {props.articles.map((article) => (
+                        {articles.map((article) => (
                             <WrapItem
-                                key={article.href}
+                                key={article.id}
                                 width={{
                                     base: '100%',
                                     sm: '45%',
@@ -39,23 +40,25 @@ const Portfolio: React.FC<Props> = (props) => {
     )
 }
 
-export const getStaticProps = async ({ preview = false }): Promise<any> => {
+export const getStaticProps = async ({
+    preview = false
+}: GetStaticPropsContext): Promise<any> => {
     const res = await getClient(preview).fetch(indexQuery)
 
-    const articles: IArticle[] = res.map((project: any) => ({
+    const articles: IArticle[] = res.map((project) => ({
         id: project.id,
         title: project.title,
         img: urlForImage(project.mainImage).url(),
         href: `/portfolio/${project.slug}`,
         tags: project.tags,
-        description: 'project.body'
+        description: project.description
     }))
 
     return {
         props: {
             articles
         },
-        revalidate: 60
+        revalidate: 7200
     }
 }
 

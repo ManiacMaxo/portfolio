@@ -33,6 +33,11 @@ export default {
             of: [{ type: 'reference', to: { type: 'category' } }]
         },
         {
+            name: 'description',
+            title: 'Short description',
+            type: 'string'
+        },
+        {
             name: 'body',
             title: 'Body',
             type: 'blockContent'

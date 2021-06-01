@@ -13,7 +13,7 @@ const ArticleGrid: React.FC<Props> = (props) => {
         <Grid templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)' }} gap={10}>
             {props.articles.map((article) => {
                 return (
-                    <GridItem as='article' key={article.href + article.title}>
+                    <GridItem as='article' key={article.id}>
                         <Link href={article.href}>
                             <a>
                                 <Image src={article.img} />

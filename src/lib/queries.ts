@@ -2,7 +2,7 @@ const projectFields = `
   "id": _id,
   title,
   mainImage,
-  body,
+  description,
   "tags": tags[]->title,
   slug,
 `
@@ -25,5 +25,6 @@ export const projectSlugsQuery = `
 
 export const projectBySlugQuery = `
 *[_type == "project" && slug == $slug][0] {
+  body,
   ${projectFields}
 }`
