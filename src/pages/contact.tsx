@@ -2,10 +2,10 @@ import {
     Avatar,
     Box,
     Container,
+    Flex,
     FormControl,
     FormLabel,
     Heading,
-    Image,
     Stack,
     Textarea,
     useColorModeValue,
@@ -43,20 +43,33 @@ const Contact: React.FC = () => {
                                 boxShadow='5px 7px 5px rgba(0,0,0,.1)'
                                 overflow='hidden'
                             >
-                                <Image src={address.cover} w='100%' h='75px' />
+                                <Box
+                                    w='100%'
+                                    h='80px'
+                                    backgroundImage={address.cover}
+                                    backgroundSize='cover'
+                                    backgroundPosition='center'
+                                />
                                 <Avatar
                                     src={address.icon}
                                     transform='translateY(-50%)'
                                     display='block'
-                                    m='0 auto -25px'
+                                    m='0 auto -30px'
+                                    size='xl'
                                 />
                                 <Stack spacing='0.2rem' p='0 1rem 0.5rem'>
-                                    <Heading fontSize='1.5rem'>
-                                        {address.name}
-                                    </Heading>
+                                    <Flex alignItems='flex-end'>
+                                        <Heading
+                                            fontSize='1.5rem'
+                                            marginInlineEnd='0.5rem'
+                                        >
+                                            {address.name}
+                                        </Heading>
+                                        <span>{address.location}</span>
+                                    </Flex>
                                     <span>
                                         Email:{' '}
-                                        <a href={`mailto: ${address.mail}`}>
+                                        <a href={`mailto:${address.mail}`}>
                                             {address.mail}
                                         </a>
                                     </span>

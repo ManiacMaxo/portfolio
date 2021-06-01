@@ -1,4 +1,4 @@
-import { Box, Icon, Text } from '@chakra-ui/react'
+import { Box, Icon, Text, Link as ChakraLink } from '@chakra-ui/react'
 import Link from 'next/link'
 import React from 'react'
 import { BiChevronRight } from 'react-icons/bi'
@@ -31,7 +31,11 @@ const Breadcrumb: React.FC<Props> = (props) => {
                         ) : (
                             <>
                                 <Link href={item.href}>
-                                    <a>{item.name}</a>
+                                    <ChakraLink
+                                        _hover={{ textDecor: 'underline' }}
+                                    >
+                                        {item.name}
+                                    </ChakraLink>
                                 </Link>
                                 <Icon
                                     key={idx}
