@@ -1,6 +1,4 @@
 import { extendTheme } from '@chakra-ui/react'
-import { mode } from '@chakra-ui/theme-tools'
-import { dark, light } from './colors'
 import { Button, Container, Input, Link } from './components'
 
 const headerHeight = '100px'
@@ -8,20 +6,26 @@ const footerHeight = '76px'
 
 const theme = extendTheme({
     colors: {
-        dark,
-        light
+        primary: '#a8d0e6',
+        secondary: { normal: '#f99797', light: '#faabaa', dark: '#f76c6c' },
+        highlight: '#f8e9a1',
+        dark: '#24305e',
+        text: '#000000',
+        textInverted: '#ffffff',
+        bg: '#ffffff',
+        hover: '#f8e9a1'
     },
     styles: {
-        global: (props) => ({
+        global: {
             body: {
-                bg: mode('light.bg', 'dark.bg')(props),
-                color: mode('light.text', 'dark.text')(props),
+                bg: 'bg',
+                color: 'text',
                 overflowX: 'hidden'
             },
             main: {
                 minHeight: `calc(100vh - ${footerHeight})`
             }
-        })
+        }
     },
     components: {
         Container,
@@ -33,7 +37,8 @@ const theme = extendTheme({
     fonts: {
         body: `'Noah', sans-serif`,
         heading: `'Archia', sans-serif`,
-        secondary: `'Playfair Display', serif`
+        secondary: `'Playfair Display', serif`,
+        monospace: `'Source Code Pro', monospace`
     }
 })
 

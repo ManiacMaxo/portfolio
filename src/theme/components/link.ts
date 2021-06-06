@@ -1,10 +1,6 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { ChakraTheme, ThemeComponentProps } from '@chakra-ui/react'
-import { mode } from '@chakra-ui/theme-tools'
-
 export const Link = {
     variants: {
-        outline: (props: ThemeComponentProps<ChakraTheme>) => ({
+        outline: {
             display: 'block',
             padding: '12px',
             borderRadius: '100%',
@@ -13,20 +9,17 @@ export const Link = {
             transition: 'all 0.3s ease-out',
             _hover: {
                 backgroundColor: 'white',
-                color: mode('light.secondary.dark', 'dark.secondary')(props)
+                color: 'secondary.dark'
             }
-        }),
-        inline: (props: ThemeComponentProps<ChakraTheme>) => ({
+        },
+        inline: {
             backgroundPositionY: '-0%',
             backgroundSize: 'auto 175%',
-            backgroundImage: mode(
-                'linear-gradient(transparent 50%, light.highlight 50%)',
-                'linear-gradient(transparent 50%, dark.highlight 50%)'
-            )(props),
+            backgroundImage: 'linear-gradient(transparent 50%, highlight 50%)',
             transition: 'background 500ms ease',
             _hover: {
                 backgroundPositionY: '100%'
             }
-        })
+        }
     }
 }

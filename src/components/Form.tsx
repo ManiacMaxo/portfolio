@@ -26,7 +26,7 @@ const Form: React.FC<Props> = (props) => {
                 )}
                 {props.children}
                 <Center>
-                    <Button type='submit' bg='light.primary' color='white'>
+                    <Button type='submit' bg='primary' color='white'>
                         Submit
                     </Button>
                 </Center>

@@ -18,6 +18,11 @@ export default {
             }
         },
         {
+            name: 'link',
+            title: 'Git link',
+            type: 'string'
+        },
+        {
             name: 'mainImage',
             title: 'Main image',
             type: 'image',
@@ -46,8 +51,7 @@ export default {
     preview: {
         select: {
             title: 'title',
-            media: 'mainImage',
-            description: 'body'
+            media: 'mainImage'
         }
     }
 }

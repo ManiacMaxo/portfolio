@@ -11,6 +11,7 @@ export interface IArticleContent {
     title: string
     imgUrl: string
     body: any
+    link: string
 }
 
 export class Route {

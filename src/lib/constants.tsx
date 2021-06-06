@@ -30,7 +30,7 @@ export const addresses = [
         location: 'Sofia, Bulgaria',
         phone: '+359884866981',
         mail: 'victor@gorchilov.com',
-        icon: 'https://repo.gorchilov.net/api/images/portfolio/me.jpg',
+        icon: 'https://repo.gorchilov.net/api/images/portfolio/me.png',
         cover: 'https://repo.gorchilov.net/api/images/portfolio/personal.jpg'
     },
     {

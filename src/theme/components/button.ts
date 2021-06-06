@@ -1,19 +1,15 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { ChakraTheme, ThemeComponentProps } from '@chakra-ui/react'
-import { mode } from '@chakra-ui/theme-tools'
-
 export const Button = {
     variants: {
-        circle: (props: ThemeComponentProps<ChakraTheme>) => ({
+        circle: {
             boxShadow: '0 3px 0 rgb(0 0 0 / 10%)',
             transition: 'all 0.2s ease',
-            bg: mode('white', 'white')(props),
+            bg: 'white',
             padding: 0,
             borderRadius: 'full',
             _hover: {
                 transform: 'perspective(5em) translate3d(0, 0, 10px)',
                 boxShadow: '0 1px 0 rgb(0 0 0 / 10%)'
             }
-        })
+        }
     }
 }

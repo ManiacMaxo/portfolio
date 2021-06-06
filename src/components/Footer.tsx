@@ -1,20 +1,17 @@
 import { Container, Text } from '@chakra-ui/layout'
-import {
-    Box,
-    Link as ChakraLink,
-    Stack,
-    useColorModeValue
-} from '@chakra-ui/react'
+import { Box, Link as ChakraLink, Stack } from '@chakra-ui/react'
 import React from 'react'
 import { Logo } from '.'
 import { socials } from '../lib/constants'
 
 const Footer: React.FC = () => {
-    const bg = useColorModeValue('light.dark', 'dark.primary')
-    const color = useColorModeValue('light.textInverted', 'dark.textInverted')
-
     return (
-        <Box as='footer' minHeight='footerHeight' bg={bg} color={color}>
+        <Box
+            as='footer'
+            minHeight='footerHeight'
+            bg='dark'
+            color='textInverted'
+        >
             <Container
                 as={Stack}
                 direction={{ base: 'column', md: 'row' }}

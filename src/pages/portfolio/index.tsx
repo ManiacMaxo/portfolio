@@ -12,7 +12,7 @@ interface Props {
 const Portfolio: React.FC<Props> = ({ articles }) => {
     return (
         <Stack marginBottom='2rem'>
-            <Hero askew float='right' bg={'light.secondary.normal'}>
+            <Hero askew float='right' bg='secondary.normal'>
                 <Heading>Portfolio</Heading>
             </Hero>
             <section>

@@ -9,7 +9,6 @@ import {
     ModalContent,
     ModalOverlay,
     Spinner,
-    useColorModeValue,
     useDisclosure
 } from '@chakra-ui/react'
 import React, { useState } from 'react'
@@ -22,9 +21,6 @@ interface Props {
 
 const Search: React.FC<Props> = (props) => {
     const minCharacters = props.minCharacters ?? 2
-
-    const bg = useColorModeValue('light.bg', 'dark.bg')
-    const color = useColorModeValue('light.text', 'dark.text')
 
     const { isOpen, onClose, onOpen } = useDisclosure()
     const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -62,8 +58,8 @@ const Search: React.FC<Props> = (props) => {
                 <ModalOverlay />
                 <ModalContent
                     className={styles.container}
-                    bg={bg}
-                    color={color}
+                    bg='bg'
+                    color='text'
                     borderRadius='5px'
                     marginTop='10rem'
                     maxW='500px'

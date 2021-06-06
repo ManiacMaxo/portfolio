@@ -1,4 +1,3 @@
-import { useColorModeValue } from '@chakra-ui/color-mode'
 import { Container } from '@chakra-ui/layout'
 import { Box, ChakraProps, useToken } from '@chakra-ui/react'
 import React from 'react'
@@ -9,8 +8,6 @@ interface Props extends ChakraProps {
 }
 
 const Hero: React.FC<Props> = ({ children, askew, float, ...chakraProps }) => {
-    const background = useColorModeValue('light.primary', 'dark.primary')
-    const color = useColorModeValue('light.textInverted', 'dark.textInverted')
     const [headerHeight] = useToken('sizes', ['headerHeight'])
 
     const cut = `polygon(0 0, 100% 0, ${
@@ -22,9 +19,9 @@ const Hero: React.FC<Props> = ({ children, askew, float, ...chakraProps }) => {
             clipPath={askew ? cut : undefined}
             paddingTop={`calc(${headerHeight} + 1rem)`}
             paddingBottom={askew ? '5rem' : '4rem'}
-            bg={background}
+            bg='primary'
             textAlign={float ?? 'left'}
-            color={color}
+            color='textInverted'
             {...chakraProps}
         >
             <Container>{children}</Container>

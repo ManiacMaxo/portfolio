@@ -8,7 +8,6 @@ import {
     Heading,
     Stack,
     Textarea,
-    useColorModeValue,
     Wrap
 } from '@chakra-ui/react'
 import React from 'react'
@@ -17,11 +16,9 @@ import { Route } from '../lib'
 import { addresses } from '../lib/constants'
 
 const Contact: React.FC = () => {
-    const bg = useColorModeValue('light.secondary.dark', 'dark.secondary')
-
     return (
         <Stack d='column' spacing='3rem' marginBottom='1rem'>
-            <Hero bg={bg}>
+            <Hero bg='secondary.dark'>
                 <Heading>Contact me</Heading>
                 <Breadcrumb
                     items={[
@@ -93,27 +90,34 @@ const Contact: React.FC = () => {
                 <Container>
                     <Form
                         heading='Get in touch'
-                        action='mailto:victor@gorchilov.com'
                         method='POST'
-                        encType='multipart/form-data'
+                        action='/api/email'
                     >
                         <Stack direction='row' marginBottom='0.5rem'>
                             <FormControl isRequired>
                                 <FormLabel>Name</FormLabel>
-                                <Input />
+                                <Input name='name' placeholder='' />
                             </FormControl>
                             <FormControl isRequired>
                                 <FormLabel>Email</FormLabel>
-                                <Input type='email' />
+                                <Input
+                                    type='email'
+                                    name='email'
+                                    placeholder=''
+                                />
                             </FormControl>
                             <FormControl isRequired>
                                 <FormLabel>Subject</FormLabel>
-                                <Input />
+                                <Input name='subject' placeholder='' />
                             </FormControl>
                         </Stack>
                         <FormControl>
                             <FormLabel>Comments</FormLabel>
-                            <Input as={Textarea} />
+                            <Input
+                                as={Textarea}
+                                name='content'
+                                placeholder=''
+                            />
                         </FormControl>
                     </Form>
                 </Container>

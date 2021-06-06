@@ -4,7 +4,6 @@ import React from 'react'
 import { Logo, NavLink } from '..'
 import { useWindowScroll } from '../../hooks'
 import { routes } from '../../lib/constants'
-import { ChangeTheme } from './ChangeTheme'
 import styles from './Header.module.scss'
 import { HeaderMenu } from './HeaderMenu'
 import { Search } from './Search'
@@ -20,7 +19,7 @@ const Header: React.FC = () => {
             position='fixed'
             zIndex='20'
             h='headerHeight'
-            color='light.dark'
+            color='dark'
             bg={scrollY ? 'rgba(255, 255, 255, 0.45)' : undefined}
             transition='all 0.1s linear'
             className={styles.root}
@@ -39,7 +38,6 @@ const Header: React.FC = () => {
                     </Stack>
                 )}
                 <Box fontSize='1.2em'>
-                    <ChangeTheme />
                     <Search />
                     <HeaderMenu />
                 </Box>

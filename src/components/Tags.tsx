@@ -1,4 +1,4 @@
-import { HStack, SpaceProps, Tag, useColorModeValue } from '@chakra-ui/react'
+import { HStack, SpaceProps, Tag } from '@chakra-ui/react'
 import React from 'react'
 
 interface Props {
@@ -8,8 +8,6 @@ interface Props {
 
 const Tags: React.FC<Props> = (props) => {
     if (!props.tags) return
-    const bg = useColorModeValue('light.highlight', 'dark.primary')
-    const color = useColorModeValue('light.text', 'dark.text')
 
     return (
         <HStack spacing={2} marginTop={props.marginTop}>
@@ -18,8 +16,8 @@ const Tags: React.FC<Props> = (props) => {
                     <Tag
                         size='md'
                         variant='solid'
-                        color={color}
-                        bg={bg}
+                        color='text'
+                        bg='highlight'
                         key={tag}
                     >
                         {tag}

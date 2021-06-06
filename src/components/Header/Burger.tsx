@@ -4,20 +4,18 @@ import styles from './Header.module.scss'
 
 interface Props {
     isOpen: boolean
-    onClick: () => void
+    onClick?: () => void
 }
 
-const Burger: React.FC<Props> = ({ isOpen, onClick }) => {
-    const toggleModal = () => {
-        onClick()
-    }
-
+const Burger: React.FC<Props> = (props) => {
     return (
         <Button
             variant='circle'
             aria-label='menu burger button'
-            onClick={toggleModal}
-            className={[styles.button, isOpen ? styles.active : ''].join(' ')}
+            onClick={props.onClick}
+            className={[styles.button, props.isOpen ? styles.active : ''].join(
+                ' '
+            )}
             zIndex='2'
         >
             <div className={styles.wrapper}>

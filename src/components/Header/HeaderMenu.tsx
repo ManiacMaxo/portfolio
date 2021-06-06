@@ -5,29 +5,28 @@ import {
     Link as ChakraLink,
     Slide,
     Stack,
-    useColorModeValue,
     useDisclosure
 } from '@chakra-ui/react'
-import React from 'react'
-import { GiDiamonds } from 'react-icons/gi'
+import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
-import { Burger } from './Burger'
+import React, { useEffect } from 'react'
+import { GiDiamonds } from 'react-icons/gi'
+import { useEscape } from '../../hooks'
 import { routes } from '../../lib/constants'
+import { Burger } from './Burger'
 
 const HeaderMenu: React.FC = () => {
     const { isOpen, onClose, onOpen } = useDisclosure()
 
-    const color = useColorModeValue('light.dark', 'dark.hover')
-    const bg = useColorModeValue(
-        'light.secondary.light',
-        'dark.secondary.normal'
-    )
+    const router = useRouter()
+    useEffect(onClose, [router])
+    useEscape(onClose)
 
     return (
         <>
             <Burger isOpen={isOpen} onClick={isOpen ? onClose : onOpen} />
             <Slide direction='right' in={isOpen}>
-                <Center w='100vw' h='100vh' bg={bg}>
+                <Center w='100vw' h='100vh' bg='secondary.light'>
                     <Stack
                         width='fit-content'
                         alignItems='center'
@@ -35,7 +34,7 @@ const HeaderMenu: React.FC = () => {
                     >
                         <Heading
                             textTransform='uppercase'
-                            color={color}
+                            color='dark'
                             fontSize='1rem'
                             marginBottom='1rem'
                             display='flex'
@@ -49,7 +48,7 @@ const HeaderMenu: React.FC = () => {
                                 <ChakraLink
                                     key={name}
                                     _hover={{
-                                        color,
+                                        color: 'dark',
                                         textDecor: 'none'
                                     }}
                                     color='white'
