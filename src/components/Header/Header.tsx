@@ -1,16 +1,18 @@
-import { Container, Stack } from '@chakra-ui/layout'
-import { Box, useMediaQuery } from '@chakra-ui/react'
+import { Container, Flex } from '@chakra-ui/layout'
+import { Box } from '@chakra-ui/react'
 import React from 'react'
 import { Logo, NavLink } from '..'
 import { useWindowScroll } from '../../hooks'
 import { routes } from '../../lib/constants'
-import styles from './Header.module.scss'
 import { HeaderMenu } from './HeaderMenu'
 import { Search } from './Search'
 
 const Header: React.FC = () => {
     const { scrollY } = useWindowScroll()
-    const [isLargerThan850] = useMediaQuery('(min-width: 850px)')
+
+    const navRoutes = routes.map((route) => (
+        <NavLink key={route.name} {...route} isAnimated />
+    ))
 
     return (
         <Box
@@ -22,7 +24,9 @@ const Header: React.FC = () => {
             color='dark'
             bg={scrollY ? 'rgba(255, 255, 255, 0.45)' : undefined}
             transition='all 0.1s linear'
-            className={styles.root}
+            sx={{
+                backdropFilter: 'blur(5px)'
+            }}
         >
             <Container
                 display='flex'
@@ -30,13 +34,19 @@ const Header: React.FC = () => {
                 alignItems='center'
             >
                 <Logo animated />
-                {isLargerThan850 && (
-                    <Stack direction='row' as='nav' spacing='2rem'>
-                        {routes.map((route) => (
-                            <NavLink key={route.name} {...route} isAnimated />
-                        ))}
-                    </Stack>
-                )}
+                <Flex
+                    sx={{
+                        gap: '2rem',
+                        '@media (max-width: 850px)': {
+                            gap: '1rem'
+                        },
+                        '@media (max-width: 750px)': {
+                            display: 'none'
+                        }
+                    }}
+                >
+                    {navRoutes}
+                </Flex>
                 <Box fontSize='1.2em'>
                     <Search />
                     <HeaderMenu />

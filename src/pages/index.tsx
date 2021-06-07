@@ -1,6 +1,6 @@
-import { Box, Heading, Stack, Text } from '@chakra-ui/react'
+import { Box, Stack, Text } from '@chakra-ui/react'
 import React from 'react'
-import { Hero } from '../components'
+import { Hero, Typewriter } from '../components'
 
 const Home: React.FC = () => {
     return (
@@ -12,7 +12,15 @@ const Home: React.FC = () => {
                 lineHeight='0.8'
             >
                 <Text>Hey!</Text>
-                <Heading fontSize='1.5em'>I&apos;m Victor</Heading>
+                <Typewriter
+                    as='h1'
+                    fontSize='1.5em'
+                    color='textInverted'
+                    backgroundColor='primary'
+                    speed={3}
+                >
+                    I&apos;m Victor
+                </Typewriter>
                 <Box
                     width='3.5rem'
                     height='0.5rem'

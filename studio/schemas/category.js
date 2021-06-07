@@ -9,6 +9,15 @@ export default {
             type: 'string'
         },
         {
+            name: 'slug',
+            title: 'Slug',
+            type: 'string',
+            options: {
+                source: 'title',
+                mathLength: 96
+            }
+        },
+        {
             name: 'description',
             title: 'Description',
             type: 'text'

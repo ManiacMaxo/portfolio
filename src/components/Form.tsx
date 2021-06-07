@@ -4,9 +4,10 @@ import {
     Center,
     ChakraProps,
     Container,
-    Heading
+    Heading,
+    useToast
 } from '@chakra-ui/react'
-import React from 'react'
+import React, { FormEvent } from 'react'
 
 interface Props extends ChakraProps {
     heading?: any
@@ -16,9 +17,23 @@ interface Props extends ChakraProps {
 }
 
 const Form: React.FC<Props> = (props) => {
+    const toast = useToast()
+    const onSubmit = (event: FormEvent) => {
+        event.preventDefault()
+
+        toast({
+            position: 'top-right',
+            title: 'Error',
+            description: 'Feature is not implemented',
+            status: 'error',
+            duration: 5000,
+            isClosable: true
+        })
+    }
+
     return (
         <Container maxWidth='700px'>
-            <Box as='form' {...props}>
+            <Box as='form' {...props} onSubmit={onSubmit}>
                 {props.heading && (
                     <Heading textAlign='center' marginBottom='1rem'>
                         {props.heading}

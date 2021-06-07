@@ -16,5 +16,6 @@ export const projectBySlugQuery = `
 *[_type == "project" && slug == $slug][0] {
   body,
   link,
+  images,
   ${projectFields}
 }`

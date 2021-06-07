@@ -2,10 +2,6 @@ $size: 1em;
 $thickness: 2px;
 $radius: 5px;
 
-.root {
-    backdrop-filter: blur(5px);
-}
-
 .active {
     .open span {
         transform: translateX(150%);
