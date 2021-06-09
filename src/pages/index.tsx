@@ -17,21 +17,20 @@ const Home: React.FC = () => {
 
     const [options, setOptions] = useState({
         backgroundColor: 'primary',
-        fontSize: '7xl',
-        transform: 'translate(0)'
+        opacity: '1'
     })
 
     const onAnimationEnd = async () => {
+        await sleep(2500)
         setTransition(true)
-        await sleep(4005)
+        await sleep(1500)
 
         setOptions({
-            backgroundColor: 'transparent',
-            fontSize: '6xl',
-            transform: 'translate(0)'
+            backgroundColor: 'primary',
+            opacity: '0'
         })
 
-        await sleep(4005)
+        await sleep(2000)
         setVisible(false)
     }
 
@@ -48,7 +47,8 @@ const Home: React.FC = () => {
                     color='textInverted'
                     position='relative'
                     marginBottom='1rem'
-                    {...options}
+                    fontSize='1.5em'
+                    backgroundColor='primary'
                     _after={{
                         content: `''`,
                         position: 'absolute',
@@ -63,59 +63,58 @@ const Home: React.FC = () => {
                 </Heading>
                 {visible && (
                     <Portal>
-                        <Stack
+                        <Grid
                             w='100vw'
                             h='100vh'
-                            background={options.backgroundColor}
-                            transition='background-color 4s'
+                            {...options}
+                            transition='opacity 1.5s'
                             position='absolute'
                             top='0'
                             left='0'
                             zIndex='overlay'
-                            direction='column'
                             justifyContent='center'
-                            alignItems='center'
-                            spacing='2rem'
+                            gap='1.25rem'
+                            fontSize={{ base: '2xl', md: '6xl', sm: '4xl' }}
+                            sx={{
+                                '> .chakra-fade': {
+                                    textTransform: 'uppercase',
+                                    gridRow: 1,
+                                    gridColumn: 1,
+                                    alignSelf: 'end',
+                                    width: 'max-content',
+                                    margin: '0 auto'
+                                },
+                                '> .chakra-slide-fade': {
+                                    alignSelf: 'start'
+                                }
+                            }}
                         >
-                            <Grid
-                                textAlign='center'
-                                sx={{
-                                    '> *': {
-                                        fontSize: options.fontSize,
-                                        textTransform: 'uppercase',
-                                        transition: 'all 3s',
-                                        gridRow: 1,
-                                        gridColumn: 1
-                                    }
-                                }}
-                            >
-                                <Fade in={!transition}>
-                                    <Typewriter
-                                        as='h1'
-                                        backgroundColor='primary'
-                                        color='textInverted'
-                                        onAnimationEnd={onAnimationEnd}
-                                    >
-                                        Hey! I&apos;m Victor
-                                    </Typewriter>
-                                </Fade>
-                                <Fade in={transition}>
-                                    <Text
-                                        as='h1'
-                                        fontFamily='heading'
-                                        color='textInverted'
-                                    >
-                                        Hey! I&apos;m Victor
-                                    </Text>
-                                </Fade>
-                            </Grid>
+                            <Fade in={!transition}>
+                                <Typewriter
+                                    as='h1'
+                                    backgroundColor='primary'
+                                    color='textInverted'
+                                    onAnimationEnd={onAnimationEnd}
+                                >
+                                    Hey! I&apos;m Victor
+                                </Typewriter>
+                            </Fade>
+                            <Fade in={transition}>
+                                <Text
+                                    as='h1'
+                                    fontFamily='heading'
+                                    color='textInverted'
+                                >
+                                    Hey! I&apos;m Victor
+                                </Text>
+                            </Fade>
                             <SlideFade in={transition}>
-                                <Text fontSize='2xl' color='textInverted'>
+                                <Text fontSize='0.75em' color='textInverted'>
                                     Web developer and Machine Learning
                                     enthusiast
                                 </Text>
                             </SlideFade>
-                        </Stack>
+                        </Grid>
                     </Portal>
                 )}
                 <Text

@@ -93,7 +93,10 @@ const Contact: React.FC = () => {
                         method='POST'
                         action='/api/email'
                     >
-                        <Stack direction='row' marginBottom='0.5rem'>
+                        <Stack
+                            direction={{ base: 'column', md: 'row' }}
+                            marginBottom='0.5rem'
+                        >
                             <FormControl isRequired>
                                 <FormLabel>Name</FormLabel>
                                 <Input name='name' placeholder='' />

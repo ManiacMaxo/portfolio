@@ -23,7 +23,6 @@ const Portfolio: React.FC<Props> = ({ articles }) => {
                                 key={article.id}
                                 width={{
                                     base: '100%',
-                                    sm: '45%',
                                     md: '45%',
                                     lg: '30%'
                                 }}

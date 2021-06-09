@@ -41,7 +41,12 @@ const Form: React.FC<Props> = (props) => {
                 )}
                 {props.children}
                 <Center>
-                    <Button type='submit' bg='primary' color='white'>
+                    <Button
+                        type='submit'
+                        bg='primary'
+                        color='white'
+                        paddingInline='1.5rem'
+                    >
                         Submit
                     </Button>
                 </Center>
