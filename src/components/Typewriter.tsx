@@ -1,4 +1,4 @@
-import { Heading } from '@chakra-ui/layout'
+import { Text } from '@chakra-ui/layout'
 import { HeadingProps, keyframes } from '@chakra-ui/react'
 import React from 'react'
 
@@ -33,7 +33,7 @@ const Typewriter: React.FC<HeadingProps & Props> = (props) => {
     const blinkAnim = `${blink} 750ms ${animationTimingFunction} infinite`
 
     return (
-        <Heading
+        <Text
             fontFamily='monospace'
             position='relative'
             width='max-content'
@@ -49,9 +49,10 @@ const Typewriter: React.FC<HeadingProps & Props> = (props) => {
                 animation: `${typewriterAnim}, ${blinkAnim}`
             }}
             {...props}
+            background='transparent'
         >
             {props.children}
-        </Heading>
+        </Text>
     )
 }
 
