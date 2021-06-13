@@ -36,3 +36,7 @@ yarn-error.log*
 
 # sanity
 /public/studio/
+
+# PWA
+/public/sw.js
+/public/workbox*.js

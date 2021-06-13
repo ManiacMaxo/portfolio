@@ -8,6 +8,16 @@ class Document extends NextDocument {
             <Html lang='en'>
                 <Head>
                     <meta charSet='utf-8' />
+                    <link rel='manifest' href='/manifest.json' />
+                    <meta name='theme-color' content='#a8d0e6' />
+                    <link
+                        rel='apple-touch-icon'
+                        href='/images/icons/logo-96x96.png'
+                    />
+                    <meta
+                        name='apple-mobile-web-app-status-bar'
+                        content='#a8d0e6'
+                    />
                 </Head>
                 <body>
                     <ColorModeScript
