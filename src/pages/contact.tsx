@@ -8,14 +8,48 @@ import {
     Heading,
     Stack,
     Textarea,
+    useToast,
     Wrap
 } from '@chakra-ui/react'
+import axios from 'axios'
 import React from 'react'
 import { Breadcrumb, Form, Hero, Input } from '../components'
 import { Route } from '../lib'
 import { addresses } from '../lib/constants'
 
 const Contact: React.FC = () => {
+    const toast = useToast()
+
+    const callback = async (event) => {
+        try {
+            const res = await axios.post('/api/email', {
+                name: event.target[0].value,
+                email: event.target[1].value,
+                subject: event.target[2].value,
+                content: event.target[3].value
+            })
+
+            toast({
+                position: 'top-right',
+                title: 'Great!',
+                description: res.data.message,
+                status: 'success',
+                duration: 5000,
+                isClosable: true
+            })
+        } catch (error) {
+            toast({
+                position: 'top-right',
+                title: 'Error',
+                description: error.response.data.error,
+                status: 'error',
+                duration: 5000,
+                isClosable: true
+            })
+            return
+        }
+    }
+
     return (
         <Stack d='column' spacing='3rem' marginBottom='1rem'>
             <Hero bg='secondary.dark'>
@@ -88,11 +122,7 @@ const Contact: React.FC = () => {
             </section>
             <section>
                 <Container>
-                    <Form
-                        heading='Get in touch'
-                        method='POST'
-                        action='/api/email'
-                    >
+                    <Form heading='Get in touch' callback={callback}>
                         <Stack
                             direction={{ base: 'column', md: 'row' }}
                             marginBottom='0.5rem'

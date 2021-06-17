@@ -36,7 +36,7 @@ const theme = extendTheme({
     sizes: { headerHeight, footerHeight },
     fonts: {
         body: `'Noah', sans-serif`,
-        heading: `'Archia', sans-serif`,
+        heading: `'Work Sans', sans-serif`,
         secondary: `'Playfair Display', serif`,
         monospace: `'Source Code Pro', monospace`
     }

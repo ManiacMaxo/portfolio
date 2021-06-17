@@ -1,56 +1,52 @@
 import {
-    Box,
     Button,
-    Center,
     ChakraProps,
     Container,
     Heading,
-    useToast
+    Stack
 } from '@chakra-ui/react'
 import React, { FormEvent } from 'react'
 
 interface Props extends ChakraProps {
     heading?: any
-    action?: string
-    method?: string
-    encType?: string
+    callback?: (event: FormEvent) => void
 }
 
 const Form: React.FC<Props> = (props) => {
-    const toast = useToast()
     const onSubmit = (event: FormEvent) => {
         event.preventDefault()
-
-        toast({
-            position: 'top-right',
-            title: 'Error',
-            description: 'Feature is not implemented',
-            status: 'error',
-            duration: 5000,
-            isClosable: true
-        })
+        props.callback(event)
     }
 
     return (
         <Container maxWidth='700px'>
-            <Box as='form' {...props} onSubmit={onSubmit}>
+            <Stack
+                as='form'
+                {...props}
+                onSubmit={onSubmit}
+                spacing='1.5'
+                alignItems='center'
+            >
                 {props.heading && (
-                    <Heading textAlign='center' marginBottom='1rem'>
+                    <Heading
+                        fontWeight='black'
+                        marginBottom='1rem'
+                        letterSpacing='0.125em'
+                        fontSize='4xl'
+                    >
                         {props.heading}
                     </Heading>
                 )}
-                {props.children}
-                <Center>
-                    <Button
-                        type='submit'
-                        bg='primary'
-                        color='white'
-                        paddingInline='1.5rem'
-                    >
-                        Submit
-                    </Button>
-                </Center>
-            </Box>
+                <div>{props.children}</div>
+                <Button
+                    type='submit'
+                    bg='primary'
+                    color='white'
+                    paddingInline='1.5rem'
+                >
+                    Submit
+                </Button>
+            </Stack>
         </Container>
     )
 }

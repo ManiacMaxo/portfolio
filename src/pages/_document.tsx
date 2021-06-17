@@ -1,6 +1,5 @@
 import { ColorModeScript } from '@chakra-ui/react'
 import NextDocument, { Head, Html, Main, NextScript } from 'next/document'
-import theme from '../theme'
 
 class Document extends NextDocument {
     render(): JSX.Element {
@@ -18,11 +17,13 @@ class Document extends NextDocument {
                         name='apple-mobile-web-app-status-bar'
                         content='#a8d0e6'
                     />
+                    <link
+                        href='https://fonts.googleapis.com/css2?family=Playfair+Display&family=Source+Code+Pro:wght@400;700&family=Work+Sans:wght@400;700;800;900&display=swap'
+                        rel='stylesheet'
+                    />
                 </Head>
                 <body>
-                    <ColorModeScript
-                        initialColorMode={theme.config.initialColorMode}
-                    />
+                    <ColorModeScript />
                     <Main />
                     <NextScript />
                 </body>

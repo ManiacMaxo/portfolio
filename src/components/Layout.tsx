@@ -6,6 +6,7 @@ import { Header } from './Header/Header'
 interface Props {
     title?: string
     description?: string
+    image?: string
 }
 
 const Layout: React.FC<Props> = (props): JSX.Element => {
@@ -22,7 +23,9 @@ const Layout: React.FC<Props> = (props): JSX.Element => {
                 <meta property='og:type' content='website' />
                 <meta property='og:title' content={props.title} />
                 <meta property='og:description' content={props.description} />
-                {/* <meta property='og:image' content='' /> */}
+                {props.image && (
+                    <meta property='og:image' content={props.image} />
+                )}
 
                 <meta name='twitter:card' content='summary_large_image' />
                 <meta
@@ -35,17 +38,19 @@ const Layout: React.FC<Props> = (props): JSX.Element => {
                 />
                 <meta name='twitter:title' content={props.title} />
                 <meta name='twitter:description' content={props.description} />
-                {/* <meta name='twitter:image' content='' /> */}
+                {props.image && (
+                    <meta name='twitter:image' content={props.image} />
+                )}
             </Head>
             <Header />
-            <main>{props.children}</main>
+            <main id='main-content'>{props.children}</main>
             <Footer />
         </>
     )
 }
 
 Layout.defaultProps = {
-    title: "Victor Gorchilov - Student & Web Developer's portfolio",
+    title: 'Victor Gorchilov - Student & Web Developer',
     description:
         "I'm just a student trying to make the most out of my computer. I create brilliant digital experiences in a treacherous world."
 }
