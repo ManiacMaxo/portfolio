@@ -1,4 +1,3 @@
-import { ColorModeScript } from '@chakra-ui/react'
 import NextDocument, { Head, Html, Main, NextScript } from 'next/document'
 
 class Document extends NextDocument {
@@ -17,13 +16,13 @@ class Document extends NextDocument {
                         name='apple-mobile-web-app-status-bar'
                         content='#a8d0e6'
                     />
+                    <link rel='preconnect' href='https://fonts.gstatic.com' />
                     <link
-                        href='https://fonts.googleapis.com/css2?family=Playfair+Display&family=Source+Code+Pro:wght@400;700&family=Work+Sans:wght@400;700;800;900&display=swap'
+                        href='https://fonts.googleapis.com/css2?family=Exo+2:wght@800&family=Prompt:wght@200;300;400;700&display=swap'
                         rel='stylesheet'
                     />
                 </Head>
                 <body>
-                    <ColorModeScript />
                     <Main />
                     <NextScript />
                 </body>

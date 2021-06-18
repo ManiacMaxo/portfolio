@@ -1,0 +1,23 @@
+html,
+body,
+#__next {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    border-width: 0;
+    border-style: solid;
+    box-sizing: border-box;
+    word-wrap: break-word;
+}
+
+a {
+    background-color: transparent;
+    color: inherit;
+    -webkit-text-decoration: inherit;
+    text-decoration: inherit;
+}

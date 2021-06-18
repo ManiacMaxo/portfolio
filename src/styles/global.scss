@@ -1,0 +1,26 @@
+@use 'reset';
+@use 'components';
+@use 'variables';
+
+::selection {
+    color: var(--colors-background);
+    background-color: var(--colors-contast);
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+#__next {
+    color: var(--colors-text);
+    background-color: #331026;
+}
+
+body {
+    font-family: 'Prompt', sans-serif;
+    font-variant-ligatures: common-ligatures;
+}
+
+.title {
+    font-family: 'Exo 2', sans-serif;
+}

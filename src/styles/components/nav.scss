@@ -1,0 +1,103 @@
+@import '../const';
+
+$size: 1.5em;
+$thickness: 2px;
+$radius: 5px;
+
+.nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;
+
+    width: 90%;
+    padding-top: 3.75rem;
+    margin-inline: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: var(--zIndex-navbar);
+}
+
+.burger-btn {
+    position: relative;
+    width: $size;
+    height: $size;
+
+    &.active {
+        .burger-btn-open span {
+            transform: translateX(150%);
+            opacity: 0;
+            &:nth-child(2) {
+                transform: translateX(-150%);
+            }
+        }
+        .burger-btn-close {
+            &::before {
+                opacity: 1;
+                transform: rotate(45deg) translate(0);
+            }
+            &::after {
+                opacity: 1;
+                transform: rotate(-45deg) translate(0);
+            }
+        }
+    }
+
+    .burger-btn-open,
+    .burger-btn-close {
+        width: $size;
+        height: $size;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .burger-btn-open {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        span {
+            height: $thickness;
+            width: $size;
+            background-color: currentColor;
+            border-radius: $radius;
+            transition: all 0.15s linear;
+        }
+    }
+
+    .burger-btn-close {
+        &::before,
+        &::after {
+            opacity: 0;
+            content: '';
+            position: absolute;
+            height: $thickness;
+            width: 100%;
+            top: 50%;
+            left: 0;
+            background: currentColor;
+            border-radius: $radius;
+            transition: all 0.1s linear 25ms;
+        }
+
+        &::before {
+            transform: rotate(45deg) translate(-100%);
+        }
+        &::after {
+            transform: rotate(-45deg) translate(100%, -100%);
+        }
+    }
+}
+
+@media screen and (max-width: $sizes-mobile) {
+    .nav-bar {
+        padding-top: 2.75rem;
+    }
+}
