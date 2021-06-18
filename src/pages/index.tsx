@@ -1,13 +1,8 @@
 import React from 'react'
-import { Nav } from '../components'
+import { Layout } from '../components'
 
 const Index: React.FC = () => {
-    return (
-        <>
-            <Nav />
-            <main></main>
-        </>
-    )
+    return <Layout>hello world</Layout>
 }
 
 export default Index

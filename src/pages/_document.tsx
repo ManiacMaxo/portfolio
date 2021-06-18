@@ -2,6 +2,9 @@ import NextDocument, { Head, Html, Main, NextScript } from 'next/document'
 
 class Document extends NextDocument {
     render(): JSX.Element {
+        const titleFont = 'Kanit:wght@400;700;900'
+        const bodyFont = 'Prompt:wght@200;300;400;700'
+
         return (
             <Html lang='en'>
                 <Head>
@@ -16,9 +19,8 @@ class Document extends NextDocument {
                         name='apple-mobile-web-app-status-bar'
                         content='#a8d0e6'
                     />
-                    <link rel='preconnect' href='https://fonts.gstatic.com' />
                     <link
-                        href='https://fonts.googleapis.com/css2?family=Exo+2:wght@800&family=Prompt:wght@200;300;400;700&display=swap'
+                        href={`https://fonts.googleapis.com/css2?family=${titleFont}&family=${bodyFont}&display=swap`}
                         rel='stylesheet'
                     />
                 </Head>

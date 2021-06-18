@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
 import React from 'react'
 import { socials } from '../lib/constants'
