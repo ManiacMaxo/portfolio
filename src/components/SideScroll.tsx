@@ -1,57 +1,27 @@
-import React, { useEffect } from 'react'
 import { gsap } from 'gsap'
+import React, { useEffect } from 'react'
 
-interface Props {
-    ease?: number
-}
+interface Props {}
 
 const SideScroll: React.FC<Props> = (props) => {
-    const options = {
-        target: '.scroll-wrapper',
-        ease: props.ease,
-        x: 0,
-        endX: 0,
-        resizeRequest: 1,
-        scrollRequest: 0
-    }
-
-    let requestId: number = null
-
-    const onScroll = () => {
-        options.scrollRequest++
-
-        console.log('scroll')
-
-        if (!requestId) requestId = requestAnimationFrame(updateScroller)
-    }
-
-    const updateScroller = () => {
-        const scroll = window.pageYOffset || document.body.scrollTop || 0
-
-        console.log(scroll)
-
-        options.endX = scroll
-        options.x += (scroll - options.x) * options.ease
-
-        gsap.set(options.target, { x: -options.x })
-
-        requestId =
-            options.scrollRequest > 0 ? requestAnimationFrame(onScroll) : null
-    }
-
-    const onResize = () => {}
+    const numChildren = React.Children.count(props.children)
+    const width = (numChildren - 1) * 100
 
     useEffect(() => {
-        document.addEventListener('scroll', onScroll)
-        window.addEventListener('resize', onResize)
+        document.querySelector('main').style.height = `${width + 100}vw`
 
-        return () => {
-            document.removeEventListener('scroll', onScroll)
-            window.removeEventListener('resize', onResize)
-        }
+        gsap.to('.scroll-wrapper', {
+            x: `-${width}vw`,
+            scrollTrigger: {
+                trigger: 'main',
+                start: 0,
+                end: 'bottom bottom',
+                scrub: true
+            }
+        })
     }, [])
 
-    return <main className='scroll-wrapper'>{props.children}</main>
+    return <div className='scroll-wrapper'>{props.children}</div>
 }
 
 SideScroll.defaultProps = {

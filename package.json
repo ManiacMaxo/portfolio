@@ -7,21 +7,31 @@
   "private": true,
   "scripts": {
     "build": "next build",
+    "build:sanity": "cd studio && sanity build ../public/studio -y && cd ..",
     "dev": "next",
-    "start": "next start"
+    "start": "next start",
+    "start:sanity": "cp .env ./studio/.env.development && cd studio && sanity start"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "classnames": "^2.3.1",
     "gsap": "^3.7.0",
     "next": "^11.0.0",
+    "next-sanity": "^0.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "sass": "^1.35.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.5",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.14.5",
     "@types/node": "^15.12.3",
     "@types/react": "^17.0.11",
     "@types/react-dom": "^17.0.8",
+    "prettier": "^2.3.1",
+    "sanity-codegen": "^0.9.3",
     "typescript": "^4.3.4"
   }
 }

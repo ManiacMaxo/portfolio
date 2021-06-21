@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { gsap } from 'gsap'
 
 interface Props {
     start?: number
@@ -6,31 +7,16 @@ interface Props {
 }
 
 const ScrollProgress: React.FC<Props> = (props) => {
-    let height = 0
-
-    const onScroll = () => {
-        const scrollY = window.pageYOffset || document.body.scrollTop || 0
-        const scroll = (scrollY / height) * 100
-
-        gsap.to('.progress-child', { width: `${scroll}%` })
-    }
-
     useEffect(() => {
-        document.addEventListener('scroll', onScroll)
-
-        const { body, documentElement } = document
-
-        height = Math.max(
-            body.scrollHeight,
-            body.offsetHeight,
-            documentElement.clientHeight,
-            documentElement.scrollHeight,
-            documentElement.offsetHeight
-        )
-
-        return () => {
-            document.removeEventListener('scroll', onScroll)
-        }
+        gsap.to('.progress-child', {
+            width: '100%',
+            scrollTrigger: {
+                trigger: 'main',
+                start: 0,
+                end: 'bottom bottom',
+                scrub: true
+            }
+        })
     }, [])
 
     return (
@@ -40,7 +26,7 @@ const ScrollProgress: React.FC<Props> = (props) => {
                 {props.start < 10 && '0' + props.start}
             </div>
             <div className='progress-end'>
-                {props.end < 10 && '0' + props.end}
+                {props.end.toString().padStart(1, '0')}
             </div>
         </div>
     )

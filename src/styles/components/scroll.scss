@@ -3,11 +3,10 @@
     top: 0;
     bottom: auto;
     display: flex;
-    width: 300vw;
 
     .project {
         position: relative;
-        width: 100%;
+        width: 100vw;
         height: 100vh;
 
         display: flex;
@@ -19,6 +18,8 @@
         .title {
             font-size: 6rem;
             line-height: 0.9;
+
+            max-width: min(75vw, 700px);
         }
     }
 }

@@ -6,7 +6,9 @@ export default {
         {
             name: 'title',
             title: 'Title',
-            type: 'string'
+            type: 'string',
+            codegen: { required: true },
+            validation: (Rule) => Rule.required()
         },
         {
             name: 'slug',
@@ -15,7 +17,9 @@ export default {
             options: {
                 source: 'title',
                 mathLength: 96
-            }
+            },
+            codegen: { required: true },
+            validation: (Rule) => Rule.required()
         },
         {
             name: 'link',
@@ -28,7 +32,9 @@ export default {
             type: 'image',
             options: {
                 hotspot: true
-            }
+            },
+            codegen: { required: true },
+            validation: (Rule) => Rule.required()
         },
         {
             name: 'images',
@@ -37,20 +43,11 @@ export default {
             of: [{ type: 'image' }]
         },
         {
-            name: 'tags',
-            title: 'Tags',
-            type: 'array',
-            of: [{ type: 'reference', to: { type: 'category' } }]
-        },
-        {
-            name: 'description',
-            title: 'Short description',
-            type: 'string'
-        },
-        {
             name: 'body',
             title: 'Body',
-            type: 'blockContent'
+            type: 'blockContent',
+            codegen: { required: true },
+            validation: (Rule) => Rule.required()
         }
     ],
     preview: {
