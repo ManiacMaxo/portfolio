@@ -1,3 +1,5 @@
+@import '../const';
+
 .scroll-wrapper {
     position: fixed;
     top: 0;
@@ -16,10 +18,16 @@
         text-align: center;
 
         .title {
-            font-size: 6rem;
+            font-size: 4rem;
             line-height: 0.9;
 
             max-width: min(75vw, 700px);
         }
+    }
+}
+
+@media screen and (max-width: $sizes-mobile) {
+    .scroll-wrapper .project .title {
+        font-size: 1.5rem;
     }
 }

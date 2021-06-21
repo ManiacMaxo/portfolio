@@ -1,6 +1,8 @@
+@use 'fonts';
 @use 'reset';
 @use 'components';
 @use 'variables';
+@use 'FourOhFour';
 
 ::selection {
     color: var(--colors-background);
@@ -11,12 +13,17 @@
     width: 0px;
 }
 
+html,
+body,
 #__next {
     color: var(--colors-text);
     background-color: var(--colors-background);
+    font-family: var(--fonts-body);
+    font-variant-ligatures: common-ligatures;
 }
 
-body {
-    font-family: 'Prompt', sans-serif;
-    font-variant-ligatures: common-ligatures;
+.container {
+    max-width: var(--sizes-desktop);
+    width: min(100%, 90vw);
+    margin-inline: auto;
 }

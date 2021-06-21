@@ -1,0 +1,37 @@
+@keyframes underline {
+    0% {
+        left: 0;
+        width: 100%;
+    }
+    50% {
+        left: 100%;
+        width: 0;
+    }
+    51% {
+        left: 0;
+        width: 0;
+    }
+    to {
+        left: 0;
+        width: 100%;
+    }
+}
+
+.underlined {
+    position: relative;
+
+    &::after {
+        background: currentColor;
+        bottom: 0;
+        content: '';
+        height: 1px;
+        left: 0;
+        position: absolute;
+        width: 100%;
+    }
+    &:hover::after {
+        animation-duration: 0.8s;
+        animation-name: underline;
+        animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+    }
+}

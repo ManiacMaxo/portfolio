@@ -1,7 +1,6 @@
 .title {
-    font-family: 'Archivo Black', sans-serif;
+    font-family: var(--fonts-title);
     letter-spacing: 0.02em;
-    // font-weight: 900;
-    font-size: 4rem;
+    font-size: 3rem;
     text-transform: uppercase;
 }

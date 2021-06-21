@@ -49,6 +49,7 @@ const Menu: React.FC<Props> = () => {
                                     href={social.href}
                                     rel='noreferrer noopener'
                                     target='_blank'
+                                    className='underlined'
                                 >
                                     {social.name}
                                 </a>

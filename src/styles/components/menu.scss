@@ -11,16 +11,8 @@ $content-padding: 10%;
     z-index: var(--zIndex-overlay);
 
     width: 0;
-    // opacity: 0;
 
     background-color: rgba(0, 0, 0, 0.7);
-
-    // transition: all 0.4s ease-in-out;
-
-    // &.active {
-    //     width: 100%;
-    //     opacity: 1;
-    // }
 }
 
 .menu-content {
@@ -52,7 +44,7 @@ $content-padding: 10%;
 }
 
 .menu-link {
-    font-size: 3.5rem;
+    font-size: 2rem;
 
     &:hover {
         color: white;
@@ -79,12 +71,6 @@ $content-padding: 10%;
 
     overflow-x: hidden;
     white-space: nowrap;
-
-    a {
-        &:hover {
-            text-decoration: underline;
-        }
-    }
 }
 
 @media screen and (max-width: $sizes-mobile) {
