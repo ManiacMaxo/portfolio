@@ -18,7 +18,7 @@ const Nav: React.FC = () => {
         <>
             <Menu isOpen={isOpen} />
             <nav className='nav-bar'>
-                <div className='logo'>
+                <div className={classNames('logo', { white: isOpen })}>
                     {pathname === '/' ? (
                         'Victor Gorchilov'
                     ) : (

@@ -22,6 +22,14 @@ $radius: 5px;
     z-index: var(--zIndex-navbar);
 }
 
+.logo {
+    transition: color 0.4s linear;
+
+    &.white {
+        color: white;
+    }
+}
+
 .burger-btn {
     position: relative;
 
@@ -31,6 +39,8 @@ $radius: 5px;
     cursor: pointer;
 
     &.active {
+        color: white;
+
         .burger-btn-open span {
             transform: translateX(150%);
             opacity: 0;

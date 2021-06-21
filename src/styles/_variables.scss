@@ -1,14 +1,25 @@
+@import 'const';
+
 :root {
     --zIndex-overlay: 900;
     --zIndex-navbar: 905;
-    --colors-text: white;
-    --colors-background: black;
     --colors-contrast: #a1dddd;
+    --colors-contrast-transparent: #a1dddd8e;
 
-    --sizes-mobile: 786px;
-    --sizes-tablet: 900px;
-    --sizes-desktop: 1350px;
+    --sizes-mobile: $sizes-mobile;
+    --sizes-tablet: $sizes-tablet;
+    --sizes-desktop: $sizes-desktop;
 
     --fonts-body: 'Prompt', sans-serif;
     --fonts-title: 'ChaneyExtended', sans-serif;
+}
+
+body.dark {
+    --colors-text: white;
+    --colors-background: black;
+}
+
+body.light {
+    --colors-text: black;
+    --colors-background: white;
 }
