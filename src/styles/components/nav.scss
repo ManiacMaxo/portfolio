@@ -24,8 +24,11 @@ $radius: 5px;
 
 .burger-btn {
     position: relative;
+
     width: $size;
     height: $size;
+
+    cursor: pointer;
 
     &.active {
         .burger-btn-open span {

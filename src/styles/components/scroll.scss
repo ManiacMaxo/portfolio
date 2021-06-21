@@ -1,0 +1,24 @@
+.scroll-wrapper {
+    position: fixed;
+    top: 0;
+    bottom: auto;
+    display: flex;
+    width: 300vw;
+
+    .project {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+
+        .title {
+            font-size: 6rem;
+            line-height: 0.9;
+        }
+    }
+}

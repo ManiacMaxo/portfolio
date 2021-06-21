@@ -1,0 +1,41 @@
+.progress-parent {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+
+    transform: translate(-50%, 0);
+
+    height: 2px;
+    width: 70px;
+
+    background-color: #474747;
+
+    user-select: none;
+
+    font-family: 'Helvetica neue Regular', sans-serif;
+}
+
+.progress-child {
+    height: 100%;
+
+    background-color: var(--colors-contrast);
+}
+
+.progress-start,
+.progress-end {
+    position: absolute;
+    display: inline-block;
+    font-size: 11px;
+    top: 2px;
+    bottom: auto;
+}
+
+.progress-start {
+    left: 0;
+    right: auto;
+}
+
+.progress-end {
+    left: auto;
+    right: 0;
+}

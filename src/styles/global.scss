@@ -13,15 +13,10 @@
 
 #__next {
     color: var(--colors-text);
-    background-color: #331026;
+    background-color: var(--colors-background);
 }
 
 body {
     font-family: 'Prompt', sans-serif;
     font-variant-ligatures: common-ligatures;
-}
-
-.title {
-    font-family: 'Kanit', sans-serif;
-    letter-spacing: 0.02em;
 }

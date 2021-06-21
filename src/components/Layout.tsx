@@ -43,7 +43,7 @@ const Layout: React.FC<Props> = (props) => {
             </Head>
 
             <Nav />
-            <main>{props.children}</main>
+            {props.children}
         </>
     )
 }

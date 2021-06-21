@@ -2,7 +2,8 @@ import NextDocument, { Head, Html, Main, NextScript } from 'next/document'
 
 class Document extends NextDocument {
     render(): JSX.Element {
-        const titleFont = 'Kanit:wght@400;700;900'
+        // const titleFont = 'Kanit:wght@400;700;900'
+        const titleFont = 'Archivo+Black'
         const bodyFont = 'Prompt:wght@200;300;400;700'
 
         return (

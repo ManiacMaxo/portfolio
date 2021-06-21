@@ -1,6 +1,6 @@
-import classNames from 'classnames'
+import { gsap } from 'gsap'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { socials } from '../lib/constants'
 
 interface Props {
@@ -23,11 +23,16 @@ const Menu: React.FC<Props> = (props) => {
         }
     ]
 
+    // useEffect(() => {
+    //     gsap.to('.menu-overlay', { width: props.isOpen ? 0 : '100%' })
+    // }, [props.isOpen])
+
     return (
         <div
-            className={classNames('menu-overlay', {
-                active: props.isOpen
-            })}
+            // className={classNames('menu-overlay', {
+            //     active: props.isOpen
+            // })}
+            className='menu-overlay'
         >
             <div className='menu-content'>
                 <ul className='menu-list'>
@@ -46,7 +51,7 @@ const Menu: React.FC<Props> = (props) => {
                         {socials.map((social, idx) => (
                             <>
                                 <a
-                                    key={social.name}
+                                    key={idx}
                                     href={social.href}
                                     rel='noopener'
                                     target='_blank'
