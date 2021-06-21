@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { Menu } from './Menu'
 
-const Nav: React.FC = (props) => {
+const Nav: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false)
     const { pathname } = useRouter()
 

@@ -1,13 +1,12 @@
-import { gsap } from 'gsap'
 import Link from 'next/link'
-import React, { useEffect } from 'react'
+import React from 'react'
 import { socials } from '../lib/constants'
 
 interface Props {
     isOpen: boolean
 }
 
-const Menu: React.FC<Props> = (props) => {
+const Menu: React.FC<Props> = () => {
     const links = [
         {
             name: 'About',
@@ -15,7 +14,7 @@ const Menu: React.FC<Props> = (props) => {
         },
         {
             name: 'Projects',
-            href: '#'
+            href: '/'
         },
         {
             name: 'Contact',
@@ -28,12 +27,7 @@ const Menu: React.FC<Props> = (props) => {
     // }, [props.isOpen])
 
     return (
-        <div
-            // className={classNames('menu-overlay', {
-            //     active: props.isOpen
-            // })}
-            className='menu-overlay'
-        >
+        <div className='menu-overlay'>
             <div className='menu-content'>
                 <ul className='menu-list'>
                     {links.map((link) => (
@@ -51,14 +45,14 @@ const Menu: React.FC<Props> = (props) => {
                         {socials.map((social, idx) => (
                             <>
                                 <a
-                                    key={idx}
+                                    key={social.name}
                                     href={social.href}
-                                    rel='noopener'
+                                    rel='noreferrer noopener'
                                     target='_blank'
                                 >
                                     {social.name}
                                 </a>
-                                {idx !== socials.length - 1 && ' — '}
+                                {idx !== socials.length - 1 && ' / '}
                             </>
                         ))}
                     </div>

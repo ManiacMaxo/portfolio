@@ -1,9 +1,7 @@
 import { gsap } from 'gsap'
 import React, { useEffect } from 'react'
 
-interface Props {}
-
-const SideScroll: React.FC<Props> = (props) => {
+const SideScroll: React.FC = (props) => {
     const numChildren = React.Children.count(props.children)
     const width = (numChildren - 1) * 100
 

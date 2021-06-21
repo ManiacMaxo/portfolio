@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { createClient } from 'sanity-codegen'
 import { sanityConfig } from './config'
 import { Documents } from './types'
@@ -16,5 +15,5 @@ export const previewClient = createClient<Documents>({
     fetch: fetch
 })
 
-export const getClient = (preview: boolean) =>
+export const getClient = (preview: boolean): any =>
     preview ? previewClient : sanityClient
