@@ -1,0 +1,54 @@
+@import '../const';
+
+.hero {
+    .title {
+        font-size: 1.5rem;
+    }
+}
+
+.project-summary {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    gap: 2rem;
+
+    h3.title {
+        font-size: inherit;
+        margin-bottom: 0.5rem;
+    }
+}
+
+.project-info {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            width: max-content;
+        }
+    }
+}
+
+.project-tags {
+    color: $color-sub-dim;
+}
+
+@media screen and (min-width: $sizes-mobile) {
+    .project-summary {
+        flex-direction: row;
+        gap: 4.5rem;
+    }
+
+    .project-info {
+        flex-direction: column;
+    }
+
+    .hero .title {
+        font-size: 3rem;
+    }
+}

@@ -7,7 +7,7 @@ export default {
             name: 'title',
             title: 'Title',
             type: 'string',
-            codegen: { required: true },
+
             validation: (Rule) => Rule.required()
         },
         {
@@ -18,7 +18,7 @@ export default {
                 source: 'title',
                 mathLength: 96
             },
-            codegen: { required: true },
+
             validation: (Rule) =>
                 Rule.required().custom((slug) => {
                     if (slug.includes(' '))
@@ -32,7 +32,7 @@ export default {
             name: 'start',
             title: 'Start date',
             type: 'date',
-            codegen: { required: true },
+
             validation: (Rule) => Rule.required()
         },
         {
@@ -47,20 +47,22 @@ export default {
             validation: (Rule) => Rule.min(0).max(10)
         },
         {
-            name: 'link',
-            title: 'Git link',
-            type: 'string',
-            validation: (Rule) =>
-                Rule.custom((link) => {
-                    if (typeof link === 'undefined') return true
-
-                    const re =
-                        /^(?:https?:\/\/)?(?:[\w]+\.)(?:\.?[\w]{2,})[^\s]+$/
-
-                    return re.test(link)
-                        ? true
-                        : 'Git link must be a valid http link'
-                })
+            name: 'links',
+            title: 'Links',
+            type: 'array',
+            of: [
+                {
+                    type: 'object',
+                    fields: [
+                        {
+                            name: 'href',
+                            title: 'URL',
+                            type: 'url'
+                        },
+                        { name: 'name', title: 'Name', type: 'string' }
+                    ]
+                }
+            ]
         },
         {
             name: 'mainImage',
@@ -69,7 +71,7 @@ export default {
             options: {
                 hotspot: true
             },
-            codegen: { required: true },
+
             validation: (Rule) => Rule.required()
         },
         {
@@ -82,7 +84,7 @@ export default {
             name: 'body',
             title: 'Body',
             type: 'blockContent',
-            codegen: { required: true },
+
             validation: (Rule) => Rule.required()
         },
         {

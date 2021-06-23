@@ -19,3 +19,9 @@
     color: #000000cc;
     text-align: right;
 }
+
+.article-link {
+    &::after {
+        content: '';
+    }
+}
