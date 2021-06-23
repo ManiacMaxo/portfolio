@@ -2,7 +2,8 @@
 
 .hero {
     width: 100%;
-    padding-block: 6rem 2rem;
+    padding-top: 10rem;
+    padding-bottom: 3rem;
     background-color: transparent;
 
     &-content {
@@ -43,6 +44,9 @@
 }
 
 @media screen and (max-width: $sizes-mobile) {
+    .hero {
+        padding-top: 5rem;
+    }
     .hero .container {
         flex-direction: column;
     }

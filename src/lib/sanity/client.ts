@@ -15,5 +15,5 @@ export const previewClient = createClient<Documents>({
     fetch: fetch
 })
 
-export const getClient = (preview: boolean): any =>
+export const getClient = (preview: boolean): typeof sanityClient =>
     preview ? previewClient : sanityClient

@@ -1,12 +1,13 @@
 const projectFields = `
-  "id": _id,
+  _id,
   title,
-  mainImage,
   slug,
+  mainImage
+
 `
 
 export const indexQuery = `
-*[_type == "project"] | order(_updatedAt desc) {
+*[_type == "project"] | order(score desc) {
   ${projectFields}
 }`
 

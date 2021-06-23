@@ -4,3 +4,18 @@
     font-size: 3rem;
     text-transform: uppercase;
 }
+
+.justify {
+    text-align: justify;
+}
+
+.about-main {
+    font-size: clamp(1rem, 1.5vw, 2rem);
+}
+
+.about-sub {
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: #000000cc;
+    text-align: right;
+}

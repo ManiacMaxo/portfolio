@@ -6,9 +6,9 @@
     --colors-contrast: #a1dddd;
     --colors-contrast-transparent: #a1dddd8e;
 
-    --sizes-mobile: $sizes-mobile;
-    --sizes-tablet: $sizes-tablet;
-    --sizes-desktop: $sizes-desktop;
+    --sizes-mobile: #{$sizes-mobile};
+    --sizes-tablet: #{$sizes-tablet};
+    --sizes-desktop: #{$sizes-desktop};
 
     --fonts-body: 'Prompt', sans-serif;
     --fonts-title: 'ChaneyExtended', sans-serif;
