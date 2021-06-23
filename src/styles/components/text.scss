@@ -21,7 +21,29 @@
 }
 
 .article-link {
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+    padding-inline: 3px;
+
     &::after {
         content: '';
+        z-index: -1;
+
+        position: absolute;
+        bottom: 10%;
+        left: 0;
+        right: 0;
+
+        background-color: var(--colors-contrast-transparent);
+        height: 20%;
+
+        transition: height 0.25s ease-in-out;
+    }
+
+    &:hover {
+        &::after {
+            height: 90%;
+        }
     }
 }

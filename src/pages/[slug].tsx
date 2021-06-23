@@ -1,9 +1,8 @@
+import BlockContent from '@sanity/block-content-to-react'
 import { GetStaticPropsContext } from 'next'
 import React from 'react'
-import { Layout } from '../components'
+import { ExternalLink, InternalLink, Layout } from '../components'
 import { getClient, indexQuery, projectBySlugQuery, urlForImage } from '../lib'
-import BlockContent from '@sanity/block-content-to-react'
-import Link from 'next/link'
 
 interface Props {
     title: string
@@ -15,68 +14,26 @@ interface Props {
     tags: string[]
 }
 
-const DOMLink = ({ children, mark }) => {
-    return (
-        <a
-            className='article-link'
-            href={mark.href}
-            {...(mark.blank
-                ? {
-                      target: '_blank',
-                      rel: 'noopener noreferrer'
-                  }
-                : null)}
-        >
-            {children}
-        </a>
-    )
-}
-
-const InternalLink = ({ children, mark }) => {
-    return (
-        <Link href={`/${mark.slug}`}>
-            <a className='article-link'>{children}</a>
-        </Link>
-    )
-}
-
-const serializers = {
-    marks: {
-        link: DOMLink,
-        internalLink: InternalLink
-    }
-}
-
 const Project: React.FC<Props> = (props) => {
-    const dateFormat = new Intl.DateTimeFormat('en-US', {
-        month: 'long',
-        year: 'numeric'
-    })
-
-    const start = dateFormat.format(new Date(props.start))
-
-    const end =
-        props.end === 'ongoing'
-            ? 'ongoing'
-            : dateFormat.format(new Date(props.end))
-
     return (
         <Layout>
             <main>
                 <div className='hero container'>
                     <h1 className='title'>{props.title}</h1>
                     <span>
-                        {start} - {end}
+                        {props.start} - {props.end}
                     </span>
                 </div>
                 <section className='project-summary container'>
                     <div className='project-info'>
-                        <ul className='project-tags'>
-                            <h3 className='title'>Tags</h3>
-                            {props.tags.map((tag: string) => (
-                                <li key={tag}>{tag}</li>
-                            ))}
-                        </ul>
+                        {props.tags?.length > 0 && (
+                            <ul className='project-tags'>
+                                <h3 className='title'>Tags</h3>
+                                {props.tags.map((tag: string) => (
+                                    <li key={tag}>{tag}</li>
+                                ))}
+                            </ul>
+                        )}
                         {props.links?.length > 0 && (
                             <ul className='project-links'>
                                 <h3 className='title'>Links</h3>
@@ -100,7 +57,12 @@ const Project: React.FC<Props> = (props) => {
                         <h3 className='title'>About</h3>
                         <BlockContent
                             blocks={props.body}
-                            serializers={serializers}
+                            serializers={{
+                                marks: {
+                                    link: ExternalLink,
+                                    internalLink: InternalLink
+                                }
+                            }}
                         />
                     </div>
                 </section>
@@ -110,11 +72,14 @@ const Project: React.FC<Props> = (props) => {
 }
 
 export const getStaticPaths = async (): Promise<any> => {
-    const paths = await getClient(false).fetch(indexQuery)
+    const res = await getClient(false).fetch(indexQuery)
+
+    const paths = res.map((path) => ({
+        params: path
+    }))
+
     return {
-        paths: paths.map((path) => ({
-            params: path
-        })),
+        paths,
         fallback: true
     }
 }
@@ -127,15 +92,17 @@ export const getStaticProps = async ({
         slug: params.slug
     })
 
+    const dateFormat = new Intl.DateTimeFormat('en-US', {
+        month: 'long',
+        year: 'numeric'
+    }).format
+
     return {
         props: {
-            title: project.title,
-            body: project.body,
+            ...project,
             imgUrl: urlForImage(project.mainImage).url(),
-            links: project.links,
-            start: project.start,
-            end: project.end ?? 'ongoing',
-            tags: project.tags
+            start: dateFormat(new Date(project.start)),
+            end: project.end ? dateFormat(new Date(project.end)) : 'ongoing'
         }
     }
 }
