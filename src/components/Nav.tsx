@@ -13,9 +13,7 @@ const Nav: React.FC<Props> = (props) => {
     const [isOpen, setIsOpen] = useState(false)
     const { pathname } = useRouter()
 
-    const onClick = () => {
-        setIsOpen((prev) => !prev)
-    }
+    const onClick = () => setIsOpen((prev) => !prev)
 
     return (
         <>
