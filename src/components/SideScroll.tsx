@@ -14,7 +14,7 @@ const SideScroll: React.FC = (props) => {
                 trigger: 'main',
                 start: 0,
                 end: 'bottom bottom',
-                scrub: true
+                scrub: 1
             }
         })
     }, [])

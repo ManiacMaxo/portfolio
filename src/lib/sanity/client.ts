@@ -1,19 +1,16 @@
-import { createClient } from 'sanity-codegen'
+import { SanityClient } from '@sanity/client'
+import { createClient } from 'next-sanity'
 import { sanityConfig } from './config'
-import { Documents } from './types'
 
-export const sanityClient = createClient<Documents>({
-    ...sanityConfig,
-    fetch: fetch
+export const sanityClient = createClient({
+    ...sanityConfig
 })
 
-export const previewClient = createClient<Documents>({
+export const previewClient = createClient({
     ...sanityConfig,
-    previewMode: true,
     useCdn: false,
-    token: process.env.SANITY_API_TOKEN,
-    fetch: fetch
+    token: process.env.SANITY_API_TOKEN
 })
 
-export const getClient = (preview: boolean): typeof sanityClient =>
+export const getClient = (preview: boolean): SanityClient =>
     preview ? previewClient : sanityClient

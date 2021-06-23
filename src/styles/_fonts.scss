@@ -1,5 +1,13 @@
 @font-face {
     font-family: 'ChaneyExtended';
+    src: url('../fonts/chaney/chaney-extended.otf');
+    src: url('../fonts/chaney/chaney-extended.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ChaneyUltraExtended';
     src: url('../fonts/chaney/chaney-ultraextended.eot');
     src: url('../fonts/chaney/chaney-ultraextended.eot?#iefix')
             format('embedded-opentype'),
@@ -13,6 +21,14 @@
 @font-face {
     font-family: 'Autographer';
     src: url('../fonts/autographer/AutographerRegular.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CallingCode';
+    src: url('../fonts/calling-code/CallingCode-Regular.otf');
+    src: url('../fonts/calling-code/CallingCode-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }

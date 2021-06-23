@@ -8,8 +8,9 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import blockContent from './blockContent'
 import category from './category'
 import project from './project'
+import award from './award'
 
 export default createSchema({
     name: 'default',
-    types: schemaTypes.concat([category, blockContent, project])
+    types: schemaTypes.concat([category, blockContent, project, award])
 })

@@ -5,7 +5,12 @@ import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { Menu } from './Menu'
 
-const Nav: React.FC = () => {
+interface Props {
+    dark?: boolean
+    light?: boolean
+}
+
+const Nav: React.FC<Props> = (props) => {
     const [isOpen, setIsOpen] = useState(false)
     const { pathname } = useRouter()
 
@@ -18,7 +23,11 @@ const Nav: React.FC = () => {
         <>
             <Menu isOpen={isOpen} />
             <nav className='nav-bar container'>
-                <div className={classNames('logo', { white: isOpen })}>
+                <div
+                    className={classNames('logo', {
+                        white: isOpen || props.light
+                    })}
+                >
                     {pathname === '/' ? (
                         'Victor Gorchilov'
                     ) : (

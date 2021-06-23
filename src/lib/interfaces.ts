@@ -6,3 +6,9 @@ export interface IProject {
     link?: string
     body?: string
 }
+
+export interface IAward {
+    _id: string
+    name: string
+    date: Date
+}

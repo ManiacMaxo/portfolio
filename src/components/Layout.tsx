@@ -6,6 +6,8 @@ interface Props {
     title?: string
     description?: string
     image?: string
+    dark?: boolean
+    light?: boolean
 }
 
 const Layout: React.FC<Props> = (props) => {
@@ -42,7 +44,7 @@ const Layout: React.FC<Props> = (props) => {
                 )}
             </Head>
 
-            <Nav />
+            <Nav {...props} />
             {props.children}
         </>
     )

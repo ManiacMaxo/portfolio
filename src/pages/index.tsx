@@ -34,7 +34,7 @@ const Index: React.FC<Props> = (props) => {
 export const getStaticProps = async ({
     preview = false
 }: GetStaticPropsContext): Promise<any> => {
-    const res = await getClient(preview).query(indexQuery)
+    const res = await getClient(preview).fetch(indexQuery)
 
     const projects: IProject[] = res.map((project: Project) => ({
         id: project._id,

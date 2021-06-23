@@ -1,6 +1,7 @@
 import { GetStaticPropsContext } from 'next'
 import React from 'react'
-import { getClient, urlForImage } from '../lib'
+import { Layout } from '../components'
+import { getClient, indexQuery, projectBySlugQuery, urlForImage } from '../lib'
 
 interface Props {
     title: string
@@ -8,15 +9,15 @@ interface Props {
     imgUrl: string
     link: string
     start: Date
-    end: Date | string
+    end: string
 }
 
-const Project: React.FC<Props> = (props) => {
+const Project: React.FC<Props> = (_props) => {
     return <Layout></Layout>
 }
 
 export const getStaticPaths = async (): Promise<any> => {
-    const paths = await getClient(false).getAll('project')
+    const paths = await getClient(false).fetch(indexQuery)
     return {
         paths: paths.map((path) => ({
             params: path
@@ -29,20 +30,23 @@ export const getStaticProps = async ({
     params,
     preview = false
 }: GetStaticPropsContext): Promise<any> => {
-    const article = (
-        await getClient(preview).getAll('project', `slug == ${params.slug}`)
-    )[0]
+    const articles = await getClient(preview).fetch(projectBySlugQuery, {
+        slug: params.slug
+    })
 
-    return {
-        props: {
-            title: article.title,
-            body: article.body,
-            imgUrl: urlForImage(article.mainImage).url(),
-            link: article.link,
-            start: article.start,
-            end: article.end ?? 'ongoing'
-        }
-    }
+    console.log(articles)
+
+    // return {
+    //     props: {
+    //         title: article.title,
+    //         body: article.body,
+    //         imgUrl: urlForImage(article.mainImage).url(),
+    //         link: article.link,
+    //         start: new Date(article.start),
+    //         end: article.end ?? 'ongoing'
+    //     }
+    // }
+    return { params }
 }
 
 export default Project

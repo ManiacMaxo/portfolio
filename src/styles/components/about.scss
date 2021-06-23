@@ -1,0 +1,139 @@
+@import '../const';
+$color-sub-dim: rgba(255, 255, 255, 0.75);
+
+.about-page {
+    background: conic-gradient(
+        from 180deg at 50% 50%,
+        var(--colors-contrast) -95.62deg,
+        #ffffff 22.5deg,
+        var(--colors-contrast) 264.38deg,
+        #ffffff 382.5deg
+    );
+    background-attachment: fixed;
+
+    .container {
+        min-height: 100vh;
+        padding-block: 100px 7.5vw;
+
+        display: grid;
+        align-items: center;
+
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr;
+    }
+}
+
+.about-header {
+    width: 50px;
+    display: none;
+
+    .title {
+        transform: rotateZ(90deg) translateY(220%);
+        font-size: 7rem;
+        text-align: right;
+        width: fit-content;
+        color: black;
+        text-transform: uppercase;
+    }
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    background-color: var(--colors-background);
+    padding: 15px;
+    justify-self: right;
+
+    counter-reset: section;
+
+    section {
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+        gap: 1rem;
+    }
+
+    header .title {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+.about-subtitle {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: $color-sub-dim;
+
+    span {
+        color: var(--colors-text);
+    }
+}
+
+.section-header {
+    position: relative;
+    font-size: 14px;
+    padding-bottom: 10px;
+    margin-bottom: 0.5rem;
+
+    &::before {
+        content: counter(section, decimal-leading-zero);
+        counter-increment: section;
+
+        font-family: var(--fonts-mono);
+
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    &::after {
+        content: '';
+
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        width: 100%;
+        height: 1px;
+
+        background: $color-sub-dim;
+    }
+}
+
+.about-awards {
+    .award {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .award-year {
+        color: $color-sub-dim;
+        font-family: var(--fonts-mono);
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .about-page {
+        .container {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    .about-content {
+        width: 330px;
+    }
+
+    .about-header {
+        display: block;
+    }
+}

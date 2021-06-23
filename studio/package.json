@@ -15,7 +15,7 @@
     "@sanity/core": "^2.12.0",
     "@sanity/default-layout": "^2.12.0",
     "@sanity/default-login": "^2.11.1",
-    "@sanity/desk-tool": "^2.12.0",
+    "@sanity/desk-tool": "^2.12.1",
     "@sanity/vision": "^2.11.2",
     "prop-types": "^15.6",
     "react": "^17.0.2",
