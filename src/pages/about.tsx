@@ -44,8 +44,9 @@ const About: React.FC<Props> = (props) => {
                                 intereseting projects.
                             </p>
                             <p>
-                                Victor is loves to do strength training and
-                                especially snowboard.
+                                Victor loves strength training, Esports and
+                                especially snowboarding. His passions allow him
+                                to recover from programming and studying.
                             </p>
                         </section>
                         <section>
