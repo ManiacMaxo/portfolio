@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import { gsap } from 'gsap'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
@@ -15,7 +14,6 @@ const Nav: React.FC<Props> = (props) => {
     const { pathname } = useRouter()
 
     const onClick = () => {
-        gsap.to('.menu-overlay', { width: isOpen ? 0 : '100%' })
         setIsOpen((prev) => !prev)
     }
 

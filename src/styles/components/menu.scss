@@ -44,8 +44,13 @@ $content-padding: 10%;
 }
 
 .menu-link {
-    font-size: 2rem;
     font-family: var(--fonts-title-wide);
+    overflow: hidden;
+
+    .title {
+        display: block;
+        font-size: 2rem;
+    }
 
     &:hover {
         color: white;

@@ -1,12 +1,13 @@
+import { gsap } from 'gsap'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { socials } from '../lib/constants'
 
 interface Props {
     isOpen: boolean
 }
 
-const Menu: React.FC<Props> = () => {
+const Menu: React.FC<Props> = (props) => {
     const links = [
         {
             name: 'About',
@@ -22,18 +23,32 @@ const Menu: React.FC<Props> = () => {
         }
     ]
 
-    // useEffect(() => {
-    //     gsap.to('.menu-overlay', { width: props.isOpen ? 0 : '100%' })
-    // }, [props.isOpen])
+    const tl = useRef(gsap.timeline({ paused: true }))
+
+    useEffect(() => {
+        tl.current
+            .to('.menu-overlay', { width: '100%' })
+            .from('.menu-link > .title', {
+                y: '100px'
+            })
+            .from('.menu-footer', {
+                x: '-100%'
+            })
+            .reverse()
+    }, [])
+
+    useEffect(() => {
+        tl.current.reversed(!props.isOpen)
+    }, [props.isOpen])
 
     return (
         <div className='menu-overlay'>
             <div className='menu-content'>
                 <ul className='menu-list'>
                     {links.map((link) => (
-                        <li key={link.name}>
+                        <li className='menu-link' key={link.name}>
                             <Link href={link.href}>
-                                <a className='menu-link title'>{link.name}</a>
+                                <a className='title'>{link.name}</a>
                             </Link>
                         </li>
                     ))}

@@ -12,7 +12,7 @@
 
     .container {
         min-height: 100vh;
-        padding-block: 100px 7.5vw;
+        padding-block: 100px min(7.5vw, 25px);
 
         display: grid;
         align-items: center;
@@ -27,11 +27,11 @@
     display: none;
 
     .title {
-        transform: rotateZ(90deg) translateY(220%);
+        transform: rotateZ(90deg) translateY(230px);
         font-size: 7rem;
         text-align: right;
         width: fit-content;
-        color: black;
+        color: var(--colors-background);
         text-transform: uppercase;
     }
 }
