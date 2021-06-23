@@ -1,5 +1,4 @@
 export * from './interfaces'
 export * from './sanity/client'
 export * from './sanity/queries'
-export * from './sanity/types'
 export * from './sanity/utils'
