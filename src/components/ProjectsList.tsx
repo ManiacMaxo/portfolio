@@ -52,6 +52,7 @@ const ProjectsList: React.FC<Props> = (props) => {
 
             <motion.div
                 className='projects-list-overlay'
+                initial='closed'
                 animate={isOpen ? 'open' : 'closed'}
                 variants={overlay}
             >

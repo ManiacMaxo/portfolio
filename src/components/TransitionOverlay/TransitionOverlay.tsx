@@ -6,11 +6,17 @@ interface Props {
     direction?: 'top' | 'left'
 }
 
-const TransitionOverlay: React.FC<Props> = (props) => {
+const TransitionOverlay: React.FC<Props> = () => {
+    const overlay = {
+        enter: {},
+        exit: {}
+    }
+
     return (
         <motion.div
             className={styles.overlay}
             initial={false}
+            variants={overlay}
             style={{ display: 'none' }}
         >
             <div className={styles.tile} />
