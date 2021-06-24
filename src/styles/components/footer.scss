@@ -1,0 +1,13 @@
+@import '../const';
+
+.global-footer {
+    position: fixed;
+    bottom: 9%;
+    right: 10%;
+}
+
+@media screen and (max-width: $sizes-mobile) {
+    .global-footer {
+        display: none;
+    }
+}

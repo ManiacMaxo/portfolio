@@ -1,10 +1,13 @@
 export interface IProject {
-    id: string
-    name: string
-    img: string
-    href: string
-    link?: string
-    body?: string
+    _id: string
+    title: string
+    slug: string
+    body: any
+    imgUrl: string
+    links: any[]
+    start: string
+    end: string
+    tags: string[]
 }
 
 export interface IAward {

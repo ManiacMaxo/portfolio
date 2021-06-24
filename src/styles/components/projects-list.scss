@@ -1,0 +1,93 @@
+.projects-list-overlay {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 200vh;
+
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+
+    z-index: var(--zIndex-transition-overlay);
+
+    padding: 4rem 2rem;
+}
+
+.projects-list-close {
+    $size: 3em;
+    $thickness: 3px;
+    $radius: 20%;
+
+    position: absolute;
+    left: 50%;
+    top: 2%;
+
+    transform: translateX(-50%);
+
+    width: $size;
+    height: $size;
+
+    cursor: pointer;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        height: $thickness;
+        width: 100%;
+        top: 50%;
+        left: 0;
+        background: white;
+        border-radius: $radius;
+    }
+
+    &::before {
+        transform: rotate(45deg);
+    }
+    &::after {
+        transform: rotate(-45deg);
+    }
+}
+
+.projects-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        width: max-content;
+    }
+}
+
+.project-image {
+    position: fixed;
+    top: 15%;
+    left: 50%;
+
+    background-size: cover;
+}
+
+.project-list-item {
+    display: block;
+    padding-block: 0.5em;
+
+    font-size: 2.5rem;
+    color: rgba(255, 255, 255, 0.3);
+
+    &::before {
+        content: attr(data-text);
+        width: 0;
+        color: var(--colors-text);
+        position: absolute;
+
+        overflow: hidden;
+        white-space: nowrap;
+
+        transition: width 1s cubic-bezier(0.84, 0, 0.08, 0.99);
+    }
+
+    &:hover::before {
+        width: 100%;
+    }
+}

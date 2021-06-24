@@ -1,7 +1,7 @@
 import { GetStaticPropsContext } from 'next'
 import Link from 'next/link'
 import React from 'react'
-import { Layout, ScrollProgress, SideScroll } from '../components'
+import { ProjectsList, Layout, ScrollProgress, SideScroll } from '../components'
 import { getClient, indexQuery, IProject, urlForImage } from '../lib'
 
 interface Props {
@@ -16,10 +16,10 @@ const Index: React.FC<Props> = (props) => {
             <main>
                 <SideScroll>
                     {props.projects.map((project) => (
-                        <div key={project.id} className='project'>
-                            <Link href={project.href}>
+                        <div key={project._id} className='project'>
+                            <Link href={`/${project.slug}`}>
                                 <a className='title bounce-stretch'>
-                                    {project.name}
+                                    {project.title}
                                 </a>
                             </Link>
                         </div>
@@ -27,6 +27,7 @@ const Index: React.FC<Props> = (props) => {
                 </SideScroll>
             </main>
             <ScrollProgress end={numProjects} />
+            <ProjectsList projects={props.projects} />
         </Layout>
     )
 }
@@ -37,10 +38,8 @@ export const getStaticProps = async ({
     const res = await getClient(preview).fetch(indexQuery)
 
     const projects: IProject[] = res.map((project) => ({
-        id: project._id,
-        name: project.title,
-        img: urlForImage(project.mainImage).url(),
-        href: `/${project.slug}`
+        ...project,
+        imgUrl: urlForImage(project.mainImage).url()
     }))
 
     return {

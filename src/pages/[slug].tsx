@@ -2,19 +2,15 @@ import BlockContent from '@sanity/block-content-to-react'
 import { GetStaticPropsContext } from 'next'
 import React from 'react'
 import { ExternalLink, InternalLink, Layout } from '../components'
-import { getClient, indexQuery, projectBySlugQuery, urlForImage } from '../lib'
+import {
+    getClient,
+    indexQuery,
+    IProject,
+    projectBySlugQuery,
+    urlForImage
+} from '../lib'
 
-interface Props {
-    title: string
-    body: any
-    imgUrl: string
-    links: any[]
-    start: string
-    end: string
-    tags: string[]
-}
-
-const Project: React.FC<Props> = (props) => {
+const Project: React.FC<IProject> = (props) => {
     return (
         <Layout>
             <main>
@@ -87,7 +83,7 @@ export const getStaticPaths = async (): Promise<any> => {
 export const getStaticProps = async ({
     params,
     preview = false
-}: GetStaticPropsContext): Promise<any> => {
+}: GetStaticPropsContext): Promise<{ props: IProject }> => {
     const project = await getClient(preview).fetch(projectBySlugQuery, {
         slug: params.slug
     })
