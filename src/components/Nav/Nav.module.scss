@@ -1,10 +1,10 @@
-@import '../const';
+@import '../../styles/const';
 
 $size: 1.5em;
 $thickness: 2px;
 $radius: 5px;
 
-.nav-bar {
+.root {
     position: fixed;
     top: 0;
     left: 0;
@@ -24,6 +24,8 @@ $radius: 5px;
 
 .logo {
     transition: color 0.4s linear;
+    text-transform: uppercase;
+    color: var(--colors-text);
 
     &.white {
         color: white;
@@ -41,14 +43,14 @@ $radius: 5px;
     &.active {
         color: white;
 
-        .burger-btn-open span {
+        .open span {
             transform: translateX(150%);
             opacity: 0;
             &:nth-child(2) {
                 transform: translateX(-150%);
             }
         }
-        .burger-btn-close {
+        .close {
             &::before {
                 opacity: 1;
                 transform: rotate(45deg) translate(0);
@@ -60,8 +62,8 @@ $radius: 5px;
         }
     }
 
-    .burger-btn-open,
-    .burger-btn-close {
+    .open,
+    .close {
         width: $size;
         height: $size;
 
@@ -71,7 +73,7 @@ $radius: 5px;
         transform: translate(-50%, -50%);
     }
 
-    .burger-btn-open {
+    .open {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -85,7 +87,7 @@ $radius: 5px;
         }
     }
 
-    .burger-btn-close {
+    .close {
         &::before,
         &::after {
             opacity: 0;

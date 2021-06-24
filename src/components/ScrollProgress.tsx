@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { gsap } from 'gsap'
+import { motion, useViewportScroll } from 'framer-motion'
+import React from 'react'
 
 interface Props {
     start?: number
@@ -7,26 +7,19 @@ interface Props {
 }
 
 const ScrollProgress: React.FC<Props> = (props) => {
-    useEffect(() => {
-        gsap.to('.progress-child', {
-            width: '100%',
-            scrollTrigger: {
-                trigger: 'main',
-                start: 0,
-                end: 'bottom bottom',
-                scrub: true
-            }
-        })
-    }, [])
+    const { scrollYProgress } = useViewportScroll()
 
     return (
         <div className='progress-parent'>
-            <div className='progress-child' />
+            <motion.div
+                className='progress-child'
+                style={{ width: `${scrollYProgress}%` }}
+            />
             <div className='progress-start'>
-                {props.start < 10 && '0' + props.start}
+                {props.start.toString().padStart(2, '0')}
             </div>
             <div className='progress-end'>
-                {props.end.toString().padStart(1, '0')}
+                {props.end.toString().padStart(2, '0')}
             </div>
         </div>
     )

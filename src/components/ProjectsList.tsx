@@ -1,6 +1,6 @@
-import { gsap } from 'gsap'
+import { motion, MotionConfig } from 'framer-motion'
 import Link from 'next/link'
-import React, { useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 import { IProject } from '../lib'
 
 interface Props {
@@ -8,63 +8,62 @@ interface Props {
 }
 
 const ProjectsList: React.FC<Props> = (props) => {
-    const tl = useRef(gsap.timeline({ ease: 'power4.inOut' }))
-    // const dateFormat = new Intl.DateTimeFormat('en-US', {
-    //     month: 'long',
-    //     year: 'numeric'
-    // }).format
+    const [isOpen, setIsOpen] = useState(false)
 
-    useEffect(() => {
-        tl.current.set('.projects-list-overlay', {
-            y: '100%'
-        })
-    }, [])
-
-    const openOverlay = () => {
-        tl.current
-            .fromTo(
-                '.projects-list-overlay',
-                {
-                    y: '100%'
-                },
-                {
-                    y: 0
-                }
-            )
-            .fromTo(
-                '.projects-list li',
-                {
-                    x: '-100vw'
-                },
-                {
-                    x: 0,
-                    stagger: -0.02
-                }
-            )
+    const overlay = {
+        open: {
+            y: '0',
+            transition: {
+                ease: 'linear',
+                when: 'beforeChildren',
+                delayChildren: 0.2
+            }
+        },
+        closed: {
+            y: '100vh',
+            transition: {
+                ease: 'linear',
+                when: 'afterChildren'
+            }
+        }
     }
-    const closeOverlay = () => {
-        tl.current.to('.projects-list-overlay', {
-            y: '100%',
-            duration: 1
-        })
+
+    const listItem = {
+        open: {
+            x: 0,
+            transition: {
+                staggerChildren: 0.02,
+                staggerDirection: -1
+            }
+        },
+        closed: {
+            x: '-100vw',
+            transition: {
+                staggerChildren: 0.02
+            }
+        }
     }
 
     return (
-        <>
-            <button className='global-footer' onClick={openOverlay}>
+        <MotionConfig transition={{ duration: 0.5 }}>
+            <button className='global-footer' onClick={() => setIsOpen(true)}>
                 All projects
             </button>
 
-            <div className='projects-list-overlay'>
+            <motion.div
+                className='projects-list-overlay'
+                animate={isOpen ? 'open' : 'closed'}
+                variants={overlay}
+            >
                 <button
-                    onClick={closeOverlay}
+                    onClick={() => setIsOpen(false)}
                     className='projects-list-close'
                     aria-label='close'
                 />
                 <div className='project-image' />
                 <ul className='projects-list'>
                     {props.projects.map((project) => (
-                        <li key={project._id}>
+                        <motion.li key={project._id} variants={listItem}>
                             <Link href={'/' + project.slug}>
                                 <a
                                     className='project-list-item title'
@@ -73,11 +72,11 @@ const ProjectsList: React.FC<Props> = (props) => {
                                     {project.title}
                                 </a>
                             </Link>
-                        </li>
+                        </motion.li>
                     ))}
                 </ul>
-            </div>
-        </>
+            </motion.div>
+        </MotionConfig>
     )
 }
 

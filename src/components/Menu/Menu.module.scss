@@ -1,8 +1,8 @@
-@import '../const';
+@import '../../styles/const';
 
 $content-padding: 10%;
 
-.menu-overlay {
+.overlay {
     position: fixed;
     left: 0;
     top: 0;
@@ -15,7 +15,7 @@ $content-padding: 10%;
     background-color: rgba(0, 0, 0, 0.7);
 }
 
-.menu-content {
+.content {
     width: 50%;
     height: 100%;
 
@@ -29,7 +29,7 @@ $content-padding: 10%;
     background-color: black;
 }
 
-.menu-list {
+.list {
     list-style: none;
     width: 100%;
 
@@ -43,13 +43,14 @@ $content-padding: 10%;
     }
 }
 
-.menu-link {
+.link {
     font-family: var(--fonts-title-wide);
     overflow: hidden;
 
-    .title {
+    a {
         display: block;
         font-size: 2rem;
+        cursor: pointer;
     }
 
     &:hover {
@@ -60,7 +61,7 @@ $content-padding: 10%;
     }
 }
 
-.menu-footer {
+.footer {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -71,7 +72,7 @@ $content-padding: 10%;
     }
 }
 
-.menu-social-links {
+.social-links {
     font-size: 13px;
     margin-block: 0.4em 0.7em;
 
@@ -80,7 +81,7 @@ $content-padding: 10%;
 }
 
 @media screen and (max-width: $sizes-mobile) {
-    .menu-content {
+    .content {
         width: 100%;
     }
 }

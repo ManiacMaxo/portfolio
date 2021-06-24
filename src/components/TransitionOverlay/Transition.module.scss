@@ -1,4 +1,4 @@
-.transition-overlay {
+.overlay {
     z-index: var(--zIndex-transition-overlay);
     position: fixed;
     top: 0;
@@ -8,10 +8,10 @@
 
     display: flex;
     pointer-events: none;
+}
 
-    .tile {
-        background: var(--colors-contrast);
-        width: 100%;
-        height: 100%;
-    }
+.tile {
+    background: var(--colors-contrast);
+    width: 100%;
+    height: 100%;
 }

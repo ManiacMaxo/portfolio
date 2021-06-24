@@ -76,7 +76,7 @@ export const getStaticPaths = async (): Promise<any> => {
 
     return {
         paths,
-        fallback: true
+        fallback: false
     }
 }
 

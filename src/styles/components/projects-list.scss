@@ -1,3 +1,5 @@
+@import '../const';
+
 .projects-list-overlay {
     position: fixed;
     left: 0;
@@ -9,9 +11,11 @@
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
 
+    transform: translateY(100%);
+
     z-index: var(--zIndex-transition-overlay);
 
-    padding: 4rem 2rem;
+    padding: 7rem 2rem;
 }
 
 .projects-list-close {
@@ -27,6 +31,7 @@
 
     width: $size;
     height: $size;
+    aspect-ratio: 1;
 
     cursor: pointer;
 
@@ -69,10 +74,11 @@
 }
 
 .project-list-item {
+    position: relative;
     display: block;
     padding-block: 0.5em;
 
-    font-size: 2.5rem;
+    font-size: min(2.5rem, 4vw);
     color: rgba(255, 255, 255, 0.3);
 
     &::before {
