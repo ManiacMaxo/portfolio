@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import React from 'react'
 import { Nav } from './Nav'
-import { TransitionOverlay } from './TransitionOverlay'
 
 interface Props {
     title?: string
@@ -47,7 +46,6 @@ const Layout: React.FC<Props> = (props) => {
 
             <Nav {...props} />
             {props.children}
-            <TransitionOverlay direction='left' />
         </>
     )
 }

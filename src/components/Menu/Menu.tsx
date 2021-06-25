@@ -1,4 +1,4 @@
-import { motion, MotionConfig } from 'framer-motion'
+import { motion, MotionConfig, Variants } from 'framer-motion'
 import Link from 'next/link'
 import React from 'react'
 import { socials } from '../../lib/constants'
@@ -20,7 +20,7 @@ const Menu: React.FC = () => {
         }
     ]
 
-    const overlay = {
+    const overlay: Variants = {
         open: {
             width: '100%',
             transition: {
@@ -37,7 +37,7 @@ const Menu: React.FC = () => {
         }
     }
 
-    const linkVariant = {
+    const linkVariant: Variants = {
         open: {
             y: '0'
         },
@@ -49,7 +49,7 @@ const Menu: React.FC = () => {
         }
     }
 
-    const footer = {
+    const footer: Variants = {
         open: {
             x: '0',
             transition: {

@@ -1,4 +1,4 @@
-import { motion, MotionConfig } from 'framer-motion'
+import { motion, MotionConfig, Variants } from 'framer-motion'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { IProject } from '../lib'
@@ -10,7 +10,7 @@ interface Props {
 const ProjectsList: React.FC<Props> = (props) => {
     const [isOpen, setIsOpen] = useState(false)
 
-    const overlay = {
+    const overlay: Variants = {
         open: {
             y: '0',
             transition: {
@@ -28,7 +28,7 @@ const ProjectsList: React.FC<Props> = (props) => {
         }
     }
 
-    const listItem = {
+    const listItem: Variants = {
         open: {
             x: 0,
             transition: {
