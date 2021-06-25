@@ -2,6 +2,7 @@ import { GetStaticPropsContext } from 'next'
 import React from 'react'
 import { Layout } from '../components'
 import { awardsQuery, getClient, IAward } from '../lib'
+import styles from '../styles/pages/About.module.scss'
 
 interface Props {
     awards: Array<IAward>
@@ -17,12 +18,12 @@ const About: React.FC<Props> = (props) => {
 
     return (
         <Layout title='About | Victor Gorchilov' light>
-            <main className='about-page'>
-                <div className='container'>
-                    <div className='about-content'>
+            <main className={styles.root}>
+                <div className={`${styles.wrapper} container`}>
+                    <div className={styles.content}>
                         <header>
                             <h1 className='title'>Victor Gorchilov</h1>
-                            <span className='about-subtitle'>
+                            <span className={styles.subtitle}>
                                 <span>Web Development</span> (interface design
                                 and human interaction),{' '}
                                 <span>Deep Learning</span> (mimicing the human
@@ -30,7 +31,9 @@ const About: React.FC<Props> = (props) => {
                             </span>
                         </header>
                         <section>
-                            <h2 className='section-header title'>About</h2>
+                            <h2 className={`${styles['section-header']} title`}>
+                                About
+                            </h2>
                             <p>
                                 Victor is a student, actively learning{' '}
                                 <strong>UI</strong> and <strong>UX</strong> as
@@ -50,8 +53,10 @@ const About: React.FC<Props> = (props) => {
                             </p>
                         </section>
                         <section>
-                            <h2 className='section-header title'>Fields</h2>
-                            <ul className='about-fields'>
+                            <h2 className={`${styles['section-header']} title`}>
+                                Fields
+                            </h2>
+                            <ul>
                                 <li>UI/UX</li>
                                 <li>Backend</li>
                                 <li>Deep Learning</li>
@@ -60,14 +65,17 @@ const About: React.FC<Props> = (props) => {
                             </ul>
                         </section>
                         <section>
-                            <h2 className='section-header title'>Awards</h2>
-                            <ul className='about-awards'>
+                            <h2 className={`${styles['section-header']} title`}>
+                                Awards
+                            </h2>
+                            <ul className={styles.awards}>
                                 {awards.map((award) => (
-                                    <li key={award._id} className='award'>
-                                        <span className='award-name'>
-                                            {award.name}
-                                        </span>
-                                        <span className='award-year'>
+                                    <li
+                                        key={award._id}
+                                        className={styles.award}
+                                    >
+                                        <span>{award.name}</span>
+                                        <span className={styles['award-year']}>
                                             {award.date.getFullYear()}
                                         </span>
                                     </li>
@@ -76,7 +84,7 @@ const About: React.FC<Props> = (props) => {
                         </section>
                     </div>
 
-                    <div className='about-header'>
+                    <div className={styles.header}>
                         <h1 className='title'>About</h1>
                     </div>
                 </div>

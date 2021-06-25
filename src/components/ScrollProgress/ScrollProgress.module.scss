@@ -1,4 +1,4 @@
-.progress-parent {
+.wrapper {
     position: fixed;
     bottom: 10%;
     left: 50%;
@@ -15,15 +15,15 @@
     font-family: 'Helvetica neue Regular', sans-serif;
 }
 
-.progress-child {
+.bar {
     width: 0;
     height: 100%;
 
-    background-color: var(--colors-contrast);
+    background-color: var(--colors-primary);
 }
 
-.progress-start,
-.progress-end {
+.start,
+.end {
     position: absolute;
     display: inline-block;
     font-size: 11px;
@@ -31,12 +31,12 @@
     bottom: auto;
 }
 
-.progress-start {
+.start {
     left: 0;
     right: auto;
 }
 
-.progress-end {
+.end {
     left: auto;
     right: 0;
 }

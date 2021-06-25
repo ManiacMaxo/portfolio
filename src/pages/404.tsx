@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-import styles from '../styles/FourOhFour.module.scss'
+import styles from '../styles/pages/FourOhFour.module.scss'
 import classNames from 'classnames'
 
 const FourOhFour: React.FC = () => {

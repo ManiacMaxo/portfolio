@@ -9,6 +9,7 @@ import {
     projectBySlugQuery,
     urlForImage
 } from '../lib'
+import styles from '../styles/pages/Project.module.scss'
 
 const Project: React.FC<IProject> = (props) => {
     return (
@@ -20,10 +21,10 @@ const Project: React.FC<IProject> = (props) => {
                         {props.start} - {props.end}
                     </span>
                 </div>
-                <section className='project-summary container'>
-                    <div className='project-info'>
+                <section className={`${styles.summary} container`}>
+                    <div className={styles.info}>
                         {props.tags?.length > 0 && (
-                            <ul className='project-tags'>
+                            <ul className={styles.tags}>
                                 <h3 className='title'>Tags</h3>
                                 {props.tags.map((tag: string) => (
                                     <li key={tag}>{tag}</li>
@@ -31,7 +32,7 @@ const Project: React.FC<IProject> = (props) => {
                             </ul>
                         )}
                         {props.links?.length > 0 && (
-                            <ul className='project-links'>
+                            <ul className={styles.links}>
                                 <h3 className='title'>Links</h3>
 
                                 {props.links.map((link) => (
@@ -49,7 +50,7 @@ const Project: React.FC<IProject> = (props) => {
                             </ul>
                         )}
                     </div>
-                    <div className='project-about'>
+                    <div className={styles.about}>
                         <h3 className='title'>About</h3>
                         <BlockContent
                             blocks={props.body}

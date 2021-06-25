@@ -4,11 +4,7 @@ import React from 'react'
 import { socials } from '../../lib/constants'
 import styles from './Menu.module.scss'
 
-interface Props {
-    isOpen: boolean
-}
-
-const Menu: React.FC<Props> = (props) => {
+const Menu: React.FC = () => {
     const links = [
         {
             name: 'About',
@@ -67,7 +63,6 @@ const Menu: React.FC<Props> = (props) => {
         <MotionConfig transition={{ duration: 0.5 }}>
             <motion.div
                 className={styles.overlay}
-                animate={props.isOpen ? 'open' : 'closed'}
                 variants={overlay}
                 transition={{
                     default: {

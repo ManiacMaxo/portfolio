@@ -4,8 +4,8 @@
     --zIndex-overlay: 900;
     --zIndex-navbar: 905;
     --zIndex-transition-overlay: 910;
-    --colors-contrast: #a1dddd;
-    --colors-contrast-transparent: #a1dddd8e;
+    --colors-primary: #a1dddd;
+    --colors-primary-transparent: #a1dddd8e;
 
     --sizes-mobile: #{$sizes-mobile};
     --sizes-tablet: #{$sizes-tablet};
@@ -17,12 +17,12 @@
     --fonts-mono: 'CallingCode', monospace;
 }
 
-body.dark {
+.dark {
     --colors-text: white;
     --colors-background: #0c0c0c;
 }
 
-body.light {
+.light {
     --colors-text: black;
     --colors-background: white;
 }

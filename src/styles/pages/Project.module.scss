@@ -1,24 +1,18 @@
 @import '../const';
 
-.hero {
-    .title {
-        font-size: 1.5rem;
-    }
-}
-
-.project-summary {
+.summary {
     display: flex;
     flex-direction: column;
     font-size: 14px;
     gap: 2rem;
 
-    h3.title {
+    h3 {
         font-size: inherit;
         margin-bottom: 0.5rem;
     }
 }
 
-.project-info {
+.info {
     display: flex;
     flex-direction: row;
     gap: 1rem;
@@ -34,21 +28,17 @@
     }
 }
 
-.project-tags li {
+.tags li {
     color: $color-sub-dim;
 }
 
 @media screen and (min-width: $sizes-mobile) {
-    .project-summary {
+    .summary {
         flex-direction: row;
         gap: 4.5rem;
     }
 
-    .project-info {
+    .info {
         flex-direction: column;
-    }
-
-    .hero .title {
-        font-size: 3rem;
     }
 }

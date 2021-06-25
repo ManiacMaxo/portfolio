@@ -1,32 +1,32 @@
 @import '../const';
 
-.about-page {
+.root {
     background: conic-gradient(
         from 180deg at 50% 50%,
-        var(--colors-contrast) -95.62deg,
+        var(--colors-primary) -95.62deg,
         #ffffff 22.5deg,
-        var(--colors-contrast) 264.38deg,
+        var(--colors-primary) 264.38deg,
         #ffffff 382.5deg
     );
     background-attachment: fixed;
-
-    .container {
-        min-height: 100vh;
-        padding-block: 100px min(7.5vw, 25px);
-
-        display: grid;
-        align-items: center;
-
-        grid-template-rows: 1fr;
-        grid-template-columns: 1fr;
-    }
 }
 
-.about-header {
+.wrapper {
+    min-height: 100vh;
+    padding-block: 100px min(7.5vw, 25px);
+
+    display: grid;
+    align-items: center;
+
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+}
+
+.header {
     width: 50px;
     display: none;
 
-    .title {
+    h1 {
         transform: rotateZ(90deg) translateY(230px);
         font-size: 7rem;
         text-align: right;
@@ -36,7 +36,7 @@
     }
 }
 
-.about-content {
+.content {
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -54,7 +54,7 @@
         gap: 1rem;
     }
 
-    header .title {
+    header h1 {
         font-size: 2rem;
         margin-bottom: 10px;
     }
@@ -66,7 +66,7 @@
     }
 }
 
-.about-subtitle {
+.subtitle {
     font-size: 12px;
     text-transform: uppercase;
     color: $color-sub-dim;
@@ -107,7 +107,7 @@
     }
 }
 
-.about-awards {
+.awards {
     .award {
         display: flex;
         justify-content: space-between;
@@ -122,17 +122,15 @@
 }
 
 @media screen and (min-width: 600px) {
-    .about-page {
-        .container {
-            grid-template-columns: 1fr 1fr;
-        }
+    .wrapper {
+        grid-template-columns: 1fr 1fr;
     }
 
-    .about-content {
+    .content {
         width: 330px;
     }
 
-    .about-header {
+    .header {
         display: block;
     }
 }
