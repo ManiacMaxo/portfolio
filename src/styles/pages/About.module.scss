@@ -3,9 +3,9 @@
 .root {
     background: conic-gradient(
         from 180deg at 50% 50%,
-        var(--colors-primary) -95.62deg,
+        var(--colors-accent-300) -95.62deg,
         #ffffff 22.5deg,
-        var(--colors-primary) 264.38deg,
+        var(--colors-accent-300) 264.38deg,
         #ffffff 382.5deg
     );
     background-attachment: fixed;
@@ -31,7 +31,7 @@
         font-size: 7rem;
         text-align: right;
         width: fit-content;
-        color: var(--colors-background);
+        color: var(--colors-primary);
         text-transform: uppercase;
     }
 }
@@ -41,7 +41,7 @@
     flex-direction: column;
     gap: 2rem;
 
-    background-color: var(--colors-background);
+    background-color: var(--colors-primary);
     padding: 15px;
     justify-self: right;
 
@@ -72,7 +72,7 @@
     color: $color-sub-dim;
 
     span {
-        color: var(--colors-text);
+        color: var(--colors-secondary);
     }
 }
 

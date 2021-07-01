@@ -1,0 +1,23 @@
+@use 'sass:color';
+@use 'sass:map';
+
+@function hsl-to-rgb($color) {
+    @return rgb(red($color), green($color), blue($color));
+}
+
+@mixin color-shades($color, $name) {
+    $hsl-list: 95% 50, 85% 100, 75% 200, 65% 300, 55% 400, 45% 500, 35% 600,
+        25% 700, 15% 800, 5% 900;
+
+    $hsl-color: (
+        'hue': hue($color),
+        'saturation': saturation($color)
+    );
+
+    @each $lightness, $stage in $hsl-list {
+        $c: map.set($hsl-color, 'lightness', $lightness);
+        --colors-#{$name}-#{$stage}: #{hsl($c...)};
+    }
+
+    --colors-#{$name}-transparent: #{color.change($color, $alpha: 0.8)};
+}

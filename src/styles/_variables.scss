@@ -1,11 +1,12 @@
 @import 'const';
+@import 'mixins';
 
 :root {
     --zIndex-overlay: 900;
     --zIndex-navbar: 905;
     --zIndex-transition-overlay: 910;
-    --colors-primary: #a1dddd;
-    --colors-primary-transparent: #a1dddd8e;
+
+    @include color-shades(#a1dddd, accent);
 
     --sizes-mobile: #{$sizes-mobile};
     --sizes-tablet: #{$sizes-tablet};
@@ -18,11 +19,11 @@
 }
 
 .dark {
-    --colors-text: white;
-    --colors-background: #0c0c0c;
+    --colors-primary: #0c0c0c;
+    --colors-secondary: #f5f5f5;
 }
 
 .light {
-    --colors-text: black;
-    --colors-background: white;
+    --colors-primary: #f5f5f5;
+    --colors-secondary: #0c0c0c;
 }

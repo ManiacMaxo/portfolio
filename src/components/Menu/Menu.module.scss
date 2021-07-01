@@ -16,6 +16,8 @@ $content-padding: 10%;
 }
 
 .content {
+    padding-left: auto;
+
     width: 50%;
     height: 100%;
 
@@ -25,7 +27,7 @@ $content-padding: 10%;
     align-items: center;
 
     transition-delay: 0.1s;
-    color: white;
+    color: var(--colors-text);
     background-color: black;
 }
 
@@ -54,10 +56,10 @@ $content-padding: 10%;
     }
 
     &:hover {
-        color: white;
+        color: var(--colors-text);
         -webkit-text-fill-color: rgba(255, 255, 255, 0);
         -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: #fff;
+        -webkit-text-stroke-color: var(--colors-text);
     }
 }
 
@@ -65,10 +67,10 @@ $content-padding: 10%;
     position: absolute;
     bottom: 0;
     left: 0;
-    padding: 0 0 $content-padding $content-padding;
+    padding: 0 0 10vh $content-padding;
 
     span {
-        color: var(--colors-primary);
+        color: var(--colors-accent-300);
     }
 }
 

@@ -4,8 +4,8 @@
 @use 'variables';
 
 ::selection {
-    color: var(--colors-background);
-    background-color: var(--colors-primary);
+    color: var(--colors-primary);
+    background-color: var(--colors-accent-300);
 }
 
 ::-webkit-scrollbar {
@@ -15,8 +15,8 @@
 html,
 body,
 #__next {
-    color: var(--colors-text);
-    background-color: var(--colors-background);
+    color: var(--colors-secondary);
+    background-color: var(--colors-primary);
     font-family: var(--fonts-body);
     font-variant-ligatures: common-ligatures;
 }

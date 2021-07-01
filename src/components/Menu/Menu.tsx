@@ -1,25 +1,10 @@
 import { motion, MotionConfig, Variants } from 'framer-motion'
 import Link from 'next/link'
 import React from 'react'
-import { socials } from '../../lib/constants'
+import { links, socials } from '../../lib/constants'
 import styles from './Menu.module.scss'
 
 const Menu: React.FC = () => {
-    const links = [
-        {
-            name: 'About',
-            href: '/about'
-        },
-        {
-            name: 'Projects',
-            href: '/'
-        },
-        {
-            name: 'Contact',
-            href: '#'
-        }
-    ]
-
     const overlay: Variants = {
         open: {
             width: '100%',

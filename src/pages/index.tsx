@@ -1,7 +1,6 @@
 import { GetStaticPropsContext } from 'next'
-import Link from 'next/link'
 import React from 'react'
-import { ProjectsList, Layout, ScrollProgress, SideScroll } from '../components'
+import { Button, Hero, Layout } from '../components'
 import { getClient, indexQuery, IProject, urlForImage } from '../lib'
 
 interface Props {
@@ -9,25 +8,27 @@ interface Props {
 }
 
 const Index: React.FC<Props> = (props) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const numProjects = props.projects.length
 
     return (
         <Layout>
-            <main>
-                <SideScroll>
-                    {props.projects.map((project) => (
-                        <div key={project._id} className='project'>
-                            <Link href={`/${project.slug}`}>
-                                <a className='title bounce-stretch'>
-                                    {project.title}
-                                </a>
-                            </Link>
-                        </div>
-                    ))}
-                </SideScroll>
-            </main>
-            <ScrollProgress end={numProjects} />
-            <ProjectsList projects={props.projects} />
+            <Hero
+                title='Building digital experiences'
+                subtitle='a Web Developer & Machine Learning enthusiast'
+            >
+                <div className='input-group'>
+                    <input
+                        type='email'
+                        className='input'
+                        placeholder='Email address'
+                    />
+                    <Button className='btn btn-accent'>Contact Me</Button>
+                </div>
+            </Hero>
+            <main></main>
+
+            {/* <ScrollProgress end={numProjects} /> */}
         </Layout>
     )
 }

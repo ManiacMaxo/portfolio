@@ -16,3 +16,18 @@ export const socials = [
         href: 'https://www.linkedin.com/in/victorgorchilov/'
     }
 ]
+
+export const links = [
+    {
+        name: 'About',
+        href: '/about'
+    },
+    {
+        name: 'Projects',
+        href: '/'
+    },
+    {
+        name: 'Contact',
+        href: '#'
+    }
+]

@@ -1,0 +1,52 @@
+@import '../../styles/const';
+
+.root {
+    height: 100vh;
+    // padding: 8rem 0 2rem;
+    display: flex;
+    justify-content: center;
+
+    & > div {
+        display: flex;
+        flex-direction: row;
+
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.image {
+    width: clamp(300px, 45vw, 650px);
+}
+
+.content {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+
+    max-width: 75ch;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+
+    .title {
+        font-size: clamp(1.5em, 5vw, 4.5em);
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .root > div {
+        flex-direction: column-reverse;
+    }
+
+    // .title {
+    //     font-size: 20px;
+    // }
+
+    .content {
+        text-align: center;
+        align-items: center;
+    }
+}

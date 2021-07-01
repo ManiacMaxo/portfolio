@@ -5,7 +5,7 @@ interface Props {
     toggle: () => void
 }
 
-const Path: React.FC<any> = (props) => {
+export const Path: React.FC<any> = (props) => {
     return (
         <motion.path
             fill='transparent'
@@ -19,7 +19,7 @@ const Path: React.FC<any> = (props) => {
 
 const BurgerButton: React.FC<Props> = (props) => {
     return (
-        <button onClick={props.toggle}>
+        <button onClick={props.toggle} aria-label='burger button'>
             <svg width='23' height='23' viewBox='0 0 23 23'>
                 <Path
                     variants={{
