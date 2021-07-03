@@ -18,10 +18,14 @@ $content-padding: max(calc((100vw - var(--sizes-desktop)) / 2), 7.5vw);
 .wrapper {
     width: 50vw;
     height: 100vh;
+
+    pointer-events: none;
 }
 
 .content {
     height: 100%;
+
+    pointer-events: all;
 
     overflow-x: hidden;
     position: relative;
