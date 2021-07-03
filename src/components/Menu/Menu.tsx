@@ -69,7 +69,11 @@ const Menu: React.FC = () => {
                 }}
             >
                 <div className={styles.wrapper}>
-                    <motion.div className={styles.content} variants={content}>
+                    <motion.div
+                        className={styles.content}
+                        variants={content}
+                        initial={{ width: 0 }}
+                    >
                         <ul className={styles.list}>
                             {links.map((link) => (
                                 <li key={link.name} className={styles.item}>
