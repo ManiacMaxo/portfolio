@@ -14,8 +14,18 @@
     }
 
     input {
-        width: 150px;
+        width: 100%;
         flex-grow: 1;
+    }
+
+    button {
+        min-height: 45px;
+    }
+}
+
+@media screen and (max-width: 330px) {
+    .input-group {
+        flex-direction: column;
     }
 }
 
@@ -27,4 +37,7 @@
     outline: 0;
     border: 0;
     border-radius: 3px;
+
+    background-color: var(--colors-secondary);
+    color: var(--colors-primary);
 }

@@ -1,15 +1,22 @@
+import { motion } from 'framer-motion'
 import { GetStaticPropsContext } from 'next'
 import React from 'react'
 import { Button, Hero, Layout } from '../components'
 import { getClient, indexQuery, IProject, urlForImage } from '../lib'
+import styles from '../styles/pages/Home.module.scss'
 
 interface Props {
     projects: IProject[]
 }
 
-const Index: React.FC<Props> = (props) => {
+const Home: React.FC<Props> = (props) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const numProjects = props.projects.length
+
+    const inputGroup = {
+        animate: { opacity: 1 },
+        initial: { opacity: 0 }
+    }
 
     return (
         <Layout>
@@ -17,16 +24,23 @@ const Index: React.FC<Props> = (props) => {
                 title='Building digital experiences'
                 subtitle='a Web Developer & Machine Learning enthusiast'
             >
-                <div className='input-group'>
+                <motion.div className='input-group' variants={inputGroup}>
                     <input
                         type='email'
                         className='input'
                         placeholder='Email address'
                     />
                     <Button className='btn btn-accent'>Contact Me</Button>
-                </div>
+                </motion.div>
             </Hero>
-            <main></main>
+            <main>
+                <div className={`${styles.technologies} light`}>
+                    <div className='container'>
+                        <h1 className='title'>My awesome skills</h1>
+                    </div>
+                </div>
+                <div className={`${styles.projects} container`}></div>
+            </main>
 
             {/* <ScrollProgress end={numProjects} /> */}
         </Layout>
@@ -51,4 +65,4 @@ export const getStaticProps = async ({
     }
 }
 
-export default Index
+export default Home

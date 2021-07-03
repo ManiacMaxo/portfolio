@@ -2,11 +2,10 @@
 
 .root {
     height: 100vh;
-    // padding: 8rem 0 2rem;
     display: flex;
     justify-content: center;
 
-    & > div {
+    & > :global(.container) {
         display: flex;
         flex-direction: row;
 
@@ -16,7 +15,8 @@
 }
 
 .image {
-    width: clamp(300px, 45vw, 650px);
+    width: clamp(200px, 35vw, 550px);
+    padding-left: 4vw;
 }
 
 .content {
@@ -36,17 +36,21 @@
     }
 }
 
+.animated-text > div {
+    display: inline-block;
+}
+
 @media screen and (max-width: 1000px) {
-    .root > div {
+    .root > :global(.container) {
         flex-direction: column-reverse;
     }
-
-    // .title {
-    //     font-size: 20px;
-    // }
 
     .content {
         text-align: center;
         align-items: center;
+    }
+
+    .image {
+        padding-left: 0;
     }
 }

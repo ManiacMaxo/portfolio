@@ -1,0 +1,10 @@
+.technologies {
+    padding: 5rem 0 4rem;
+
+    background-color: var(--colors-primary);
+    color: var(--colors-secondary);
+
+    & > :global(.container) {
+        display: flex;
+    }
+}

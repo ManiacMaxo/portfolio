@@ -2,11 +2,9 @@
 
 .root {
     background: conic-gradient(
-        from 180deg at 50% 50%,
-        var(--colors-accent-300) -95.62deg,
-        #ffffff 22.5deg,
-        var(--colors-accent-300) 264.38deg,
-        #ffffff 382.5deg
+        from 180deg at 50% 100%,
+        var(--colors-accent-400),
+        var(--colors-secondary)
     );
     background-attachment: fixed;
 }
@@ -18,7 +16,6 @@
     display: grid;
     align-items: center;
 
-    grid-template-rows: 1fr;
     grid-template-columns: 1fr;
 }
 

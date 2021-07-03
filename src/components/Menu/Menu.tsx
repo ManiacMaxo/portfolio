@@ -7,16 +7,29 @@ import styles from './Menu.module.scss'
 const Menu: React.FC = () => {
     const overlay: Variants = {
         open: {
+            width: '100%'
+        },
+        closed: {
+            width: 0,
+            transition: {
+                when: 'afterChildren'
+            }
+        }
+    }
+
+    const content: Variants = {
+        open: {
             width: '100%',
             transition: {
+                duration: 0.3,
                 when: 'beforeChildren',
-                duration: 0.5,
                 delayChildren: 0.2
             }
         },
         closed: {
-            width: '0',
+            width: 0,
             transition: {
+                duration: 0.3,
                 when: 'afterChildren'
             }
         }
@@ -24,7 +37,7 @@ const Menu: React.FC = () => {
 
     const linkVariant: Variants = {
         open: {
-            y: '0'
+            y: 0
         },
         closed: {
             y: '100px',
@@ -36,7 +49,7 @@ const Menu: React.FC = () => {
 
     const footer: Variants = {
         open: {
-            x: '0',
+            x: 0,
             transition: {
                 delay: 0.8
             }
@@ -55,41 +68,46 @@ const Menu: React.FC = () => {
                     }
                 }}
             >
-                <div className={styles.content}>
-                    <ul className={styles.list}>
-                        {links.map((link) => (
-                            <li key={link.name} className={styles.link}>
-                                <Link href={link.href}>
-                                    <motion.a
-                                        className='title'
-                                        variants={linkVariant}
-                                    >
-                                        {link.name}
-                                    </motion.a>
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-
-                    <motion.footer className={styles.footer} variants={footer}>
-                        <span>Socials</span>
-                        <div className={styles['social-links']}>
-                            {socials.map((social, idx) => (
-                                <>
-                                    <a
-                                        key={social.name}
-                                        href={social.href}
-                                        rel='noreferrer noopener'
-                                        target='_blank'
-                                        className='underlined'
-                                    >
-                                        {social.name}
-                                    </a>
-                                    {idx !== socials.length - 1 && ' / '}
-                                </>
+                <div className={styles.wrapper}>
+                    <motion.div className={styles.content} variants={content}>
+                        <ul className={styles.list}>
+                            {links.map((link) => (
+                                <li key={link.name} className={styles.item}>
+                                    <Link href={link.href}>
+                                        <motion.a
+                                            className={`${styles.link} title`}
+                                            variants={linkVariant}
+                                        >
+                                            {link.name}
+                                        </motion.a>
+                                    </Link>
+                                </li>
                             ))}
-                        </div>
-                    </motion.footer>
+                        </ul>
+
+                        <motion.footer
+                            className={styles.footer}
+                            variants={footer}
+                        >
+                            <span>Socials</span>
+                            <div className={styles['social-links']}>
+                                {socials.map((social, idx) => (
+                                    <>
+                                        <a
+                                            key={social.name}
+                                            href={social.href}
+                                            rel='noreferrer noopener'
+                                            target='_blank'
+                                            className='underlined'
+                                        >
+                                            {social.name}
+                                        </a>
+                                        {idx !== socials.length - 1 && ' / '}
+                                    </>
+                                ))}
+                            </div>
+                        </motion.footer>
+                    </motion.div>
                 </div>
             </motion.div>
         </MotionConfig>

@@ -19,5 +19,6 @@
         --colors-#{$name}-#{$stage}: #{hsl($c...)};
     }
 
-    --colors-#{$name}-transparent: #{color.change($color, $alpha: 0.8)};
+    // --colors-#{$name}-transparent: #{color.change($color, $alpha: 0.8)};
+    --colors-#{$name}-transparent: #{$color + 'cc'};
 }

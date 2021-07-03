@@ -46,7 +46,7 @@ const TransitionOverlay: React.FC<Props> = (props) => {
     }
 
     return (
-        <MotionConfig transition={{ duration: 0.4, ease: 'linear' }}>
+        <MotionConfig transition={{ duration: 0.25, ease: 'linear' }}>
             <motion.div
                 className={styles.overlay}
                 initial='initial'

@@ -1,23 +1,14 @@
+@import '../const';
+
 .title {
     font-family: var(--fonts-title);
     letter-spacing: 0.02em;
-    font-size: 3rem;
+    font-size: clamp(1.75em, 5vw, 3.5em);
     text-transform: uppercase;
 }
 
 .justify {
     text-align: justify;
-}
-
-.about-main {
-    font-size: clamp(1rem, 1.5vw, 2rem);
-}
-
-.about-sub {
-    font-size: 0.75rem;
-    font-weight: 300;
-    color: #000000cc;
-    text-align: right;
 }
 
 .article-link {
@@ -47,3 +38,9 @@
         }
     }
 }
+
+// @media screen and (max-width: $sizes-tablet) {
+//     .title {
+//         font-size: 2rem;
+//     }
+// }

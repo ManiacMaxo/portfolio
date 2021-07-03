@@ -23,33 +23,32 @@ const About: React.FC<Props> = (props) => {
                     <div className={styles.content}>
                         <header>
                             <h1 className='title'>Victor Gorchilov</h1>
-                            <span className={styles.subtitle}>
+                            <p className={styles.subtitle}>
                                 <span>Web Development</span> (interface design
                                 and human interaction),{' '}
                                 <span>Deep Learning</span> (mimicing the human
                                 brain) and <span>Tinkering</span>
-                            </span>
+                            </p>
                         </header>
                         <section>
                             <h2 className={`${styles['section-header']} title`}>
                                 About
                             </h2>
                             <p>
-                                Victor is a student, actively learning{' '}
+                                I am a student, actively learning{' '}
                                 <strong>UI</strong> and <strong>UX</strong> as
                                 well as implementing algorithms in the field of{' '}
                                 <strong>AI</strong>.
                             </p>
                             <p>
-                                Having studied in TUES, he applies his knowledge
-                                in embedded systems and low-level
-                                high-performant code to tinker and create
-                                intereseting projects.
+                                Having studied in TUES, I apply my knowledge in
+                                embedded systems and low-level high-performant
+                                code to tinker and create intereseting projects.
                             </p>
                             <p>
-                                Victor loves strength training, Esports and
-                                especially snowboarding. His passions allow him
-                                to recover from programming and studying.
+                                I love strength training, e-sports and
+                                especially snowboarding. My passions allow me to
+                                recover from programming and studying.
                             </p>
                         </section>
                         <section>

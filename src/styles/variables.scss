@@ -1,12 +1,23 @@
 @import 'const';
 @import 'mixins';
 
+$primary: #2b2d42;
+$secondary: #eaeaea;
+$accent: #6b7fd7;
+
 :root {
     --zIndex-overlay: 900;
     --zIndex-navbar: 905;
     --zIndex-transition-overlay: 910;
 
-    @include color-shades(#a1dddd, accent);
+    $crimson: #d7263d;
+    $baby-blue: #a1dddd;
+    $feldgrau: #4b6858;
+    $old-rose: #c98986;
+    $selective-yellow: #fcba04;
+    $amethyst: #9368b7;
+
+    @include color-shades($accent, accent);
 
     --sizes-mobile: #{$sizes-mobile};
     --sizes-tablet: #{$sizes-tablet};
@@ -19,11 +30,11 @@
 }
 
 .dark {
-    --colors-primary: #0c0c0c;
-    --colors-secondary: #f5f5f5;
+    --colors-primary: #{$primary};
+    --colors-secondary: #{$secondary};
 }
 
 .light {
-    --colors-primary: #f5f5f5;
-    --colors-secondary: #0c0c0c;
+    --colors-primary: #{$secondary};
+    --colors-secondary: #{$primary};
 }

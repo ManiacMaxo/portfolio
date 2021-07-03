@@ -44,7 +44,7 @@ const Layout: React.FC<Props> = (props) => {
                 )}
             </Head>
 
-            <Nav {...props} />
+            <Nav light={props.light} />
             {props.children}
         </>
     )
