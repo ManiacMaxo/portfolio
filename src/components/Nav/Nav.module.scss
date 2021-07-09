@@ -1,4 +1,4 @@
-@import '../../styles/const';
+@import 'utilities/variables';
 
 $size: 1.5em;
 $thickness: 2px;
@@ -18,10 +18,10 @@ $radius: 5px;
     justify-content: space-between;
     align-items: center;
 
-    z-index: var(--zIndex-navbar);
+    z-index: $zIndex-navbar;
 
     & > * {
-        color: var(--colors-accent-100);
+        color: var(--colors-accent-40);
     }
 
     &.white > * {
@@ -37,7 +37,7 @@ $radius: 5px;
     font-size: 20px;
 }
 
-@media screen and (max-width: $sizes-mobile) {
+@media (width <= $sizes-mobile) {
     .root {
         padding-top: 2rem;
     }

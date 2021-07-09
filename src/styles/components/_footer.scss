@@ -1,4 +1,4 @@
-@import '../const';
+@import 'utilities/variables';
 
 .global-footer {
     position: fixed;
@@ -6,7 +6,7 @@
     right: 10%;
 }
 
-@media screen and (max-width: $sizes-mobile) {
+@media (width <= $sizes-mobile) {
     .global-footer {
         display: none;
     }

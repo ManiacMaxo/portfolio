@@ -1,9 +1,11 @@
-@import '../const';
+@import 'utilities/variables';
 
 .title {
     font-family: var(--fonts-title);
     letter-spacing: 0.02em;
     font-size: clamp(1.75em, 5vw, 3.5em);
+    line-height: 90%;
+
     text-transform: uppercase;
 }
 
@@ -26,7 +28,7 @@
         left: 0;
         right: 0;
 
-        background-color: var(--colors-accent-300-transparent);
+        background-color: var(--colors-accent-transparent);
         height: 20%;
 
         transition: height 0.25s ease-in-out;

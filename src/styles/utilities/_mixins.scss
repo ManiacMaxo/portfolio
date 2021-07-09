@@ -22,3 +22,16 @@
     // --colors-#{$name}-transparent: #{color.change($color, $alpha: 0.8)};
     --colors-#{$name}-transparent: #{$color + 'cc'};
 }
+
+@mixin color-styles($color, $name) {
+    $lightness-list: 100 0%, 80 20%, 60 40%, 40 60%;
+
+    @each $stage, $lightness in $lightness-list {
+        --colors-#{$name}-#{$stage}: #{color.scale(
+                $color,
+                $lightness: $lightness
+            )};
+    }
+
+    --colors-#{$name}-transparent: #{$color + 'cc'};
+}

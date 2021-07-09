@@ -96,9 +96,8 @@ const Menu: React.FC = () => {
                             <span>Socials</span>
                             <div className={styles['social-links']}>
                                 {socials.map((social, idx) => (
-                                    <>
+                                    <React.Fragment key={social.name}>
                                         <a
-                                            key={social.name}
                                             href={social.href}
                                             rel='noreferrer noopener'
                                             target='_blank'
@@ -107,7 +106,7 @@ const Menu: React.FC = () => {
                                             {social.name}
                                         </a>
                                         {idx !== socials.length - 1 && ' / '}
-                                    </>
+                                    </React.Fragment>
                                 ))}
                             </div>
                         </motion.footer>

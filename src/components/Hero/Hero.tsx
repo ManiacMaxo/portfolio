@@ -24,11 +24,9 @@ const AnimatedText = (props: { text: string }) => {
     return (
         <>
             {words.map((w, idx) => (
-                <>
-                    <motion.div key={idx} variants={word}>
-                        {w}
-                    </motion.div>{' '}
-                </>
+                <React.Fragment key={w + idx}>
+                    <motion.div variants={word}>{w}</motion.div>{' '}
+                </React.Fragment>
             ))}
         </>
     )

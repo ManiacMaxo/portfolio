@@ -1,5 +1,7 @@
+@import 'utilities/variables';
+
 .overlay {
-    z-index: var(--zIndex-transition-overlay);
+    z-index: $zIndex-transition-overlay;
     position: fixed;
     top: 0;
     right: 0;
@@ -11,7 +13,7 @@
 }
 
 .tile {
-    background: var(--colors-accent-300);
+    background: var(--colors-accent-80);
     width: 100%;
     height: 100%;
 }

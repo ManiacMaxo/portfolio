@@ -23,7 +23,7 @@
     }
 }
 
-@media screen and (max-width: 330px) {
+@media (width <= 330px) {
     .input-group {
         flex-direction: column;
     }

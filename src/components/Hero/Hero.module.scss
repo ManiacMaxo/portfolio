@@ -1,4 +1,4 @@
-@import '../../styles/const';
+@import 'utilities/variables';
 
 .root {
     height: 100vh;
@@ -15,7 +15,7 @@
 }
 
 .image {
-    width: clamp(200px, 35vw, 550px);
+    width: clamp(200px, 30vw, 550px);
     padding-left: 4vw;
 }
 
@@ -40,7 +40,7 @@
     display: inline-block;
 }
 
-@media screen and (max-width: 1000px) {
+@media (width <= 1000px) {
     .root > :global(.container) {
         flex-direction: column-reverse;
     }

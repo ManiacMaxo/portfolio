@@ -1,4 +1,4 @@
-@import '../const';
+@import 'utilities/variables';
 
 .hero {
     width: 100%;
@@ -17,7 +17,7 @@
     }
 }
 
-@media screen and (max-width: $sizes-mobile) {
+@media (width <= $sizes-mobile) {
     .hero {
         padding-top: 5rem;
 

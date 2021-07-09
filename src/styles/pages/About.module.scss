@@ -1,9 +1,9 @@
-@import '../const';
+@import 'utilities/variables';
 
 .root {
     background: conic-gradient(
         from 180deg at 50% 100%,
-        var(--colors-accent-400),
+        var(--colors-accent-100),
         var(--colors-secondary)
     );
     background-attachment: fixed;
@@ -118,7 +118,7 @@
     }
 }
 
-@media screen and (min-width: 600px) {
+@media (width >= 600px) {
     .wrapper {
         grid-template-columns: 1fr 1fr;
     }

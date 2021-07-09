@@ -1,4 +1,4 @@
-@import '../const';
+@import 'utilities/variables';
 
 .scroll-wrapper {
     position: fixed;
@@ -27,7 +27,7 @@
     }
 }
 
-@media screen and (max-width: $sizes-mobile) {
+@media (width <= $sizes-mobile) {
     .scroll-wrapper .project .title {
         font-size: 1.5rem;
     }

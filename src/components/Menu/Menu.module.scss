@@ -1,6 +1,6 @@
-@import '../../styles/const';
+@import 'utilities/variables';
 
-$content-padding: max(calc((100vw - var(--sizes-desktop)) / 2), 7.5vw);
+$content-padding: max(calc((100vw - #{$sizes-desktop}) / 2), 7.5vw);
 
 .overlay {
     position: fixed;
@@ -8,7 +8,7 @@ $content-padding: max(calc((100vw - var(--sizes-desktop)) / 2), 7.5vw);
     top: 0;
     right: auto;
     bottom: 0;
-    z-index: var(--zIndex-overlay);
+    z-index: $zIndex-overlay;
 
     width: 0;
 
@@ -79,7 +79,7 @@ $content-padding: max(calc((100vw - var(--sizes-desktop)) / 2), 7.5vw);
     padding: 0 0 10vh $content-padding;
 
     span {
-        color: var(--colors-accent-300);
+        color: var(--colors-accent-80);
     }
 }
 
@@ -91,7 +91,7 @@ $content-padding: max(calc((100vw - var(--sizes-desktop)) / 2), 7.5vw);
     white-space: nowrap;
 }
 
-@media screen and (max-width: $sizes-mobile) {
+@media (width <= $sizes-mobile) {
     .wrapper {
         width: 100vw;
     }
