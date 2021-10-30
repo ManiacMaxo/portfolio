@@ -1,11 +1,13 @@
 @use 'fonts';
-@use 'reset';
 @use 'components';
 @use 'variables';
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 ::selection {
-    color: var(--colors-primary);
-    background-color: var(--colors-accent-40);
+    @apply text-primary bg-accent-400;
 }
 
 ::-webkit-scrollbar {
@@ -15,8 +17,6 @@
 html,
 body,
 #__next {
-    color: var(--colors-secondary);
-    background-color: var(--colors-primary);
-    font-family: var(--fonts-body);
+    @apply text-secondary bg-primary font-body;
     font-variant-ligatures: common-ligatures;
 }

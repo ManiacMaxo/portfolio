@@ -25,7 +25,9 @@ const AnimatedText = (props: { text: string }) => {
         <>
             {words.map((w, idx) => (
                 <React.Fragment key={w + idx}>
-                    <motion.div variants={word}>{w}</motion.div>{' '}
+                    <motion.div variants={word} className='inline-block'>
+                        {w}
+                    </motion.div>{' '}
                 </React.Fragment>
             ))}
         </>
@@ -57,16 +59,16 @@ const Hero: React.FC<Props> = (props) => {
     }
 
     return (
-        <div className={styles.root}>
-            <div className='container'>
+        <div className='h-screen flex justify-center'>
+            <div className='container flex flex-col-reverse lg:flex-row items-center justify-center'>
                 <motion.div
-                    className={styles.content}
+                    className={`${styles.content} pt-8 pb-16 w-full flex flex-col items-center text-center lg:items-start lg:text-left lg:justify-center gap-4`}
                     variants={container}
                     initial='initial'
                     animate='animate'
                 >
                     <motion.h1
-                        className={`${styles.title} ${styles['animated-text']} title`}
+                        className={`${styles.title} title`}
                         transition={{
                             staggerChildren: 0.1
                         }}

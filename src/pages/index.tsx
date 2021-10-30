@@ -3,7 +3,6 @@ import { GetStaticPropsContext } from 'next'
 import React from 'react'
 import { Button, Hero, Layout } from '../components'
 import { getClient, indexQuery, IProject, urlForImage } from '../lib'
-import styles from '../styles/pages/Home.module.scss'
 
 interface Props {
     projects: IProject[]
@@ -34,15 +33,13 @@ const Home: React.FC<Props> = (props) => {
                 </motion.div>
             </Hero>
             <main>
-                <div className={`${styles.technologies} light`}>
+                <div className='bg-secondary text-primary'>
                     <div className='container'>
                         <h1 className='title'>My awesome skills</h1>
                     </div>
                 </div>
-                <div className={`${styles.projects} container`}></div>
+                <div className='container flex'></div>
             </main>
-
-            {/* <ScrollProgress end={numProjects} /> */}
         </Layout>
     )
 }

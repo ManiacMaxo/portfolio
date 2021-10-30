@@ -27,7 +27,7 @@
     }
 }
 
-@media (width <= $sizes-mobile) {
+@media (max-width: $sizes-mobile) {
     .scroll-wrapper .project .title {
         font-size: 1.5rem;
     }

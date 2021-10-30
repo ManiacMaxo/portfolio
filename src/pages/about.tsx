@@ -16,24 +16,36 @@ const About: React.FC<Props> = (props) => {
         }))
         .sort((a, b) => +(a.date < b.date))
 
+    const sectionHeader = `${styles['section-header']} title relative text-sm pb-2 mb-2`
+    const section = 'flex flex-col gap-4 text-sm'
+
     return (
         <Layout title='About | Victor Gorchilov' light>
-            <main className={styles.root}>
-                <div className={`${styles.wrapper} container`}>
-                    <div className={styles.content}>
+            <main className='bg-gradient-to-b from-accent-600 to-accent bg-fixed'>
+                <div className='container min-h-screen grid items-center grid-cols-3 lg:grid-cols-2'>
+                    <div
+                        className={`${styles.content} flex flex-col gap-8 bg-primary p-4 justify-self-end sm:w-96 col-span-3 sm:col-span-2 lg:col-auto`}
+                    >
                         <header>
-                            <h1 className='title'>Victor Gorchilov</h1>
-                            <p className={styles.subtitle}>
-                                <span>Web Development</span> (interface design
-                                and human interaction),{' '}
-                                <span>Deep Learning</span> (mimicing the human
-                                brain) and <span>Tinkering</span>
+                            <h1 className='font-title text-3xl'>
+                                Victor Gorchilov
+                            </h1>
+                            <p className='text-xs uppercase text-secondary text-opacity-75'>
+                                <span className='text-secondary'>
+                                    Web Development
+                                </span>{' '}
+                                (interface design and human interaction),{' '}
+                                <span className='text-secondary'>
+                                    Deep Learning
+                                </span>{' '}
+                                (mimicing the human brain) and{' '}
+                                <span className='text-secondary'>
+                                    Tinkering
+                                </span>
                             </p>
                         </header>
-                        <section>
-                            <h2 className={`${styles['section-header']} title`}>
-                                About
-                            </h2>
+                        <section className={section}>
+                            <h2 className={sectionHeader}>About</h2>
                             <p>
                                 I am a student, actively learning{' '}
                                 <strong>UI</strong> and <strong>UX</strong> as
@@ -51,10 +63,8 @@ const About: React.FC<Props> = (props) => {
                                 recover from programming and studying.
                             </p>
                         </section>
-                        <section>
-                            <h2 className={`${styles['section-header']} title`}>
-                                Fields
-                            </h2>
+                        <section className={section}>
+                            <h2 className={sectionHeader}>Fields</h2>
                             <ul>
                                 <li>UI/UX</li>
                                 <li>Backend</li>
@@ -63,18 +73,16 @@ const About: React.FC<Props> = (props) => {
                                 <li>Linux Sysadmin</li>
                             </ul>
                         </section>
-                        <section>
-                            <h2 className={`${styles['section-header']} title`}>
-                                Awards
-                            </h2>
-                            <ul className={styles.awards}>
+                        <section className={section}>
+                            <h2 className={sectionHeader}>Awards</h2>
+                            <ul>
                                 {awards.map((award) => (
                                     <li
                                         key={award._id}
-                                        className={styles.award}
+                                        className='flex items-center justify-between w-full'
                                     >
                                         <span>{award.name}</span>
-                                        <span className={styles['award-year']}>
+                                        <span className='font-mono text-secondary text-opacity-75'>
                                             {award.date.getFullYear()}
                                         </span>
                                     </li>
@@ -83,8 +91,10 @@ const About: React.FC<Props> = (props) => {
                         </section>
                     </div>
 
-                    <div className={styles.header}>
-                        <h1 className='title'>About</h1>
+                    <div className='hidden sm:block w-12'>
+                        <h1 className='title uppercase text-right text-8xl text-primary w-max transform rotate-90 -translate-x-52'>
+                            About
+                        </h1>
                     </div>
                 </div>
             </main>

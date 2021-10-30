@@ -1,48 +1,22 @@
-@import 'utilities/variables';
-
 .title {
-    font-family: var(--fonts-title);
+    @apply font-title uppercase;
     letter-spacing: 0.02em;
     font-size: clamp(1.75em, 5vw, 3.5em);
     line-height: 90%;
-
-    text-transform: uppercase;
-}
-
-.justify {
-    text-align: justify;
 }
 
 .article-link {
-    position: relative;
-    display: inline-block;
-    z-index: 1;
-    padding-inline: 3px;
+    @apply relative inline-block z-1 px-1;
 
     &::after {
+        @apply bg-accent-900 bg-opacity-60 -z-1 absolute inset-x-0;
         content: '';
-        z-index: -1;
-
-        position: absolute;
         bottom: 10%;
-        left: 0;
-        right: 0;
-
-        background-color: var(--colors-accent-transparent);
         height: 20%;
-
         transition: height 0.25s ease-in-out;
     }
 
-    &:hover {
-        &::after {
-            height: 90%;
-        }
+    &:hover::after {
+        height: 90%;
     }
 }
-
-// @media screen and (max-width: $sizes-tablet) {
-//     .title {
-//         font-size: 2rem;
-//     }
-// }

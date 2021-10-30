@@ -1,13 +1,12 @@
 import { HTMLMotionProps, motion, MotionConfig, Variants } from 'framer-motion'
 import React from 'react'
-import styles from './Transition.module.scss'
 
 interface Props {
     direction?: 'top' | 'left'
 }
 
 const Tile: React.FC<HTMLMotionProps<'div'>> = (props) => {
-    return <motion.div className={styles.tile} {...props} />
+    return <motion.div className='w-full h-full bg-accent-800' {...props} />
 }
 
 const TransitionOverlay: React.FC<Props> = (props) => {
@@ -48,7 +47,7 @@ const TransitionOverlay: React.FC<Props> = (props) => {
     return (
         <MotionConfig transition={{ duration: 0.25, ease: 'linear' }}>
             <motion.div
-                className={styles.overlay}
+                className='fixed inset-0 flex pointer-events-none z-overlay'
                 initial='initial'
                 animate='enter'
                 exit='exit'

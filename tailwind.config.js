@@ -3,7 +3,6 @@ module.exports = {
         './pages/**/*.{js,ts,jsx,tsx}',
         './components/**/*.{js,ts,jsx,tsx}'
     ],
-    mode: 'jit',
     theme: {
         colors: {
             transparent: 'transparent',
@@ -26,7 +25,6 @@ module.exports = {
             },
             accent: {
                 DEFAULT: '#eaeaea',
-                transparent: '#6b7fd7cc',
                 50: '#',
                 100: '#',
                 200: '#',
@@ -48,11 +46,16 @@ module.exports = {
         },
         fontFamily: {
             body: ['Prompt', 'sans-serif'],
-            title: {
-                DEFAULT: ['ChaneyExtended', 'sans-serif'],
-                wide: ['ChaneyUltraExtended', 'sans-serif']
-            },
+            title: ['ChaneyExtended', 'sans-serif'],
+            'title-wide': ['ChaneyUltraExtended', 'sans-serif'],
             mono: ['CallingCode', 'monospace']
+        },
+        extend: {
+            zIndex: {
+                '-1': '-1',
+                1: 1,
+                overlay: 100
+            }
         }
     },
     variants: {

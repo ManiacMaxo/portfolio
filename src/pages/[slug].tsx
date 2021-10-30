@@ -9,31 +9,37 @@ import {
     projectBySlugQuery,
     urlForImage
 } from '../lib'
-import styles from '../styles/pages/Project.module.scss'
 
 const Project: React.FC<IProject> = (props) => {
+    const sectionTitle = 'font-title uppercase mb-2'
+
     return (
         <Layout>
-            <main>
-                <div className='hero container'>
-                    <h1 className='title'>{props.title}</h1>
+            <main className='pt-40'>
+                <div className='w-full pb-3 bg-transparent container'>
+                    <h1 className='title sm:text-5xl'>{props.title}</h1>
                     <span>
                         {props.start} - {props.end}
                     </span>
                 </div>
-                <section className={`${styles.summary} container`}>
-                    <div className={styles.info}>
-                        {props.tags?.length > 0 && (
-                            <ul className={styles.tags}>
-                                <h3 className='title'>Tags</h3>
+                <section className='flex flex-col gap-8 md:flex-row md:gap-16 text-sm container'>
+                    <div className='flex gap-4 md:flex-col'>
+                        {props.tags && (
+                            <ul>
+                                <h3 className={sectionTitle}>Tags</h3>
                                 {props.tags.map((tag: string) => (
-                                    <li key={tag}>{tag}</li>
+                                    <li
+                                        key={tag}
+                                        className='w-max text-secondary text-opacity-75'
+                                    >
+                                        {tag}
+                                    </li>
                                 ))}
                             </ul>
                         )}
-                        {props.links?.length > 0 && (
-                            <ul className={styles.links}>
-                                <h3 className='title'>Links</h3>
+                        {props.links && (
+                            <ul>
+                                <h3 className={sectionTitle}>Links</h3>
 
                                 {props.links.map((link) => (
                                     <li key={link._key}>
@@ -50,8 +56,8 @@ const Project: React.FC<IProject> = (props) => {
                             </ul>
                         )}
                     </div>
-                    <div className={styles.about}>
-                        <h3 className='title'>About</h3>
+                    <div>
+                        <h3 className={sectionTitle}>About</h3>
                         <BlockContent
                             blocks={props.body}
                             serializers={{

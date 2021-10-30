@@ -4,7 +4,11 @@ import React from 'react'
 import { links, socials } from '../../lib/constants'
 import styles from './Menu.module.scss'
 
-const Menu: React.FC = () => {
+interface Props {
+    onClose: () => void
+}
+
+const Menu: React.FC<Props> = (props) => {
     const overlay: Variants = {
         open: {
             width: '100%'
@@ -60,7 +64,8 @@ const Menu: React.FC = () => {
     return (
         <MotionConfig transition={{ duration: 0.5 }}>
             <motion.div
-                className={styles.overlay}
+                className='fixed inset-0 right-auto z-50 w-0 bg-primary bg-opacity-70'
+                onClick={props.onClose}
                 variants={overlay}
                 transition={{
                     default: {
@@ -68,18 +73,26 @@ const Menu: React.FC = () => {
                     }
                 }}
             >
-                <div className={styles.wrapper}>
+                <div
+                    className='h-screen pointer-events-none w-screen md:w-1/2'
+                    onClick={(e) => e.stopPropagation()}
+                >
                     <motion.div
-                        className={styles.content}
+                        className='h-full pointer-events-auto overflow-x-hidden relative flex items-center text-secondary bg-primary'
                         variants={content}
                         initial={{ width: 0 }}
                     >
-                        <ul className={styles.list}>
+                        <ul
+                            className={`${styles.list} list-none w-full flex flex-col p-0`}
+                        >
                             {links.map((link) => (
-                                <li key={link.name} className={styles.item}>
+                                <li
+                                    key={link.name}
+                                    className='w-max font-title-wide overflow-hidden cursor-pointer'
+                                >
                                     <Link href={link.href}>
                                         <motion.a
-                                            className={`${styles.link} title`}
+                                            className={`${styles.link} relative block hover:text-secondary title text-3xl`}
                                             variants={linkVariant}
                                         >
                                             {link.name}
@@ -90,11 +103,11 @@ const Menu: React.FC = () => {
                         </ul>
 
                         <motion.footer
-                            className={styles.footer}
+                            className={`${styles.footer} absolute bottom-0 left-0`}
                             variants={footer}
                         >
-                            <span>Socials</span>
-                            <div className={styles['social-links']}>
+                            <span className='text-accent-800'>Socials</span>
+                            <div className='text-sm mt-2 mb-3 overflow-x-hidden whitespace-nowrap'>
                                 {socials.map((social, idx) => (
                                     <React.Fragment key={social.name}>
                                         <a
