@@ -6,7 +6,7 @@ interface Props {
 }
 
 const Tile: React.FC<HTMLMotionProps<'div'>> = (props) => {
-    return <motion.div className='w-full h-full bg-accent-800' {...props} />
+    return <motion.div className='w-full h-full bg-primary-500' {...props} />
 }
 
 const TransitionOverlay: React.FC<Props> = (props) => {

@@ -1,14 +1,26 @@
+const plugin = require('tailwindcss/plugin')
+
+const CONTAINER_WIDTH = 85
+
 module.exports = {
-    purge: [
-        './src/pages/**/*.{js,ts,jsx,tsx}',
-        './src/components/**/*.{js,ts,jsx,tsx}'
-    ],
+    purge: ['./src/{pages,components}/**/*.{js,ts,jsx,tsx}'],
+    mode: 'jit',
     theme: {
         colors: {
             transparent: 'transparent',
             current: 'currentColor',
             primary: {
-                DEFAULT: '#2b2d42'
+                DEFAULT: '#6B7FD7',
+                50: '#DEE3F7',
+                100: '#CED5F3',
+                200: '#BFC8EF',
+                300: '#A1AEE7',
+                400: '#8596DE',
+                500: '#6B7FD7',
+                600: '#5665AB',
+                700: '#404C81',
+                800: '#2B3356',
+                900: '#15192B'
             },
             secondary: {
                 DEFAULT: '#eaeaea',
@@ -23,27 +35,7 @@ module.exports = {
                 800: '#',
                 900: '#'
             },
-            accent: {
-                DEFAULT: '#eaeaea',
-                50: '#',
-                100: '#',
-                200: '#',
-                300: '#',
-                400: '#c4ccef',
-                500: '#',
-                600: '#a6b2e7',
-                700: '#',
-                800: '#8999df',
-                900: '#6b7fd7'
-            },
             danger: '#ff5555'
-        },
-        container: {
-            center: true,
-            padding: {
-                DEFAULT: '1rem',
-                sm: '0'
-            }
         },
         fontFamily: {
             body: ['Prompt', 'sans-serif'],
@@ -56,11 +48,40 @@ module.exports = {
                 '-1': '-1',
                 1: 1,
                 overlay: 100
-            }
+            },
+            spacing: (theme) => ({
+                containerOutside: `max(calc((100vw - ${theme(
+                    'screens.xl'
+                )}) / 2), ${(100 - CONTAINER_WIDTH) / 2}vw)`
+            })
         }
     },
     variants: {
-        extend: {}
+        extend: {},
+        container: []
     },
-    plugins: []
+    plugins: [
+        plugin(({ addComponents, addUtilities, theme }) => {
+            addComponents([
+                {
+                    '.container': {
+                        maxWidth: theme('screens.xl'),
+                        width: `min(100%, ${CONTAINER_WIDTH}vw)`,
+                        marginLeft: 'auto',
+                        marginRight: 'auto'
+                    }
+                }
+            ])
+            addUtilities([
+                {
+                    '.bg-conic-gradient': {
+                        backgroundImage: `conic-gradient(from 180deg at 50% 100%, var(--tw-gradient-from), var(--tw-gradient-to))`
+                    }
+                }
+            ])
+        })
+    ],
+    corePlugins: {
+        container: false
+    }
 }

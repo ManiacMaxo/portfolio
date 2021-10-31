@@ -1,13 +1,9 @@
+@use 'tailwind';
 @use 'fonts';
 @use 'components';
-@use 'variables';
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 ::selection {
-    @apply text-primary bg-accent-400;
+    @apply text-primary-50 bg-primary-400;
 }
 
 ::-webkit-scrollbar {
@@ -17,6 +13,6 @@
 html,
 body,
 #__next {
-    @apply text-secondary bg-primary font-body;
+    @apply text-secondary bg-primary-800 font-body;
     font-variant-ligatures: common-ligatures;
 }

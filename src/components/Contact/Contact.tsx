@@ -57,7 +57,7 @@ const Contact: React.FC = () => {
     })
 
     return (
-        <section className='bg-secondary text-primary py-12 shadow-inner'>
+        <section className='bg-secondary text-primary-700 py-12 shadow-inner'>
             <div className='container grid grid-cols-1 md:grid-cols-2 gap-6'>
                 <div className='flex flex-col items-center md:items-end'>
                     <h3 className='title text-2xl w-max'>Get in touch!</h3>

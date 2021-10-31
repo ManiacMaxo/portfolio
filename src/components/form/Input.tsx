@@ -1,4 +1,3 @@
-import { css } from '@emotion/css'
 import classNames from 'classnames'
 import React, { InputHTMLAttributes } from 'react'
 
@@ -13,14 +12,18 @@ const Input: React.FC<Props> = (props) => {
     const { label, variant, className, error, ...rest } = props
 
     const classes = classNames(
-        'appearance-none outline-none py-2',
-        variant === 'outlined'
-            ? {
-                  'border-b-2 bg-transparent transition duration-200': true,
-                  'border-danger': error,
-                  'border-accent-600 focus:border-accent-900 ': !error
-              }
-            : 'px-3'
+        'appearance-none outline-none text-primary-700 text-md',
+        variant === 'outlined' && {
+            'py-2 border-b-2 bg-transparent transition duration-200': true,
+            'border-danger placeholder-danger placeholder-opacity-60': error,
+            'border-primary-300 focus:border-primary-600 placeholder-primary-200':
+                !error
+        },
+        variant === 'filled' && {
+            'p-3 w-full rounded bg-secondary border-2 ': true,
+            'border-danger placeholder-danger placeholder-opacity-60': error,
+            'border-secondary placeholder-primary-400': !error
+        }
     )
 
     return (
@@ -28,12 +31,7 @@ const Input: React.FC<Props> = (props) => {
             {label && (
                 <label
                     htmlFor={props.name}
-                    className={classNames(
-                        'uppercase text-xs',
-                        css`
-                            letter-spacing: 0.05ch;
-                        `
-                    )}
+                    className='uppercase text-xs tracking-widest'
                 >
                     {label}
                 </label>

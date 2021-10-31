@@ -49,8 +49,10 @@
     }
 }
 
-.bounce-stretch {
-    &:hover {
-        animation: bounce-stetch 0.5s linear;
+@layer utilities {
+    .bounce-stretch {
+        &:hover {
+            animation: bounce-stetch 0.5s linear;
+        }
     }
 }

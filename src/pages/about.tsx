@@ -1,8 +1,9 @@
+import { css } from '@emotion/css'
+import classNames from 'classnames'
 import { GetStaticPropsContext } from 'next'
 import React from 'react'
 import { Layout } from '../components'
 import { awardsQuery, getClient, IAward } from '../lib'
-import styles from '../styles/pages/About.module.scss'
 
 interface Props {
     awards: Array<IAward>
@@ -16,15 +17,29 @@ const About: React.FC<Props> = (props) => {
         }))
         .sort((a, b) => +(a.date < b.date))
 
-    const sectionHeader = `${styles['section-header']} title relative text-sm pb-2 mb-2`
+    const sectionHeader = classNames(
+        'title relative text-sm pb-2 mb-2 before:absolute after:absolute',
+        'before:font-mono before:top-0 before:right-0',
+        'after:bottom-0 after:left-0 after:w-full after:h-px after:bg-secondary after:bg-opacity-75',
+        css`
+            &::before {
+                content: counter(section, decimal-leading-zero);
+                counter-increment: section;
+            }
+        `
+    )
     const section = 'flex flex-col gap-4 text-sm'
+
+    const contentCounter = css`
+        counter-reset: section;
+    `
 
     return (
         <Layout title='About | Victor Gorchilov' light>
-            <main className='bg-gradient-to-b from-accent-600 to-accent bg-fixed'>
+            <main className='bg-conic-gradient from-primary-500 to-secondary bg-fixed'>
                 <div className='container min-h-screen grid items-center grid-cols-3 lg:grid-cols-2'>
                     <div
-                        className={`${styles.content} flex flex-col gap-8 bg-primary p-4 justify-self-end sm:w-96 col-span-3 sm:col-span-2 lg:col-auto`}
+                        className={`${contentCounter} flex flex-col gap-8 bg-primary-800 p-4 justify-self-end sm:w-96 col-span-3 sm:col-span-2 lg:col-auto`}
                     >
                         <header>
                             <h1 className='font-title text-3xl'>
@@ -92,7 +107,7 @@ const About: React.FC<Props> = (props) => {
                     </div>
 
                     <div className='hidden sm:block w-12'>
-                        <h1 className='title uppercase text-right text-8xl text-primary w-max transform rotate-90 -translate-x-52'>
+                        <h1 className='title uppercase text-right text-8xl text-primary-800 w-max transform rotate-90 -translate-x-52'>
                             About
                         </h1>
                     </div>
