@@ -35,7 +35,8 @@ module.exports = {
                 700: '#',
                 800: '#8999df',
                 900: '#6b7fd7'
-            }
+            },
+            danger: '#ff5555'
         },
         container: {
             center: true,

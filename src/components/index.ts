@@ -1,5 +1,6 @@
 export * from './BlockContentSerializers'
-export { Button } from './Button'
+export { Contact } from './Contact'
+export * from './form'
 export { Hero } from './Hero'
 export { Layout } from './Layout'
 export { ScrollProgress } from './ScrollProgress'
