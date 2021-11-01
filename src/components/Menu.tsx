@@ -1,7 +1,7 @@
 import { motion, MotionConfig, Variants } from 'framer-motion'
 import Link from 'next/link'
 import React from 'react'
-import { links, socials } from '../../lib/constants'
+import { links, socials } from '../lib/constants'
 
 interface Props {
     onClose: () => void
@@ -81,7 +81,7 @@ const Menu: React.FC<Props> = (props) => {
                         variants={content}
                         initial={{ width: 0 }}
                     >
-                        <ul className='ml-containerOutside list-none w-full flex flex-col p-0'>
+                        <ul className='pl-container-outside w-full flex flex-col'>
                             {links.map((link) => (
                                 <li
                                     key={link.name}
@@ -100,7 +100,7 @@ const Menu: React.FC<Props> = (props) => {
                         </ul>
 
                         <motion.footer
-                            className='pl-containerOutside pb-24 absolute bottom-0 left-0'
+                            className='pl-container-outside pb-24 absolute bottom-0 left-0'
                             variants={footer}
                         >
                             <span className='text-primary-400'>Socials</span>

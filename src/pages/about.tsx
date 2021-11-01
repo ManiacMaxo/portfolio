@@ -42,9 +42,7 @@ const About: React.FC<Props> = (props) => {
                         className={`${contentCounter} flex flex-col gap-8 bg-primary-800 p-4 justify-self-end sm:w-96 col-span-3 sm:col-span-2 lg:col-auto`}
                     >
                         <header>
-                            <h1 className='font-title text-3xl'>
-                                Victor Gorchilov
-                            </h1>
+                            <h1 className='title text-3xl'>Victor Gorchilov</h1>
                             <p className='text-xs uppercase text-secondary text-opacity-75'>
                                 <span className='text-secondary'>
                                     Web Development
@@ -106,8 +104,8 @@ const About: React.FC<Props> = (props) => {
                         </section>
                     </div>
 
-                    <div className='hidden sm:block w-12'>
-                        <h1 className='title uppercase text-right text-8xl text-primary-800 w-max transform rotate-90 -translate-x-52'>
+                    <div className='hidden sm:block select-none'>
+                        <h1 className='title text-9xl text-primary-800 w-max transform rotate-90 translate-x-[-40%]'>
                             About
                         </h1>
                     </div>

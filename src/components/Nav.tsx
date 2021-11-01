@@ -2,8 +2,8 @@ import classNames from 'classnames'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-import { BurgerButton } from '../BurgerButton'
-import { Menu } from '../Menu'
+import { BurgerButton } from './BurgerButton'
+import { Menu } from './Menu'
 
 interface Props {
     light?: boolean
@@ -11,7 +11,6 @@ interface Props {
 
 const Nav: React.FC<Props> = (props) => {
     const [isOpen, setIsOpen] = useState(false)
-
     const toggle = () => setIsOpen((prev) => !prev)
 
     useEffect(() => {

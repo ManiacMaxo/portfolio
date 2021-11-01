@@ -11,18 +11,18 @@ import {
 } from '../lib'
 
 const Project: React.FC<IProject> = (props) => {
-    const sectionTitle = 'font-title uppercase mb-2'
+    const sectionTitle = 'title text-xl mb-2'
 
     return (
         <Layout>
             <main className='pt-40'>
-                <div className='w-full pb-3 bg-transparent container'>
-                    <h1 className='title sm:text-5xl'>{props.title}</h1>
+                <div className='container pb-3 bg-transparent'>
+                    <h1 className='title md:text-6xl'>{props.title}</h1>
                     <span>
                         {props.start} - {props.end}
                     </span>
                 </div>
-                <section className='flex flex-col gap-8 md:flex-row md:gap-16 text-sm container'>
+                <section className='container flex flex-col gap-8 md:flex-row md:gap-16 pb-24'>
                     <div className='flex gap-4 md:flex-col'>
                         {props.tags && (
                             <ul>
@@ -59,6 +59,7 @@ const Project: React.FC<IProject> = (props) => {
                     <div>
                         <h3 className={sectionTitle}>About</h3>
                         <BlockContent
+                            className='text-base'
                             blocks={props.body}
                             serializers={{
                                 marks: {

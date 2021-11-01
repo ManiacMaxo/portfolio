@@ -3,7 +3,10 @@ const plugin = require('tailwindcss/plugin')
 const CONTAINER_WIDTH = 85
 
 module.exports = {
-    purge: ['./src/{pages,components}/**/*.{js,ts,jsx,tsx}'],
+    purge: [
+        './src/components/**/*.{js,ts,jsx,tsx}',
+        './src/pages/**/*.{js,ts,jsx,tsx}'
+    ],
     mode: 'jit',
     theme: {
         colors: {
@@ -50,9 +53,9 @@ module.exports = {
                 overlay: 100
             },
             spacing: (theme) => ({
-                containerOutside: `max(calc((100vw - ${theme(
-                    'screens.xl'
-                )}) / 2), ${(100 - CONTAINER_WIDTH) / 2}vw)`
+                'container-outside': `max(calc((100vw - ${CONTAINER_WIDTH}) / 2)), ${
+                    parseInt(theme('screens.2xl').match(/(\d)+/)[0]) / 2
+                })`
             })
         }
     },
@@ -65,7 +68,7 @@ module.exports = {
             addComponents([
                 {
                     '.container': {
-                        maxWidth: theme('screens.xl'),
+                        maxWidth: theme('screens.2xl'),
                         width: `min(100%, ${CONTAINER_WIDTH}vw)`,
                         marginLeft: 'auto',
                         marginRight: 'auto'

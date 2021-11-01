@@ -69,29 +69,27 @@ const Hero: React.FC<Props> = (props) => {
     `
 
     return (
-        <div className='h-screen flex justify-center'>
-            <div className='container flex flex-col-reverse lg:flex-row items-center justify-center lg:justify-between lg:gap-24'>
-                <motion.div
-                    className={`${maxWidth} pt-8 pb-16 w-full flex flex-col items-center text-center lg:items-start lg:text-left lg:justify-center gap-4`}
-                    variants={container}
-                    initial='initial'
-                    animate='animate'
+        <div className='h-screen container flex flex-col-reverse lg:flex-row items-center justify-center lg:justify-between lg:gap-24'>
+            <motion.div
+                className={`${maxWidth} pt-8 pb-16 w-full flex flex-col items-center text-center lg:items-start lg:text-left lg:justify-center gap-4`}
+                variants={container}
+                initial='initial'
+                animate='animate'
+            >
+                <motion.h1
+                    className={`${clampFont} title`}
+                    transition={{
+                        staggerChildren: 0.1
+                    }}
                 >
-                    <motion.h1
-                        className={`${clampFont} title`}
-                        transition={{
-                            staggerChildren: 0.1
-                        }}
-                    >
-                        <AnimatedText text={props.title} />
-                    </motion.h1>
-                    <motion.span variants={item}>
-                        {React.createElement(props.subtitle)}
-                    </motion.span>
-                    {props.children}
-                </motion.div>
-                <img src='/images/memoji.png' className={imageStyle} />
-            </div>
+                    <AnimatedText text={props.title} />
+                </motion.h1>
+                <motion.span variants={item}>
+                    {React.createElement(props.subtitle)}
+                </motion.span>
+                {props.children}
+            </motion.div>
+            <img src='/images/memoji.png' className={imageStyle} />
         </div>
     )
 }
