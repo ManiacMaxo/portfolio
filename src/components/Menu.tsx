@@ -85,7 +85,7 @@ const Menu: React.FC<Props> = (props) => {
                             {links.map((link) => (
                                 <li
                                     key={link.name}
-                                    className='w-max font-title-wide overflow-hidden cursor-pointer'
+                                    className='w-max font-heading-wide overflow-hidden cursor-pointer'
                                 >
                                     <Link href={link.href}>
                                         <motion.a

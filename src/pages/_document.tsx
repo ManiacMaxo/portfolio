@@ -11,7 +11,7 @@ class Document extends NextDocument {
             .join('&')
 
         return (
-            <Html lang='en' className='dark'>
+            <Html lang='en'>
                 <Head>
                     <meta charSet='utf-8' />
                     <link rel='manifest' href='/manifest.json' />

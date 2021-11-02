@@ -1,37 +1,43 @@
-import classNames from 'classnames'
 import { motion } from 'framer-motion'
-import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { ThemeContext } from '../context'
+import { useWindowSize } from '../hooks'
 import { BurgerButton } from './BurgerButton'
-import { Menu } from './Menu'
+import { NavLink } from './NavLink'
 
-interface Props {
-    light?: boolean
-}
-
-const Nav: React.FC<Props> = (props) => {
+const Nav: React.FC = () => {
+    const { width } = useWindowSize()
     const [isOpen, setIsOpen] = useState(false)
-    const toggle = () => setIsOpen((prev) => !prev)
-
-    useEffect(() => {
-        document.body.style.overflow = isOpen ? 'hidden' : 'unset'
-    }, [isOpen])
+    const { theme, toggleTheme } = useContext(ThemeContext)
 
     return (
         <motion.header animate={isOpen ? 'open' : 'closed'}>
-            <Menu onClose={() => setIsOpen(false)} />
-            <nav
-                className={classNames(
-                    'container pt-8 lg:pt-14 fixed inset-0 bottom-auto flex items-center justify-between z-50',
-                    props.light ? 'text-primary-50' : 'text-primary-400'
-                )}
-            >
-                <div className='lowercase font-black text-xl transition-colors duration-400 ease-linear'>
-                    <Link href='/'>
-                        <a>Victor Gorchilov</a>
-                    </Link>
+            <nav className='container pt-8 lg:pt-14 fixed inset-0 bottom-auto flex items-center uppercase z-50 select-none'>
+                <span className='flex-1 cursor-default' onClick={toggleTheme}>
+                    {`${theme === 'dark' ? 'light' : 'dark'}?`}
+                </span>
+
+                <NavLink href='/'>
+                    <a className='font-heading font-black text-[5vw] md:text-3xl leading-none'>
+                        Victor Gorchilov
+                    </a>
+                </NavLink>
+                <div className='flex-1 flex gap-6 justify-end'>
+                    {width < 768 ? (
+                        <BurgerButton
+                            onClick={() => setIsOpen((prev) => !prev)}
+                        />
+                    ) : (
+                        <>
+                            <NavLink href='/about'>
+                                <a>About</a>
+                            </NavLink>
+                            <NavLink href='/contact'>
+                                <a>Contact</a>
+                            </NavLink>
+                        </>
+                    )}
                 </div>
-                <BurgerButton onClick={toggle} />
             </nav>
         </motion.header>
     )

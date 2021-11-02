@@ -4,6 +4,7 @@
         url('/fonts/emberly/Emberly-Regular.otf') format('opentype');
     font-style: normal;
     font-weight: normal;
+    text-rendering: optimizeLegibility;
 }
 
 @font-face {
@@ -12,6 +13,7 @@
         url('/fonts/emberly/otf/Emberly-Bold.otf') format('opentype');
     font-style: normal;
     font-weight: bold;
+    text-rendering: optimizeLegibility;
 }
 
 @font-face {
@@ -20,4 +22,5 @@
         url('/fonts/emberly/otf/Emberly-Black.otf') format('opentype');
     font-style: normal;
     font-weight: 900;
+    text-rendering: optimizeLegibility;
 }

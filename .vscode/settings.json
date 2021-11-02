@@ -5,5 +5,5 @@
     "tailwindCSS.includeLanguages": {
         "plaintext": "html"
     },
-    "css.validate": false
+    "scss.validate": false
 }

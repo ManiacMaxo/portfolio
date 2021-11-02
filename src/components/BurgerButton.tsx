@@ -10,8 +10,8 @@ export const Path: React.FC<any> = (props) => {
         <motion.path
             fill='transparent'
             stroke='currentColor'
-            strokeWidth='2'
-            strokeLinecap='round'
+            strokeWidth='1'
+            strokeLinecap='butt'
             {...props}
         />
     )
