@@ -1,15 +1,7 @@
 import { motion } from 'framer-motion'
 import { GetStaticPropsContext } from 'next'
 import React from 'react'
-import {
-    Button,
-    Contact,
-    Footer,
-    Hero,
-    Input,
-    Layout,
-    Typewriter
-} from '../components'
+import { Button, Footer, Hero, Input, Layout, Typewriter } from '../components'
 import { getClient, indexQuery, IProject, urlForImage } from '../lib'
 
 interface Props {
@@ -57,7 +49,6 @@ const Home: React.FC<Props> = (props) => {
                 </motion.div>
             </Hero>
             <main>
-                <Contact />
                 <Footer />
             </main>
         </Layout>

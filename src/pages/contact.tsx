@@ -57,10 +57,8 @@ const contact: React.FC = () => {
 
     return (
         <Layout>
-            <main className='container flex flex-col gap-16 items-center justify-center h-screen pt-20'>
-                <h1 className='font-heading font-bold text-[18vw] leading-[0.8em]'>
-                    Contact
-                </h1>
+            <main className='container flex flex-col items-center justify-center min-h-screen gap-y-14 pt-20 pb-12'>
+                <h1 className='font-heading font-bold text-[18vw]'>Contact</h1>
 
                 <a
                     href='mailto:victor@gorchilov.com'
@@ -77,6 +75,7 @@ const contact: React.FC = () => {
                 <form
                     className='grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-8 w-full max-w-7xl'
                     onSubmit={formik.handleSubmit}
+                    noValidate
                 >
                     <Input
                         name='firstName'
@@ -88,6 +87,7 @@ const contact: React.FC = () => {
                         error={
                             formik.touched.firstName && formik.errors.firstName
                         }
+                        required
                     />
                     <Input
                         name='lastName'
@@ -106,6 +106,7 @@ const contact: React.FC = () => {
                         value={formik.values.email}
                         onChange={formik.handleChange}
                         error={formik.touched.email && formik.errors.email}
+                        required
                     />
                     <Input
                         name='phone'
@@ -125,6 +126,7 @@ const contact: React.FC = () => {
                         value={formik.values.message}
                         onChange={formik.handleChange}
                         error={formik.touched.message && formik.errors.message}
+                        required
                     />
                     <div className='justify-self-center col-span-full'>
                         <Button variant='secondary' type='submit'>

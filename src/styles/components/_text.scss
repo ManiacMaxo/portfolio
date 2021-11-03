@@ -10,7 +10,7 @@
         @apply relative inline-block z-1 px-1;
 
         &::after {
-            @apply bg-primary-400 bg-opacity-60 -z-1 absolute inset-x-0;
+            @apply bg-accent bg-opacity-60 -z-1 absolute inset-x-0;
             content: '';
             bottom: 10%;
             height: 20%;

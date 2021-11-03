@@ -33,12 +33,14 @@ const Button: React.FC<Props> = (props) => {
             }
         `,
         {
-            'bg-secondary text-primary': variant === 'primary',
+            'bg-secondary text-primary dark:bg-primary dark:text-secondary':
+                variant === 'primary',
             [[
-                'bg-transparent text-primary-400 hover:text-primary-50 focus:text-primary-50',
+                'bg-transparent text-secondary hover:text-primary focus:text-primary',
+                'dark:text-primary dark:hover:text-secondary focus:text-secondary',
                 'before:absolute before:inset-0 after:absolute after:top-0 after:left-0',
-                'before:rounded before:border-primary-400 before:border-2 before:border-solid focus:before:opacity-0 hover:before:opacity-0',
-                'after:bg-primary-400 after:rounded-full after:opacity-0',
+                'before:rounded before:border-secondary dark:before:border-primary before:border-2 before:border-solid focus:before:opacity-0 hover:before:opacity-0',
+                'after:bg-secondary dark:after:bg-primary after:rounded-full after:opacity-0',
                 css`
                     &:focus::after,
                     &:hover::after {

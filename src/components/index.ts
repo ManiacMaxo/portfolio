@@ -1,5 +1,4 @@
 export * from './BlockContentSerializers'
-export { Contact } from './Contact'
 export { Footer } from './Footer'
 export * from './form'
 export { Hero } from './Hero'

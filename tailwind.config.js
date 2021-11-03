@@ -13,32 +13,9 @@ module.exports = {
         colors: {
             transparent: 'transparent',
             current: 'currentColor',
-            primary: {
-                DEFAULT: '#6B7FD7',
-                50: '#DEE3F7',
-                100: '#CED5F3',
-                200: '#BFC8EF',
-                300: '#A1AEE7',
-                400: '#8596DE',
-                500: '#6B7FD7',
-                600: '#5665AB',
-                700: '#404C81',
-                800: '#2B3356',
-                900: '#15192B'
-            },
-            secondary: {
-                DEFAULT: '#eaeaea',
-                50: '#',
-                100: '#',
-                200: '#',
-                300: '#',
-                400: '#',
-                500: '#',
-                600: '#',
-                700: '#',
-                800: '#',
-                900: '#'
-            },
+            primary: '#FFF8F0',
+            secondary: '#02030A',
+            accent: '#C79C6B',
             danger: '#ff5555'
         },
         fontFamily: {

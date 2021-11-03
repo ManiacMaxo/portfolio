@@ -36,7 +36,7 @@ const About: React.FC<Props> = (props) => {
 
     return (
         <Layout title='About | Victor Gorchilov' light>
-            <main className='bg-conic-gradient from-primary-500 to-secondary bg-fixed'>
+            <main className='bg-conic-gradient from-primary0 to-secondary bg-fixed'>
                 <div className='container min-h-screen grid items-center grid-cols-3 lg:grid-cols-2'>
                     <div
                         className={`${contentCounter} flex flex-col gap-8 bg-primary-800 p-4 justify-self-end sm:w-96 col-span-3 sm:col-span-2 lg:col-auto`}

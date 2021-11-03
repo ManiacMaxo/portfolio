@@ -10,15 +10,20 @@ const Nav: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false)
     const { theme, toggleTheme } = useContext(ThemeContext)
 
+    const clickableStyles =
+        'hover:opacity-70 transition-opacity text-sm lg:text-md leading-none'
+
     return (
         <motion.header animate={isOpen ? 'open' : 'closed'}>
-            <nav className='container pt-8 lg:pt-14 fixed inset-0 bottom-auto flex items-center uppercase z-50 select-none'>
-                <span className='flex-1 cursor-default' onClick={toggleTheme}>
-                    {`${theme === 'dark' ? 'light' : 'dark'}?`}
-                </span>
+            <nav className='container pt-8 lg:pt-14 fixed inset-0 bottom-auto flex items-center uppercase z-50 select-none dark:mix-blend-difference'>
+                <div className='flex-1 cursor-default' onClick={toggleTheme}>
+                    <span className={clickableStyles}>{`${
+                        theme === 'dark' ? 'light' : 'dark'
+                    }?`}</span>
+                </div>
 
                 <NavLink href='/'>
-                    <a className='font-heading font-black text-[5vw] md:text-3xl leading-none'>
+                    <a className='font-heading font-black text-[5vw] md:text-3xl hover:scale-110 transfrom transition-transform leading-none'>
                         Victor Gorchilov
                     </a>
                 </NavLink>
@@ -30,10 +35,10 @@ const Nav: React.FC = () => {
                     ) : (
                         <>
                             <NavLink href='/about'>
-                                <a>About</a>
+                                <a className={clickableStyles}>About</a>
                             </NavLink>
                             <NavLink href='/contact'>
-                                <a>Contact</a>
+                                <a className={clickableStyles}>Contact</a>
                             </NavLink>
                         </>
                     )}

@@ -7,11 +7,12 @@
 }
 
 ::selection {
-    @apply text-primary-900 bg-secondary dark:text-secondary dark:bg-primary-900;
+    @apply text-primary bg-secondary font-body dark:text-secondary dark:bg-primary;
 }
 
 body {
-    @apply text-secondary bg-primary-900 font-body dark:text-primary-900 dark:bg-secondary;
+    @apply text-secondary bg-primary dark:text-primary dark:bg-secondary;
     @apply transition-colors duration-300 ease-in-out;
     font-variant-ligatures: common-ligatures;
+    line-height: 1;
 }
