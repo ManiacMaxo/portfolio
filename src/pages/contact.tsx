@@ -58,7 +58,9 @@ const contact: React.FC = () => {
     return (
         <Layout>
             <main className='container flex flex-col items-center justify-center min-h-screen gap-y-14 pt-20 pb-12'>
-                <h1 className='font-heading font-bold text-[18vw]'>Contact</h1>
+                <h1 className='font-heading font-bold text-[18vw] leading-none'>
+                    Contact
+                </h1>
 
                 <a
                     href='mailto:victor@gorchilov.com'

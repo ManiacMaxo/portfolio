@@ -11,15 +11,15 @@ const Nav: React.FC = () => {
     const { theme, toggleTheme } = useContext(ThemeContext)
 
     const clickableStyles =
-        'hover:opacity-70 transition-opacity text-sm lg:text-md leading-none'
+        'hover:opacity-70 transition-opacity text-sm lg:text-md leading-none w-max'
 
     return (
         <motion.header animate={isOpen ? 'open' : 'closed'}>
             <nav className='container pt-8 lg:pt-14 fixed inset-0 bottom-auto flex items-center uppercase z-50 select-none dark:mix-blend-difference'>
-                <div className='flex-1 cursor-default' onClick={toggleTheme}>
-                    <span className={clickableStyles}>{`${
-                        theme === 'dark' ? 'light' : 'dark'
-                    }?`}</span>
+                <div className='flex-1 cursor-default'>
+                    <span className={clickableStyles} onClick={toggleTheme}>
+                        {`${theme === 'dark' ? 'light' : 'dark'}?`}
+                    </span>
                 </div>
 
                 <NavLink href='/'>

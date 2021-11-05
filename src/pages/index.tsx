@@ -1,16 +1,23 @@
 import { motion } from 'framer-motion'
 import { GetStaticPropsContext } from 'next'
+import { useRouter } from 'next/dist/client/router'
 import React from 'react'
-import { Button, Footer, Hero, Input, Layout, Typewriter } from '../components'
+import {
+    Button,
+    Footer,
+    Hero,
+    Layout,
+    ScrollAction,
+    Typewriter
+} from '../components'
 import { getClient, indexQuery, IProject, urlForImage } from '../lib'
 
 interface Props {
     projects: IProject[]
 }
 
-const Home: React.FC<Props> = (props) => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const numProjects = props.projects.length
+const Home: React.FC<Props> = () => {
+    const router = useRouter()
 
     const inputGroup = {
         animate: { opacity: 1 },
@@ -39,15 +46,15 @@ const Home: React.FC<Props> = (props) => {
                     className='flex items-center justify-center gap-4 flex-col md:flex-row'
                     variants={inputGroup}
                 >
-                    <Input
-                        type='email'
-                        name='email'
-                        placeholder='Email address'
-                        variant='filled'
-                    />
-                    <Button variant='secondary'>Contact Me</Button>
+                    <Button
+                        variant='secondary'
+                        onClick={() => router.push('/contact')}
+                    >
+                        Contact Me
+                    </Button>
                 </motion.div>
             </Hero>
+            <ScrollAction />
             <main>
                 <Footer />
             </main>

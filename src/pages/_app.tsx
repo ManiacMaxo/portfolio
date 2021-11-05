@@ -11,12 +11,12 @@ const AppWrapper = ({
     router
 }: AppProps): JSX.Element => {
     return (
-        <AnimatePresence exitBeforeEnter>
-            <ThemeContextProvider>
+        <ThemeContextProvider>
+            <AnimatePresence exitBeforeEnter>
                 <TransitionOverlay key={router.route} direction='left' />
                 <Component {...pageProps} />
-            </ThemeContextProvider>
-        </AnimatePresence>
+            </AnimatePresence>
+        </ThemeContextProvider>
     )
 }
 

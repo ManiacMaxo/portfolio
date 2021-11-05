@@ -35,11 +35,11 @@ const About: React.FC<Props> = (props) => {
     `
 
     return (
-        <Layout title='About | Victor Gorchilov' light>
-            <main className='bg-conic-gradient from-primary0 to-secondary bg-fixed'>
+        <Layout title='About | Victor Gorchilov'>
+            <main>
                 <div className='container min-h-screen grid items-center grid-cols-3 lg:grid-cols-2'>
                     <div
-                        className={`${contentCounter} flex flex-col gap-8 bg-primary-800 p-4 justify-self-end sm:w-96 col-span-3 sm:col-span-2 lg:col-auto`}
+                        className={`${contentCounter} flex flex-col gap-8 p-4 justify-self-end sm:w-96 col-span-3 sm:col-span-2 lg:col-auto`}
                     >
                         <header>
                             <h1 className='title text-3xl'>Victor Gorchilov</h1>

@@ -10,7 +10,9 @@ const Footer: React.FC = () => {
     return (
         <div className='py-12'>
             <div className='container grid grid-cols-3'>
-                <div></div>
+                <div className='flex items-end justify-start'>
+                    &#169; {new Date().getFullYear()}
+                </div>
                 <div className='flex flex-col items-center gap-2'>
                     <h3 className='font-heading font-bold text-[5vw] md:text-[3vw] uppercase'>
                         Socials
