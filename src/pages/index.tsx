@@ -7,6 +7,7 @@ import {
     Footer,
     Hero,
     Layout,
+    Projects,
     ScrollAction,
     Typewriter
 } from '../components'
@@ -16,7 +17,7 @@ interface Props {
     projects: IProject[]
 }
 
-const Home: React.FC<Props> = () => {
+const Home: React.FC<Props> = (props) => {
     const router = useRouter()
 
     const inputGroup = {
@@ -56,6 +57,7 @@ const Home: React.FC<Props> = () => {
             </Hero>
             <ScrollAction />
             <main>
+                <Projects {...props} />
                 <Footer />
             </main>
         </Layout>
@@ -67,15 +69,16 @@ export const getStaticProps = async ({
 }: GetStaticPropsContext): Promise<any> => {
     const res = await getClient(preview).fetch(indexQuery)
 
-    const projects: IProject[] = res.map((project) => ({
-        ...project,
-        imgUrl: urlForImage(project.mainImage).url()
-    }))
+    const projects: IProject[] = res
+        .map((project) => ({
+            ...project,
+            imgUrl: urlForImage(project.mainImage).url(),
+            start: new Date(project.start).getFullYear()
+        }))
+        .sort((a, b) => b.start - a.start)
 
     return {
-        props: {
-            projects
-        },
+        props: { projects },
         revalidate: 10 * 60 * 60 // 10 hours
     }
 }
