@@ -20,7 +20,7 @@ const Button: React.FC<Props> = (props) => {
     }
 
     const classes = classNames(
-        'appearance-none relative border-none outline-none flex items-center justify-center gap-2 w-max',
+        'appearance-none border-none outline-none flex items-center justify-center gap-2 w-max',
         'rounded px-5 py-3.5 transform focus:scale-90 overflow-hidden flex-shrink-0',
         css`
             transition: color 0.5s, transform 0.2s, background-color 0.2s;
@@ -74,6 +74,8 @@ const Button: React.FC<Props> = (props) => {
             whileTap='clicked'
             transition={{ duration: 0.1 }}
             className={classes}
+            // eslint-disable-next-line no-console
+            onMouseEnter={(e) => console.log(e.clientX, e.clientY)}
             {...rest}
         >
             {props.children}

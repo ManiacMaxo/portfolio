@@ -8,7 +8,7 @@ interface Props {
 const Tile: React.FC<HTMLMotionProps<'div'>> = (props) => {
     return (
         <motion.div
-            className='w-full h-full bg-primary dark:bg-secondary'
+            className='w-full h-full bg-secondary dark:bg-primary'
             {...props}
         />
     )
