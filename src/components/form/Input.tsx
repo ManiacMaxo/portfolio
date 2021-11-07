@@ -12,17 +12,16 @@ const Input: React.FC<Props> = (props) => {
     const { label, variant, className, error, ...rest } = props
 
     const classes = classNames(
-        'appearance-none outline-none text-primary-700 text-md',
+        'appearance-none outline-none text-md',
         variant === 'outlined' && {
             'py-2 border-b-2 bg-transparent transition duration-200': true,
-            'border-danger placeholder-danger placeholder-opacity-60': error,
-            'border-primary-300 focus:border-primary-600 placeholder-primary-200':
-                !error
+            'border-danger': error,
+            'dark:border-primary border-secondary': !error
         },
         variant === 'filled' && {
-            'p-3 w-full rounded bg-secondary border-2 ': true,
-            'border-danger placeholder-danger placeholder-opacity-60': error,
-            'border-secondary placeholder-primary-400': !error
+            'p-3 w-full rounded bg-secondary border-2': true,
+            'border-danger': error,
+            'border-secondary': !error
         }
     )
 
@@ -32,8 +31,10 @@ const Input: React.FC<Props> = (props) => {
                 <label
                     htmlFor={props.name}
                     className='uppercase text-xs tracking-widest'
+                    title={props.required ? 'Required' : 'Optional'}
                 >
                     {label}
+                    {props.required && '*'}
                 </label>
             )}
             <input {...rest} className={classes} />

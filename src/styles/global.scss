@@ -2,17 +2,16 @@
 @use 'fonts';
 @use 'components';
 
-::selection {
-    @apply text-primary-50 bg-primary-400;
-}
-
 ::-webkit-scrollbar {
     width: 0px;
 }
 
-html,
-body,
-#__next {
-    @apply text-secondary bg-primary-900 font-body;
+::selection {
+    @apply text-primary bg-secondary font-body dark:text-secondary dark:bg-primary;
+}
+
+body {
+    @apply text-secondary bg-primary dark:text-primary dark:bg-secondary;
+    @apply transition-colors duration-300 ease-in-out;
     font-variant-ligatures: common-ligatures;
 }

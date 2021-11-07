@@ -1,7 +1,16 @@
 import { motion } from 'framer-motion'
 import { GetStaticPropsContext } from 'next'
+import { useRouter } from 'next/dist/client/router'
 import React from 'react'
-import { Button, Contact, Hero, Input, Layout, Typewriter } from '../components'
+import {
+    Button,
+    Footer,
+    Hero,
+    Layout,
+    Projects,
+    ScrollAction,
+    Typewriter
+} from '../components'
 import { getClient, indexQuery, IProject, urlForImage } from '../lib'
 
 interface Props {
@@ -9,8 +18,7 @@ interface Props {
 }
 
 const Home: React.FC<Props> = (props) => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const numProjects = props.projects.length
+    const router = useRouter()
 
     const inputGroup = {
         animate: { opacity: 1 },
@@ -39,17 +47,18 @@ const Home: React.FC<Props> = (props) => {
                     className='flex items-center justify-center gap-4 flex-col md:flex-row'
                     variants={inputGroup}
                 >
-                    <Input
-                        type='email'
-                        name='email'
-                        placeholder='Email address'
-                        variant='filled'
-                    />
-                    <Button variant='secondary'>Contact Me</Button>
+                    <Button
+                        variant='secondary'
+                        onClick={() => router.push('/contact')}
+                    >
+                        Contact Me
+                    </Button>
                 </motion.div>
             </Hero>
+            <ScrollAction />
             <main>
-                <Contact />
+                <Projects {...props} />
+                <Footer />
             </main>
         </Layout>
     )
@@ -60,15 +69,16 @@ export const getStaticProps = async ({
 }: GetStaticPropsContext): Promise<any> => {
     const res = await getClient(preview).fetch(indexQuery)
 
-    const projects: IProject[] = res.map((project) => ({
-        ...project,
-        imgUrl: urlForImage(project.mainImage).url()
-    }))
+    const projects: IProject[] = res
+        .map((project) => ({
+            ...project,
+            imgUrl: urlForImage(project.mainImage).url(),
+            start: new Date(project.start).getFullYear()
+        }))
+        .sort((a, b) => b.start - a.start)
 
     return {
-        props: {
-            projects
-        },
+        props: { projects },
         revalidate: 10 * 60 * 60 // 10 hours
     }
 }

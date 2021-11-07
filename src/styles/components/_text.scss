@@ -1,6 +1,6 @@
 @layer components {
     .title {
-        @apply font-title uppercase;
+        @apply font-heading;
         letter-spacing: 0.02em;
         font-size: clamp(1.75em, 5vw, 3.5em);
         line-height: 90%;
@@ -10,7 +10,7 @@
         @apply relative inline-block z-1 px-1;
 
         &::after {
-            @apply bg-primary-400 bg-opacity-60 -z-1 absolute inset-x-0;
+            @apply bg-accent bg-opacity-60 -z-1 absolute inset-x-0;
             content: '';
             bottom: 10%;
             height: 20%;
@@ -29,6 +29,11 @@
             -webkit-text-fill-color: transparent;
             -webkit-text-stroke-width: 1px;
             -webkit-text-stroke-color: currentColor;
+        }
+
+        .underlined {
+            @apply relative after:absolute after:top-full after:left-0 after:scale-x-100 after:w-full after:h-px after:bg-current;
+            @apply hover:after:scale-x-0 after:transition-transform after:duration-300;
         }
     }
 }

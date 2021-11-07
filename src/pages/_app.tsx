@@ -2,6 +2,7 @@ import { AnimatePresence } from 'framer-motion'
 import { AppProps } from 'next/app'
 import React from 'react'
 import { TransitionOverlay } from '../components'
+import { ThemeContextProvider } from '../context'
 import '../styles/global.scss'
 
 const AppWrapper = ({
@@ -10,10 +11,12 @@ const AppWrapper = ({
     router
 }: AppProps): JSX.Element => {
     return (
-        <AnimatePresence exitBeforeEnter>
-            <TransitionOverlay key={router.route} direction='left' />
-            <Component {...pageProps} />
-        </AnimatePresence>
+        <ThemeContextProvider>
+            <AnimatePresence exitBeforeEnter>
+                <TransitionOverlay key={router.route} direction='left' />
+                <Component {...pageProps} />
+            </AnimatePresence>
+        </ThemeContextProvider>
     )
 }
 

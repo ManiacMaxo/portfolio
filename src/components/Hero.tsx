@@ -56,10 +56,6 @@ const Hero: React.FC<Props> = (props) => {
         }
     }
 
-    const clampFont = css`
-        font-size: clamp(1.5em, 5vw, 4.5em);
-    `
-
     const maxWidth = css`
         max-width: 75ch;
     `
@@ -77,7 +73,7 @@ const Hero: React.FC<Props> = (props) => {
                 animate='animate'
             >
                 <motion.h1
-                    className={`${clampFont} title`}
+                    className='title text-[8vw]'
                     transition={{
                         staggerChildren: 0.1
                     }}

@@ -9,7 +9,7 @@ const FourOhFour: React.FC = () => {
                     404
                 </h1>
                 <Link href='/'>
-                    <a className='relative font-title-wide text-center text-2xl sm:text-3xl lg:text-5xl'>
+                    <a className='relative font-heading-wide text-center text-2xl sm:text-3xl lg:text-5xl'>
                         Go back home
                     </a>
                 </Link>

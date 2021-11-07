@@ -1,9 +1,16 @@
 /* eslint-disable no-console */
 import { useFormik } from 'formik'
 import React from 'react'
-import { Button, Input } from '.'
+import { Button, Input, Layout } from '../components'
 
-const Contact: React.FC = () => {
+const contact: React.FC = () => {
+    const initialValues = {
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        message: ''
+    }
     const onSubmit = (values: any) => {
         console.log(values)
 
@@ -16,14 +23,6 @@ const Contact: React.FC = () => {
         })
             .then((res) => res.json())
             .then((data) => console.log(data))
-    }
-
-    const initialValues = {
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        message: ''
     }
 
     const validationFunction = (values: typeof initialValues) => {
@@ -50,6 +49,7 @@ const Contact: React.FC = () => {
         })
     }
 
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const formik = useFormik({
         initialValues,
         validate: validationFunction,
@@ -57,15 +57,28 @@ const Contact: React.FC = () => {
     })
 
     return (
-        <section className='bg-secondary text-primary-700 py-12 shadow-inner'>
-            <div className='container grid grid-cols-1 md:grid-cols-2 gap-6'>
-                <div className='flex flex-col items-center md:items-end'>
-                    <h3 className='title text-2xl w-max'>Get in touch!</h3>
-                </div>
+        <Layout>
+            <main className='container flex flex-col items-center justify-center min-h-screen gap-y-14 pt-20 pb-12'>
+                <h1 className='font-heading font-bold text-[18vw] leading-none'>
+                    Contact
+                </h1>
+
+                <a
+                    href='mailto:victor@gorchilov.com'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='text-center underlined'
+                >
+                    <p className='text-sm'>If you want to mail me directly</p>
+                    <p className='text-2xl md:text-4xl pt-2 pb-1'>
+                        victor@gorchilov.com
+                    </p>
+                </a>
 
                 <form
-                    className='grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-8'
+                    className='grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-8 w-full max-w-7xl'
                     onSubmit={formik.handleSubmit}
+                    noValidate
                 >
                     <Input
                         name='firstName'
@@ -77,6 +90,7 @@ const Contact: React.FC = () => {
                         error={
                             formik.touched.firstName && formik.errors.firstName
                         }
+                        required
                     />
                     <Input
                         name='lastName'
@@ -95,6 +109,7 @@ const Contact: React.FC = () => {
                         value={formik.values.email}
                         onChange={formik.handleChange}
                         error={formik.touched.email && formik.errors.email}
+                        required
                     />
                     <Input
                         name='phone'
@@ -114,16 +129,17 @@ const Contact: React.FC = () => {
                         value={formik.values.message}
                         onChange={formik.handleChange}
                         error={formik.touched.message && formik.errors.message}
+                        required
                     />
-                    <div>
+                    <div className='justify-self-center col-span-full'>
                         <Button variant='secondary' type='submit'>
                             Submit
                         </Button>
                     </div>
                 </form>
-            </div>
-        </section>
+            </main>
+        </Layout>
     )
 }
 
-export { Contact }
+export default contact

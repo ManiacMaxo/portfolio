@@ -63,7 +63,7 @@ const Menu: React.FC<Props> = (props) => {
     return (
         <MotionConfig transition={{ duration: 0.5 }}>
             <motion.div
-                className='fixed inset-0 right-auto z-50 w-0 bg-primary-900 bg-opacity-70'
+                className='fixed inset-0 right-auto z-50 w-0 bg-secondary bg-opacity-70'
                 onClick={props.onClose}
                 variants={overlay}
                 transition={{
@@ -85,7 +85,7 @@ const Menu: React.FC<Props> = (props) => {
                             {links.map((link) => (
                                 <li
                                     key={link.name}
-                                    className='w-max font-title-wide overflow-hidden cursor-pointer'
+                                    className='w-max font-heading-wide overflow-hidden cursor-pointer'
                                 >
                                     <Link href={link.href}>
                                         <motion.a
@@ -103,7 +103,7 @@ const Menu: React.FC<Props> = (props) => {
                             className='pl-container-outside pb-24 absolute bottom-0 left-0'
                             variants={footer}
                         >
-                            <span className='text-primary-400'>Socials</span>
+                            <span>Socials</span>
                             <div className='text-sm mt-2 mb-3 overflow-x-hidden whitespace-nowrap'>
                                 {socials.map((social, idx) => (
                                     <React.Fragment key={social.name}>

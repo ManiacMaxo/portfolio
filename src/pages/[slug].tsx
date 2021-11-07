@@ -11,13 +11,15 @@ import {
 } from '../lib'
 
 const Project: React.FC<IProject> = (props) => {
-    const sectionTitle = 'title text-xl mb-2'
+    const sectionTitle = 'title text-2xl font-bold mb-2'
 
     return (
         <Layout>
             <main className='pt-40'>
                 <div className='container pb-3 bg-transparent'>
-                    <h1 className='title md:text-6xl'>{props.title}</h1>
+                    <h1 className='font-heading text-[8vw] font-black leading-none'>
+                        {props.title}
+                    </h1>
                     <span>
                         {props.start} - {props.end}
                     </span>
@@ -28,10 +30,7 @@ const Project: React.FC<IProject> = (props) => {
                             <ul>
                                 <h3 className={sectionTitle}>Tags</h3>
                                 {props.tags.map((tag: string) => (
-                                    <li
-                                        key={tag}
-                                        className='w-max text-secondary text-opacity-75'
-                                    >
+                                    <li key={tag} className='w-max opacity-75'>
                                         {tag}
                                     </li>
                                 ))}
