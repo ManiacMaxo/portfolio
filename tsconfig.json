@@ -9,6 +9,12 @@
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
+    "paths": {
+      "@/*": [
+        "*"
+      ]
+    },
+    "baseUrl": "src",
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,

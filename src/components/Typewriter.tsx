@@ -35,7 +35,7 @@ const Typewriter: React.FC<Props> = (props) => {
         )
 
         return () => clearTimeout(timeout)
-    }, [letterIndex, index, reverse])
+    }, [letterIndex, index, reverse, options])
 
     return (
         <span className='relative'>

@@ -13,15 +13,16 @@ const ScrollAction: React.FC = () => {
 
     return (
         visible && (
-            <div className='absolute bottom-8 left-1/2 transform -translate-x-1/2'>
-                <div className='relative border rounded-full border-secondary dark:border-primary w-5 h-10 flex flex-col items-center py-2'>
+            <div className='absolute transform -translate-x-1/2 bottom-8 left-1/2'>
+                <div className='relative flex flex-col items-center w-5 h-10 py-2 border rounded-full border-secondary dark:border-primary'>
                     <motion.div
-                        className='bg-secondary dark:bg-primary w-1 h-2 rounded-full'
+                        className='w-1 h-2 rounded-full bg-secondary dark:bg-primary'
                         animate={{
                             height: '50%',
                             y: '100%',
                             transition: {
-                                yoyo: Infinity,
+                                repeat: Infinity,
+                                repeatType: 'reverse',
                                 duration: 1
                             }
                         }}

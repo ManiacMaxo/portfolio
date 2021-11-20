@@ -24,16 +24,21 @@ const Project: React.FC<IProject> = (props) => {
                         {props.start} - {props.end}
                     </span>
                 </div>
-                <section className='container flex flex-col gap-8 md:flex-row md:gap-16 pb-24'>
+                <section className='container flex flex-col gap-8 pb-24 md:flex-row md:gap-16'>
                     <div className='flex gap-4 md:flex-col'>
                         {props.tags && (
                             <ul>
                                 <h3 className={sectionTitle}>Tags</h3>
-                                {props.tags.map((tag: string) => (
-                                    <li key={tag} className='w-max opacity-75'>
-                                        {tag}
-                                    </li>
-                                ))}
+                                {props.tags
+                                    .sort((a, b) => a.localeCompare(b))
+                                    .map((tag: string) => (
+                                        <li
+                                            key={tag}
+                                            className='opacity-75 w-max'
+                                        >
+                                            {tag}
+                                        </li>
+                                    ))}
                             </ul>
                         )}
                         {props.links && (

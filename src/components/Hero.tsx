@@ -1,6 +1,8 @@
 import { css } from '@emotion/css'
 import { motion, Variants } from 'framer-motion'
+import Image from 'next/image'
 import React, { ComponentClass, FunctionComponent } from 'react'
+import memoji from '../assets/memoji.png'
 
 interface Props {
     title: string
@@ -65,7 +67,7 @@ const Hero: React.FC<Props> = (props) => {
     `
 
     return (
-        <div className='h-screen container flex flex-col-reverse lg:flex-row items-center justify-center lg:justify-between lg:gap-24'>
+        <div className='container flex flex-col-reverse items-center justify-center h-screen lg:flex-row lg:justify-between lg:gap-24'>
             <motion.div
                 className={`${maxWidth} pt-8 pb-16 w-full flex flex-col items-center text-center lg:items-start lg:text-left lg:justify-center gap-4`}
                 variants={container}
@@ -85,7 +87,7 @@ const Hero: React.FC<Props> = (props) => {
                 </motion.span>
                 {props.children}
             </motion.div>
-            <img src='/images/memoji.png' className={imageStyle} />
+            <Image src={memoji} alt='me' className={imageStyle} />
         </div>
     )
 }

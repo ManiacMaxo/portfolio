@@ -1,8 +1,8 @@
 {
   "root": true,
   "api": {
-    "projectId": "PLACEHOLDER_ENV_VARIABLES_WILL_HANDLE_FOR_US",
-    "dataset": "PLACEHOLDER_ENV_VARIABLES_WILL_HANDLE_FOR_US"
+    "projectId": "PLACEHOLDER",
+    "dataset": "PLACEHOLDER"
   },
   "project": {
     "name": "Portfolio",

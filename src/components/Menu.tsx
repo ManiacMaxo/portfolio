@@ -73,23 +73,23 @@ const Menu: React.FC<Props> = (props) => {
                 }}
             >
                 <div
-                    className='h-screen pointer-events-none w-screen md:w-1/2'
+                    className='w-screen h-screen pointer-events-none md:w-1/2'
                     onClick={(e) => e.stopPropagation()}
                 >
                     <motion.div
-                        className='h-full pointer-events-auto overflow-x-hidden relative flex items-center text-secondary bg-primary-800'
+                        className='relative flex items-center h-full overflow-x-hidden pointer-events-auto text-secondary bg-primary-800'
                         variants={content}
                         initial={{ width: 0 }}
                     >
-                        <ul className='pl-container-outside w-full flex flex-col'>
+                        <ul className='flex flex-col w-full pl-container-outside'>
                             {links.map((link) => (
                                 <li
                                     key={link.name}
-                                    className='w-max font-heading-wide overflow-hidden cursor-pointer'
+                                    className='overflow-hidden cursor-pointer w-max font-heading-wide'
                                 >
-                                    <Link href={link.href}>
+                                    <Link href={link.href} passHref>
                                         <motion.a
-                                            className='relative block hover:outline-text title text-3xl'
+                                            className='relative block text-3xl hover:outline-text title'
                                             variants={linkVariant}
                                         >
                                             {link.name}
@@ -100,11 +100,11 @@ const Menu: React.FC<Props> = (props) => {
                         </ul>
 
                         <motion.footer
-                            className='pl-container-outside pb-24 absolute bottom-0 left-0'
+                            className='absolute bottom-0 left-0 pb-24 pl-container-outside'
                             variants={footer}
                         >
                             <span>Socials</span>
-                            <div className='text-sm mt-2 mb-3 overflow-x-hidden whitespace-nowrap'>
+                            <div className='mt-2 mb-3 overflow-x-hidden text-sm whitespace-nowrap'>
                                 {socials.map((social, idx) => (
                                     <React.Fragment key={social.name}>
                                         <a

@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
                 </div>
                 <div className='flex items-end justify-end'>
                     <button
-                        className='outline-none rounded-xl text-4xl p-2 shadow-xl hover:shadow-inner focus:ring-1 ring-secondary dark:ring-primary'
+                        className='p-2 text-4xl shadow-xl outline-none rounded-xl hover:shadow-inner focus:ring-1 ring-secondary dark:ring-primary'
                         onClick={scrollToTop}
                         title='scroll to top'
                         aria-label='scroll to top'

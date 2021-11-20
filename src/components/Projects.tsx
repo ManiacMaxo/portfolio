@@ -34,12 +34,12 @@ const Projects: React.FC<Props> = (props) => {
             {props.projects.map((project) => (
                 <li
                     key={project._id}
-                    className='first-of-type:border-t border-b relative'
+                    className='relative border-b first-of-type:border-t'
                 >
                     <Link href={`/${project.slug}`}>
                         <a>
                             <div
-                                className='py-1 bg-transparent flex items-center justify-between'
+                                className='flex items-center justify-between py-1 bg-transparent'
                                 onMouseEnter={() => setImage(project.imgUrl)}
                             >
                                 <h2 className='text-[3vw]'>{project.title}</h2>

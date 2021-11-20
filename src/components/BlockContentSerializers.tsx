@@ -2,10 +2,11 @@ import React from 'react'
 import Link from 'next/link'
 
 interface Props {
-    mark: any
+    mark?: any
 }
 
-export const ExternalLink: React.FC<Props> = ({ children, mark }) => {
+export const ExternalLink: React.FC<Props> = (props) => {
+    const { children, mark = true } = props
     return (
         <a
             className='article-link'
@@ -22,7 +23,8 @@ export const ExternalLink: React.FC<Props> = ({ children, mark }) => {
     )
 }
 
-export const InternalLink: React.FC<Props> = ({ children, mark }) => {
+export const InternalLink: React.FC<Props> = (props) => {
+    const { children, mark } = props
     return (
         <Link href={`/${mark.slug}`}>
             <a className='article-link'>{children}</a>

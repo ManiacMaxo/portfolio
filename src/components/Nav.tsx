@@ -15,9 +15,9 @@ const Nav: React.FC = () => {
 
     return (
         <motion.header animate={isOpen ? 'open' : 'closed'}>
-            <nav className='container pt-8 lg:pt-14 fixed inset-0 bottom-auto flex items-center uppercase z-50 select-none dark:mix-blend-difference'>
-                <div className='flex-1 cursor-default'>
-                    <span className={clickableStyles} onClick={toggleTheme}>
+            <nav className='container fixed inset-0 bottom-auto z-50 flex items-center pt-8 uppercase select-none lg:pt-14 dark:mix-blend-difference'>
+                <div className='flex-1'>
+                    <span onClick={toggleTheme}>
                         {`${theme === 'dark' ? 'light' : 'dark'}?`}
                     </span>
                 </div>
@@ -27,7 +27,7 @@ const Nav: React.FC = () => {
                         Victor Gorchilov
                     </a>
                 </NavLink>
-                <div className='flex-1 flex gap-6 justify-end'>
+                <div className='flex justify-end flex-1 gap-6'>
                     {width < 768 ? (
                         <BurgerButton
                             onClick={() => setIsOpen((prev) => !prev)}
