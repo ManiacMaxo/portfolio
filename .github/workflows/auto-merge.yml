@@ -1,8 +1,5 @@
 name: auto-merge
-
-on:
-  pull_request:
-
+on: [pull_request]
 jobs:
   auto-merge:
     runs-on: ubuntu-latest
@@ -11,4 +8,4 @@ jobs:
       - uses: ahmadnassri/action-dependabot-auto-merge@v2
         with:
           target: minor
-          github-token: ${{ secrets.TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
