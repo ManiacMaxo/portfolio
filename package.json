@@ -30,7 +30,7 @@
     "@sanity/block-content-to-react": "^3.0.0",
     "@types/lru-cache": "^5.1.1",
     "@types/node": "^16.11.7",
-    "@types/react": "^17.0.34",
+    "@types/react": "^17.0.36",
     "@types/react-dom": "^17.0.11",
     "@types/react-transition-group": "^4.4.4",
     "autoprefixer": "^10.4.0",
