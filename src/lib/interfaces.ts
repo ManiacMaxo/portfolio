@@ -15,3 +15,8 @@ export interface IAward {
     name: string
     date: Date
 }
+
+export interface IFont {
+    name: string
+    weights?: Array<number>
+}

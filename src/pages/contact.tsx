@@ -1,7 +1,6 @@
-/* eslint-disable no-console */
+import { Button, Input, Layout } from '@/components'
 import { useFormik } from 'formik'
 import React from 'react'
-import { Button, Input, Layout } from '../components'
 
 const contact: React.FC = () => {
     const initialValues = {
@@ -58,7 +57,7 @@ const contact: React.FC = () => {
 
     return (
         <Layout>
-            <main className='container flex flex-col items-center justify-center min-h-screen gap-y-14 pt-20 pb-12'>
+            <main className='container flex flex-col items-center justify-center min-h-screen pt-20 pb-12 gap-y-14'>
                 <h1 className='font-heading font-bold text-[18vw] leading-none'>
                     Contact
                 </h1>
@@ -70,13 +69,13 @@ const contact: React.FC = () => {
                     className='text-center underlined'
                 >
                     <p className='text-sm'>If you want to mail me directly</p>
-                    <p className='text-2xl md:text-4xl pt-2 pb-1'>
+                    <p className='pt-2 pb-1 text-2xl md:text-4xl'>
                         victor@gorchilov.com
                     </p>
                 </a>
 
                 <form
-                    className='grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-8 w-full max-w-7xl'
+                    className='grid w-full grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-8 max-w-7xl'
                     onSubmit={formik.handleSubmit}
                     noValidate
                 >

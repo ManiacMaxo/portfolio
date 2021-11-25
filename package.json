@@ -7,8 +7,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "prebuild": "cd studio && yarn && npx @sanity/cli build ../public/studio -y",
     "build": "next build",
-    "build:sanity": "cd studio && sanity build ../public/studio -y && cd ..",
     "dev": "next",
     "lint": "next lint",
     "start": "next start",

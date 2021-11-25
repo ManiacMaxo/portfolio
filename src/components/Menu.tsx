@@ -1,7 +1,7 @@
+import { links, socials } from '@/lib/constants'
 import { motion, MotionConfig, Variants } from 'framer-motion'
 import Link from 'next/link'
 import React from 'react'
-import { links, socials } from '../lib/constants'
 
 interface Props {
     onClose: () => void

@@ -1,6 +1,6 @@
+import { Nav } from '@/components/Nav'
 import Head from 'next/head'
 import React from 'react'
-import { Nav } from './Nav'
 
 interface Props {
     title?: string
@@ -51,7 +51,7 @@ const Layout: React.FC<Props> = (props) => {
 Layout.defaultProps = {
     title: 'Victor Gorchilov',
     description:
-        "I'm just a student trying to make the most out of my computer. I create brilliant digital experiences in a treacherous world."
+        "I'm just a student trying to create brilliant digital experiences."
 }
 
 export { Layout }

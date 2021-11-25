@@ -30,7 +30,7 @@ const Input: React.FC<Props> = (props) => {
             {label && (
                 <label
                     htmlFor={props.name}
-                    className='uppercase text-xs tracking-widest'
+                    className='text-xs tracking-widest uppercase'
                     title={props.required ? 'Required' : 'Optional'}
                 >
                     {label}
@@ -39,7 +39,7 @@ const Input: React.FC<Props> = (props) => {
             )}
             <input {...rest} className={classes} />
             {error && (
-                <span className='text-danger absolute top-full'>{error}</span>
+                <span className='absolute text-danger top-full'>{error}</span>
             )}
         </div>
     )

@@ -1,6 +1,6 @@
+import { socials } from '@/lib/constants'
 import React from 'react'
 import { HiChevronUp } from 'react-icons/hi'
-import { socials } from '../lib/constants'
 
 const Footer: React.FC = () => {
     const scrollToTop = () => {

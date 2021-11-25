@@ -1,22 +1,24 @@
-import withRouter, { WithRouterProps } from 'next/dist/client/with-router'
 import Link, { LinkProps } from 'next/link'
+import { NextRouter, withRouter } from 'next/router'
 import React, { Children, PropsWithChildren } from 'react'
 
-interface Props extends WithRouterProps, PropsWithChildren<LinkProps> {
+interface Props extends PropsWithChildren<LinkProps> {
     activeClassName?: string
+    router: NextRouter
 }
 
-const NavLink = withRouter<Props>((props) => {
+const BaseLink: React.FC<Props> = (props) => {
+    const { activeClassName, router, ...rest } = props
     const child = Children.only(props.children) as JSX.Element
 
-    const { activeClassName, router, ...rest } = props
-
     let className = child.props.className || ''
-    if (router.pathname === props.href && activeClassName) {
+    if (router.asPath === props.href && activeClassName) {
         className = `${className} ${activeClassName}`.trim()
     }
 
     return <Link {...rest}>{React.cloneElement(child, { className })}</Link>
-})
+}
+
+const NavLink = withRouter(BaseLink)
 
 export { NavLink }

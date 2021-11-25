@@ -1,14 +1,14 @@
-import BlockContent from '@sanity/block-content-to-react'
-import { GetStaticPropsContext } from 'next'
-import React from 'react'
-import { ExternalLink, InternalLink, Layout } from '../components'
+import { ExternalLink, InternalLink, Layout } from '@/components'
 import {
     getClient,
     indexQuery,
     IProject,
     projectBySlugQuery,
     urlForImage
-} from '../lib'
+} from '@/lib'
+import BlockContent from '@sanity/block-content-to-react'
+import { GetStaticProps } from 'next'
+import React from 'react'
 
 const Project: React.FC<IProject> = (props) => {
     const sectionTitle = 'title text-2xl font-bold mb-2'
@@ -92,10 +92,10 @@ export const getStaticPaths = async (): Promise<any> => {
     }
 }
 
-export const getStaticProps = async ({
+export const getStaticProps: GetStaticProps = async ({
     params,
     preview = false
-}: GetStaticPropsContext): Promise<{ props: IProject }> => {
+}) => {
     const project = await getClient(preview).fetch(projectBySlugQuery, {
         slug: params.slug
     })

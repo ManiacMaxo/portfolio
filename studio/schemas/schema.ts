@@ -1,14 +1,9 @@
-// First, we must import the schema creator
-import createSchema from 'part:@sanity/base/schema-creator'
-
-// Then import schema types from any plugins that might expose them
 import schemaTypes from 'all:part:@sanity/base/schema-type'
-
-// We import object and document schemas
+import createSchema from 'part:@sanity/base/schema-creator'
+import award from './award'
 import blockContent from './blockContent'
 import category from './category'
 import project from './project'
-import award from './award'
 
 export default createSchema({
     name: 'default',

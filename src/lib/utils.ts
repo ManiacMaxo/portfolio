@@ -1,3 +1,4 @@
+import { IFont } from '@/lib'
 import LRU from 'lru-cache'
 import { NextApiResponse } from 'next'
 
@@ -32,3 +33,15 @@ export const rateLimit = (options: RateLimitOptions) => {
             })
     }
 }
+
+export const formatGoogleFonts = (fonts: Array<IFont>) =>
+    fonts
+        .map((font) => {
+            const name = font.name.trim().replaceAll(/\s+/g, '+')
+            const weights = font.weights.length
+                ? `:wght@${font.weights.join(';')}`
+                : ''
+
+            return `family=${name}${weights}`
+        })
+        .join('&')

@@ -1,8 +1,8 @@
+import memoji from '@/assets/memoji.png'
 import { css } from '@emotion/css'
 import { motion, Variants } from 'framer-motion'
 import Image from 'next/image'
 import React, { ComponentClass, FunctionComponent } from 'react'
-import memoji from '../assets/memoji.png'
 
 interface Props {
     title: string
@@ -27,7 +27,8 @@ const AnimatedText = (props: { text: string }) => {
                 <React.Fragment key={w + idx}>
                     <motion.div variants={word} className='inline-block'>
                         {w}
-                    </motion.div>{' '}
+                    </motion.div>
+                    &nbsp;
                 </React.Fragment>
             ))}
         </>

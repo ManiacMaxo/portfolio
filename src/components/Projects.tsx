@@ -1,7 +1,7 @@
+import { IProject } from '@/lib'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import React, { useState } from 'react'
-import { IProject } from '../lib'
 
 interface Props {
     projects: IProject[]

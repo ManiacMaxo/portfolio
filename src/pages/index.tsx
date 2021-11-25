@@ -1,7 +1,3 @@
-import { motion } from 'framer-motion'
-import { GetStaticPropsContext } from 'next'
-import { useRouter } from 'next/dist/client/router'
-import React from 'react'
 import {
     Button,
     Footer,
@@ -10,8 +6,12 @@ import {
     Projects,
     ScrollAction,
     Typewriter
-} from '../components'
-import { getClient, indexQuery, IProject, urlForImage } from '../lib'
+} from '@/components'
+import { getClient, indexQuery, IProject, urlForImage } from '@/lib'
+import { motion } from 'framer-motion'
+import { GetStaticProps } from 'next'
+import { useRouter } from 'next/router'
+import React from 'react'
 
 interface Props {
     projects: IProject[]
@@ -31,7 +31,7 @@ const Home: React.FC<Props> = (props) => {
                 title='Building digital experiences'
                 subtitle={() => (
                     <>
-                        a{' '}
+                        a&nbsp;
                         <Typewriter
                             options={[
                                 'Web Developer',
@@ -44,7 +44,7 @@ const Home: React.FC<Props> = (props) => {
                 )}
             >
                 <motion.div
-                    className='flex items-center justify-center gap-4 flex-col md:flex-row'
+                    className='flex flex-col items-center justify-center gap-4 md:flex-row'
                     variants={inputGroup}
                 >
                     <Button
@@ -64,9 +64,7 @@ const Home: React.FC<Props> = (props) => {
     )
 }
 
-export const getStaticProps = async ({
-    preview = false
-}: GetStaticPropsContext): Promise<any> => {
+export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
     const res = await getClient(preview).fetch(indexQuery)
 
     const projects: IProject[] = res

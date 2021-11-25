@@ -1,9 +1,9 @@
+import { Layout } from '@/components'
+import { awardsQuery, getClient, IAward } from '@/lib'
 import { css } from '@emotion/css'
 import classNames from 'classnames'
-import { GetStaticPropsContext } from 'next'
+import { GetStaticProps } from 'next'
 import React from 'react'
-import { Layout } from '../components'
-import { awardsQuery, getClient, IAward } from '../lib'
 
 interface Props {
     awards: Array<IAward>
@@ -37,21 +37,22 @@ const About: React.FC<Props> = (props) => {
     return (
         <Layout title='About | Victor Gorchilov'>
             <main>
-                <div className='container min-h-screen grid items-center grid-cols-3 lg:grid-cols-2'>
+                <div className='container grid items-center min-h-screen grid-cols-3 lg:grid-cols-2'>
                     <div
                         className={`${contentCounter} flex flex-col gap-8 p-4 justify-self-end sm:w-96 col-span-3 sm:col-span-2 lg:col-auto`}
                     >
                         <header>
-                            <h1 className='title text-3xl'>Victor Gorchilov</h1>
-                            <p className='text-xs uppercase text-secondary text-opacity-75'>
+                            <h1 className='text-3xl title'>Victor Gorchilov</h1>
+                            <p className='text-xs text-opacity-75 uppercase text-secondary'>
                                 <span className='text-secondary'>
                                     Web Development
-                                </span>{' '}
-                                (interface design and human interaction),{' '}
+                                </span>
+                                &nbsp; (interface design and human
+                                interaction),&nbsp;
                                 <span className='text-secondary'>
                                     Deep Learning
-                                </span>{' '}
-                                (mimicing the human brain) and{' '}
+                                </span>
+                                &nbsp; (mimicing the human brain) and&nbsp;
                                 <span className='text-secondary'>
                                     Tinkering
                                 </span>
@@ -60,9 +61,10 @@ const About: React.FC<Props> = (props) => {
                         <section className={section}>
                             <h2 className={sectionHeader}>About</h2>
                             <p>
-                                I am a student, actively learning{' '}
+                                I am a student, actively learning&nbsp;
                                 <strong>UI</strong> and <strong>UX</strong> as
-                                well as implementing algorithms in the field of{' '}
+                                well as implementing algorithms in the field
+                                of&nbsp;
                                 <strong>AI</strong>.
                             </p>
                             <p>
@@ -95,7 +97,7 @@ const About: React.FC<Props> = (props) => {
                                         className='flex items-center justify-between w-full'
                                     >
                                         <span>{award.name}</span>
-                                        <span className='font-mono text-secondary text-opacity-75'>
+                                        <span className='font-mono text-opacity-75 text-secondary'>
                                             {award.date.getFullYear()}
                                         </span>
                                     </li>
@@ -104,7 +106,7 @@ const About: React.FC<Props> = (props) => {
                         </section>
                     </div>
 
-                    <div className='hidden sm:block select-none'>
+                    <div className='hidden select-none sm:block'>
                         <h1 className='title text-9xl text-primary-800 w-max transform rotate-90 translate-x-[-40%]'>
                             About
                         </h1>
@@ -115,9 +117,7 @@ const About: React.FC<Props> = (props) => {
     )
 }
 
-export const getStaticProps = async ({
-    preview = false
-}: GetStaticPropsContext): Promise<{ props: Props }> => {
+export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
     const awards = await getClient(preview).fetch(awardsQuery)
 
     return {
