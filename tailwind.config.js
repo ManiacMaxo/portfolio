@@ -3,7 +3,7 @@ const plugin = require('tailwindcss/plugin')
 const CONTAINER_WIDTH = 90
 
 module.exports = {
-    purge: ['./src/**/*.{js,ts,jsx,tsx}'],
+    content: ['./src/**/*.{js,ts,jsx,tsx}'],
     mode: 'jit',
     darkMode: 'class',
     theme: {
