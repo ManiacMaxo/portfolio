@@ -1,5 +1,4 @@
 import memoji from '@/assets/memoji.png'
-import { css } from '@emotion/css'
 import { motion, Variants } from 'framer-motion'
 import Image from 'next/image'
 import React, { ComponentClass, FunctionComponent } from 'react'
@@ -59,18 +58,10 @@ const Hero: React.FC<Props> = (props) => {
         }
     }
 
-    const maxWidth = css`
-        max-width: 75ch;
-    `
-
-    const imageStyle = css`
-        width: clamp(200px, 30vw, 550px);
-    `
-
     return (
         <div className='container flex flex-col-reverse items-center justify-center h-screen lg:flex-row lg:justify-between lg:gap-24'>
             <motion.div
-                className={`${maxWidth} pt-8 pb-16 w-full flex flex-col items-center text-center lg:items-start lg:text-left lg:justify-center gap-4`}
+                className='flex flex-col items-center w-full gap-4 pt-8 pb-16 text-center max-w-[75ch] lg:items-start lg:text-left lg:justify-center'
                 variants={container}
                 initial='initial'
                 animate='animate'
@@ -88,7 +79,11 @@ const Hero: React.FC<Props> = (props) => {
                 </motion.span>
                 {props.children}
             </motion.div>
-            <Image src={memoji} alt='me' className={imageStyle} />
+            <Image
+                src={memoji}
+                alt='me'
+                className='w-[clamp(200px, 30vw, 550px)]'
+            />
         </div>
     )
 }

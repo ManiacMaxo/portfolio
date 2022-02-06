@@ -2,7 +2,7 @@ import { Button, Input, Layout } from '@/components'
 import { useFormik } from 'formik'
 import React from 'react'
 
-const contact: React.FC = () => {
+const Contact: React.FC = () => {
     const initialValues = {
         firstName: '',
         lastName: '',
@@ -48,7 +48,6 @@ const contact: React.FC = () => {
         })
     }
 
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const formik = useFormik({
         initialValues,
         validate: validationFunction,
@@ -58,7 +57,7 @@ const contact: React.FC = () => {
     return (
         <Layout>
             <main className='container flex flex-col items-center justify-center min-h-screen pt-20 pb-12 gap-y-14'>
-                <h1 className='font-heading font-bold text-[18vw] leading-none'>
+                <h1 className='font-bold leading-none font-heading text-[18vw]'>
                     Contact
                 </h1>
 
@@ -141,4 +140,4 @@ const contact: React.FC = () => {
     )
 }
 
-export default contact
+export default Contact

@@ -1,6 +1,5 @@
 import { Layout } from '@/components'
 import { awardsQuery, getClient, IAward } from '@/lib'
-import { css } from '@emotion/css'
 import classNames from 'classnames'
 import { GetStaticProps } from 'next'
 import React from 'react'
@@ -21,25 +20,16 @@ const About: React.FC<Props> = (props) => {
         'title relative text-sm pb-2 mb-2 before:absolute after:absolute',
         'before:font-mono before:top-0 before:right-0',
         'after:bottom-0 after:left-0 after:w-full after:h-px after:bg-secondary after:bg-opacity-75',
-        css`
-            &::before {
-                content: counter(section, decimal-leading-zero);
-                counter-increment: section;
-            }
-        `
+        'before:content-[counter(section,decimal-leading-zero)] [counter-increment:section]'
     )
     const section = 'flex flex-col gap-4 text-sm'
-
-    const contentCounter = css`
-        counter-reset: section;
-    `
 
     return (
         <Layout title='About | Victor Gorchilov'>
             <main>
                 <div className='container grid items-center min-h-screen grid-cols-3 lg:grid-cols-2'>
                     <div
-                        className={`${contentCounter} flex flex-col gap-8 p-4 justify-self-end sm:w-96 col-span-3 sm:col-span-2 lg:col-auto`}
+                        className={`[counter-reset: section] flex flex-col gap-8 p-4 justify-self-end sm:w-96 col-span-3 sm:col-span-2 lg:col-auto`}
                     >
                         <header>
                             <h1 className='text-3xl title'>Victor Gorchilov</h1>

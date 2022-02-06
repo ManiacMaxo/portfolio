@@ -52,7 +52,7 @@ const TransitionOverlay: React.FC<Props> = (props) => {
     return (
         <MotionConfig transition={{ duration: 0.25, ease: 'linear' }}>
             <motion.div
-                className='fixed inset-0 flex pointer-events-none z-overlay'
+                className='fixed inset-0 flex pointer-events-none z-[100]'
                 initial='initial'
                 animate='enter'
                 exit='exit'

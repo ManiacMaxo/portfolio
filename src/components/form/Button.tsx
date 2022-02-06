@@ -75,7 +75,7 @@ const Button: React.FC<Props> = (props) => {
             transition={{ duration: 0.1 }}
             className={classes}
             // eslint-disable-next-line no-console
-            onMouseEnter={(e) => console.log(e.clientX, e.clientY)}
+            // onMouseEnter={(e) => console.log(e.clientX, e.clientY)}
             {...rest}
         >
             {props.children}

@@ -4,7 +4,6 @@ const CONTAINER_WIDTH = 90
 
 module.exports = {
     content: ['./src/**/*.{js,ts,jsx,tsx}'],
-    mode: 'jit',
     darkMode: 'class',
     theme: {
         colors: {
@@ -20,11 +19,6 @@ module.exports = {
             heading: ['Emberly', 'serif']
         },
         extend: {
-            zIndex: {
-                '-1': '-1',
-                1: 1,
-                overlay: 100
-            },
             spacing: (theme) => {
                 const containerOuside = `calc((100vw - ${CONTAINER_WIDTH}) / 2))`
                 const maxWidth =

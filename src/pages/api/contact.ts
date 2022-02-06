@@ -1,6 +1,5 @@
-/* eslint-disable no-console */
+import { rateLimit } from '@/lib'
 import { NextApiRequest, NextApiResponse } from 'next'
-import { rateLimit } from '../../lib'
 
 const limiter = rateLimit({
     interval: 60 * 1000, // 60 seconds
