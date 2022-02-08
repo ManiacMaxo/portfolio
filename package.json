@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "prebuild": "cd studio && yarn -s && npx @sanity/cli build ../public/studio -y",
+    "build:sanity": "cd studio && yarn -s && npx @sanity/cli build ../public/studio -y",
     "build": "next build",
     "dev": "next",
     "lint": "next lint",
