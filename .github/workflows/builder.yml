@@ -3,9 +3,13 @@ on:
   push:
     branches:
       - main
-    paths:
-      - .github/workflows
-      - src/**.{ts,tsx}
+    paths-ignore:
+      - '.vscode/*'
+      - 'studio/*'
+      - 'public/*'
+      - 'README.md'
+      - '.*'
+      - '!.github'
   pull_request:
 
 jobs:
