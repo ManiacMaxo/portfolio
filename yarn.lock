@@ -3676,10 +3676,10 @@ same-origin@^0.1.1:
   resolved "https://registry.yarnpkg.com/same-origin/-/same-origin-0.1.1.tgz#c2287d3192577df517acbbd6d1451a9c3c3914f5"
   integrity sha1-wih9MZJXffUXrLvW0UUanDw5FPU=
 
-sass@^1.45.0:
-  version "1.45.0"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.45.0.tgz#192ede1908324bb293a3e403d1841dbcaafdd323"
-  integrity sha512-ONy5bjppoohtNkFJRqdz1gscXamMzN3wQy1YH9qO2FiNpgjLhpz/IPRGg0PpCjyz/pWfCOaNEaiEGCcjOFAjqw==
+sass@^1.49.10:
+  version "1.49.10"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.49.10.tgz#7b83cee0f03bbba443111b3f94944fde2b0c7a6b"
+  integrity sha512-w37zfWJwKu4I78U4z63u1mmgoncq+v3iOB4yzQMPyAPVHHawaQSnu9C9ysGQnZEhW609jkcLioJcMCqm75JMdg==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
     immutable "^4.0.0"
