@@ -8,7 +8,7 @@ interface Props {
     image?: string
 }
 
-const Layout: React.FC<Props> = (props) => {
+const Layout: React.FC<React.PropsWithChildren<Props>> = (props) => {
     return (
         <>
             <Head>

@@ -3,12 +3,15 @@ import { ThemeContext } from '.'
 
 export type Theme = 'light' | 'dark'
 
-const ThemeContextProvider: React.FC = (props) => {
+const ThemeContextProvider: React.FC<React.PropsWithChildren<{}>> = (props) => {
     const [theme, setTheme] = useState<Theme>('light')
 
-    const toggleTheme = () => {
-        setTheme(theme === 'light' ? 'dark' : 'light')
-    }
+    const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light')
+
+    useEffect(() => {
+        window.matchMedia('(prefers-color-scheme: dark)').matches &&
+            setTheme('dark')
+    }, [])
 
     useEffect(() => {
         const html = document.documentElement

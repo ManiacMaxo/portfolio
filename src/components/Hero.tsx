@@ -34,7 +34,7 @@ const AnimatedText = (props: { text: string }) => {
     )
 }
 
-const Hero: React.FC<Props> = (props) => {
+const Hero: React.FC<React.PropsWithChildren<Props>> = (props) => {
     const container: Variants = {
         initial: {},
         animate: {
