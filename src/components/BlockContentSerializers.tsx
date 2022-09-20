@@ -5,7 +5,9 @@ interface Props {
     mark?: any
 }
 
-export const ExternalLink: React.FC<Props> = (props) => {
+export const ExternalLink: React.FC<React.PropsWithChildren<Props>> = (
+    props
+) => {
     const { children, mark = true } = props
     return (
         <a
@@ -23,7 +25,9 @@ export const ExternalLink: React.FC<Props> = (props) => {
     )
 }
 
-export const InternalLink: React.FC<Props> = (props) => {
+export const InternalLink: React.FC<React.PropsWithChildren<Props>> = (
+    props
+) => {
     const { children, mark } = props
     return (
         <Link href={`/${mark.slug}`}>

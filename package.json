@@ -12,7 +12,8 @@
     "dev": "next",
     "lint": "next lint",
     "start": "next start",
-    "start:sanity": "cp .env ./studio/.env.development && cd studio && sanity start"
+    "start:sanity": "cp .env ./studio/.env.development && cd studio && sanity start",
+    "type-check": "tsc --pretty --noEmit"
   },
   "dependencies": {
     "classnames": "^2.3.2",
