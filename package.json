@@ -31,7 +31,7 @@
     "@sanity/block-content-to-react": "^3.0.0",
     "@types/lru-cache": "^7.10.10",
     "@types/node": "^18.7.18",
-    "@types/react": "^18.0.20",
+    "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.6",
     "autoprefixer": "^10.4.11",
     "dotenv": "^16.0.2",
