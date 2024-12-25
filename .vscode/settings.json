@@ -1,9 +1,0 @@
-{
-    "editor.quickSuggestions": {
-        "strings": true
-    },
-    "tailwindCSS.includeLanguages": {
-        "plaintext": "html"
-    },
-    "scss.validate": false
-}
